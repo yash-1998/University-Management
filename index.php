@@ -2,22 +2,6 @@
     session_start();
 ?>
 
-<?php
-    $username = $_POST['user'];
-    $password = $_POST['pass'];
-    $FirstName = "";
-    $con=mysqli_connect("localhost","root","");
-    mysqli_select_db($con,"University");
-
-    $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
-    $row = mysqli_fetch_array($result);
-
-    if($row['username']==$username && $row['Password']==$password)
-    {
-        $_GLOBALS['Name']=$row['FirstName'];
-        $FirstName=$row['FirstName'];
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 

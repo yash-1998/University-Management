@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +24,7 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form action="index.php" method="POST">
+        <form action="login.php" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
             <input name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -53,3 +56,21 @@
 </body>
 
 </html>
+
+
+<?php
+    $username = $_POST['user'];
+    $password = $_POST['pass'];
+    $FirstName = "";
+    $con=mysqli_connect("localhost","root","");
+    mysqli_select_db($con,"University");
+
+    $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
+    $row = mysqli_fetch_array($result);
+
+    if($row['username']==$username && $row['Password']==$password)
+    {
+        $_GLOBALS['Name']=$row['FirstName'];
+        $FirstName=$row['FirstName'];
+    }
+?>
