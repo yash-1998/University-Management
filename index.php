@@ -3,10 +3,9 @@
 ?>
 
 <?php
-    echo "HELLO";
     $username = $_POST['user'];
     $password = $_POST['pass'];
-
+    $FirstName = "";
     $con=mysqli_connect("localhost","root","");
     mysqli_select_db($con,"University");
 
@@ -16,6 +15,7 @@
     if($row['username']==$username && $row['Password']==$password)
     {
         $_GLOBALS['Name']=$row['FirstName'];
+        $FirstName=$row['FirstName'];
     }
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-           <b><?php echo "Welcome " . $_GLOBALS['Name'] ; ?></b>
+           <b style="color: gray ;"><?php echo "Welcome " . $_GLOBALS['Name']; ?></b>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
