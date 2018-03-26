@@ -71,7 +71,7 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Students</li>
+        <li class="breadcrumb-item active">Studentssss</li>
       </ol>
       <div class="row">
         <div class="col-xl-2 col-sm-4 mb-3">
