@@ -1,3 +1,23 @@
+<?php
+    session_start();
+?>
+
+<?php
+    echo "HELLO";
+    $username = $_POST['user'];
+    $password = $_POST['pass'];
+
+    $con=mysqli_connect("localhost","root","");
+    mysqli_select_db($con,"University");
+
+    $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
+    $row = mysqli_fetch_array($result);
+
+    if($row['username']==$username && $row['Password']==$password)
+    {
+        $_GLOBALS['Name']=$row['FirstName'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +75,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-           <b>Hello Name</b>
+           <b><?php echo "Welcome " . $_GLOBALS['Name'] ; ?></b>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
