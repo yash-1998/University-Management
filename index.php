@@ -58,8 +58,8 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-           <b style="color: gray ;"><?php echo "Welcome " . $_GLOBALS['Name']; ?></b>
+        <li class="nav-item" style="padding-top: 7px;">
+           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">

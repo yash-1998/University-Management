@@ -54,23 +54,33 @@
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 </body>
-
 </html>
 
 
 <?php
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
     $username = $_POST['user'];
     $password = $_POST['pass'];
-    $FirstName = "";
+    
     $con=mysqli_connect("localhost","root","");
     mysqli_select_db($con,"University");
 
     $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
     $row = mysqli_fetch_array($result);
+    $count = mysqli_num_rows($result);
 
-    if($row['username']==$username && $row['Password']==$password)
+    if($count == 1)
     {
-        $_GLOBALS['Name']=$row['FirstName'];
-        $FirstName=$row['FirstName'];
+       $_SESSION['username'] = $username;
+       $_SESSION['FirstName'] = $row['FirstName'];
+       $_SESSION['LastName'] = $row['LastName'];
+       $_SESSION['Email'] = $row['Email'];
+       header('location: http://localhost/University/WebD-master/index.php');
     }
+    else
+    {
+      $error = "Your Login Name or Password is invalid";
+    }
+  }
 ?>
