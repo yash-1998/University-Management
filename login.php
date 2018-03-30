@@ -73,9 +73,9 @@
     if($count == 1)
     {
        $_SESSION['username'] = $username;
-       $_SESSION['FirstName'] = $row['FirstName'];
-       $_SESSION['LastName'] = $row['LastName'];
-       $_SESSION['Email'] = $row['Email'];
+       $_SESSION['adminfirst'] = $row['FirstName'];
+       $_SESSION['adminlast'] = $row['LastName'];
+       $_SESSION['adminemail'] = $row['Email'];
        header('location: http://localhost/University/WebD-master/index.php');
     }
     else

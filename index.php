@@ -38,7 +38,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="admindetails.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>

@@ -81,7 +81,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="admindetails.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
@@ -123,7 +123,6 @@
       <div class="row">
         <div class="col-xl-2 col-sm-4 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
-            
             <a class="card-footer text-white clearfix small z-1" href="viewall.php">
               <span class="float-left">View All</span>
               <span class="float-right">
