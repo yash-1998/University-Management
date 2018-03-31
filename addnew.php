@@ -60,7 +60,7 @@
             $rs = mysqli_query($con, $sql);
             $error = "Susscessfully registered";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            echo("<script>location.href = 'http://localhost/University/WebD-master/STUDENT.php';</script>"); 
+            echo("<script>location.href = 'http://localhost/University/dbms/STUDENT.php';</script>"); 
         }
     }
 ?>
@@ -140,7 +140,7 @@
           <form action="addnew.php" method="POST">
               <div class="form-group" >
               <label for="addenno">Enrollment Number : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" readonly> 
+              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" > 
               </div>
               <div class="form-group" >
               <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>

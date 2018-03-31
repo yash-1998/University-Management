@@ -13,11 +13,21 @@
         { 
 
             if($row['Enno']==$queryen)
-                $flag=1;
+            {
+               $_SESSION['roll']=$queryen ;
+               $_SESSION['fname']=$row['FirstName'] ;
+               $_SESSION['lname']=$row['LastName'] ;
+               $_SESSION['email']=$row['Email'] ;
+               $_SESSION['contact']=$row['ContactNo'] ;
+               $_SESSION['address']=$row['Address'] ;
+               $_SESSION['branch']=$row['Branch'] ;    
+               $_SESSION['sem']=$row['CurrentSemester'] ;       
+               $flag=1;
+             } 
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/dbms/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -39,7 +49,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/dbms/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/addnew.php';</script>");
         else
         {
             $error = "Enrollment Number already exist";
