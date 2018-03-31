@@ -76,7 +76,7 @@
        $_SESSION['adminfirst'] = $row['FirstName'];
        $_SESSION['adminlast'] = $row['LastName'];
        $_SESSION['adminemail'] = $row['Email'];
-       header('location: http://localhost/University/WebD-master/index.php');
+       header('location: http://localhost/University/dbms/index.php');
     }
     else
     {
