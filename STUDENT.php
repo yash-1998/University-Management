@@ -13,7 +13,17 @@
         { 
 
             if($row['Enno']==$queryen)
-                $flag=1;
+            {
+               $_SESSION['roll']=$queryen ;
+               $_SESSION['fname']=$row['FirstName'] ;
+               $_SESSION['lname']=$row['LastName'] ;
+               $_SESSION['email']=$row['Email'] ;
+               $_SESSION['contact']=$row['ContactNo'] ;
+               $_SESSION['address']=$row['Address'] ;
+               $_SESSION['branch']=$row['Branch'] ;    
+               $_SESSION['sem']=$row['CurrentSemester'] ;       
+               $flag=1;
+             } 
 
         }
         if($flag==1)
@@ -40,6 +50,7 @@
         }
         if($flag==0)
             echo("<script>location.href = 'http://localhost/University/WebD-master/addnew.php';</script>");
+
         else
         {
             $error = "Enrollment Number already exist";

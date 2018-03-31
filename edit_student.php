@@ -1,49 +1,67 @@
 <?php
     session_start();
-    if(isset($_POST['findedit']))
+    if(isset($_POST['change']))
     {
-        $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from Student where Enno = '".$queryen."'";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        { 
-            if($row['Enno']==$queryen)
-                $flag=1;
-        }
-        if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/findedit.php';</script>");
-        else
+        if(isset($_POST['first']))
+            $ffirst=$_POST['first']; 
+        else   
+            $ffirst="";
+
+        if(isset($_POST['roll']))
+            $froll=$_POST['roll']; 
+        else   
+           $froll="";
+
+        if(isset($_POST['last']))
+            $flast=$_POST['last']; 
+        else   
+            $flast="";
+        
+        if(isset($_POST['mail']))
+            $fmail=$_POST['mail']; 
+        else   
+            $fmail="";
+        
+        if(isset($_POST['number']))
         {
-            $error = "Enrollment Number does not exist";
+            $fnumber=$_POST['number']; 
+        } 
+        else   
+        $fnumber="" ;  
+
+        if(isset($_POST['address']))
+            $faddress=$_POST['address']; 
+        else   
+            $faddress="";
+
+        if(isset($_POST['branch']))
+            $fbranch=$_POST['branch']; 
+        else   
+            $fbranch="";
+        if(isset($_POST['sem']))
+            $fsem=$_POST['sem']; 
+        else   
+            $fsem="";  
+        if($ffirst=="" || $flast=="" || $froll=="" || $faddress=="" || $fmail=="" || $fnumber=="" || $fbranch=="" || $fsem= "")
+        {
+            $error = "Error! some of  the required fields are empty!!";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
-    }   
-    if(isset($_POST['addnew']))
-    {
-        $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from Student where ";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        { 
-            if($row1['Enno']==$rusername)
-                $flag=1;
-        }
-        if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/addnew.php';</script>");
         else
-        {
-            $error = "Enrollment Number already exist";
+        { 
+            echo $froll;
+            echo $ffirst;
+            $con = mysqli_connect("localhost", "root","");
+            mysqli_select_db($con, "university");
+            $sql = "DELETE FROM student WHERE Enno = '$froll'";
+            $rs1 = mysqli_query($con, $sql);
+            $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch')";
+            $rs2 = mysqli_query($con, $sql1);
+            $error = "Susscessfully Modified";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-    }
+            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>"); 
+       }   
+     }  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +75,10 @@
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: gray;
+    background-color: white;
     color: Black;
-     border: 1px solid gray;
-    border-radius: 4px;
+    border: 1px solid gray;
+    border-radius: 6px;
   }
 </style>
   <meta charset="utf-8">
@@ -133,7 +151,7 @@
           <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Student</li>
-         <p>
+          <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -144,50 +162,62 @@
           </p>
 
        <li class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="edit_student.php">
-              <span class="float-left">  Edit Details   </span>
+            <a class="card-footer text-white clearfix small z-1" href="findedit.php">
+              <span class="float-left"> Done !    </span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
             </a>
           </li>
       </ol>
-      <form action="login.php" method="POST">
+      <form action="edit_student.php" method="POST">
          <div class="form-group">
-            <label for="adminuser">Enrollment Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?>  readonly>
+            <label >Enrollment Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?> name="roll" readonly>
         </div>
           <div class="form-group" >
-          <label for="adminname">First Name : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?>  readonly>
+          <label >First Name : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?> name="first" >
         </div>
         <div class="form-group">
-          <label for="adminlast">Last Name : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?>  readonly>
+          <label >Last Name : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?> name="last" >
         </div>
 
         <div class="form-group">
-          <label for="adminemail">Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['email']?>  readonly>
+          <label >Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="email" value=<?php echo $_SESSION['email']?> name="mail" >
         </div>
         <div class="form-group">
-          <label for="adminuser">Contact Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> readonly>
+          <label >Contact Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> name="number" >
         </div>
         <div class="form-group">
-          <label for="adminemail">Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> readonly>
+          <label >Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> name="address" >
+        </div>
+        <div class="form-group">
+          <label >Semester : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['sem']?>  name="sem">
         </div>
        <div class="form-group">
-          <label for="adminemail">Semester: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['sem']?>  readonly>
-        </div>
-       <div class="form-group">
-          <label for="adminemail">Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?> readonly>
-        </div>  
+          <label >Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?>  name="branch">
+        </div>   
+         <div class="input-group">
+
+              <span class="input-group-append">
+                 <p>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              </p>
+             <button class="btn btn-primary" type="submit" style="background: green" name="change" >Make Changes</button>
+              </span>
+            </div>
       </form>
-        
+      
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
