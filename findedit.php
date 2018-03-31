@@ -11,11 +11,11 @@
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row1['Enno']==$rusername)
+            if($row['Enno']==$queryen)
                 $flag=1;
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -37,7 +37,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/addnew.php';</script>");
         else
         {
             $error = "Enrollment Number already exist";
@@ -49,6 +49,20 @@
 <html lang="en">
 
 <head>
+   <style> 
+   input[type=text] 
+  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: gray;
+    color: Black;
+     border: 1px solid gray;
+    border-radius: 4px;
+  }
+</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -120,30 +134,34 @@
         </li>
         <li class="breadcrumb-item active">Student</li>
       </ol>
-      <div class="row">
-        <div class="col-xl-2 col-sm-4 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            
-            <a class="card-footer text-white clearfix small z-1" href="viewall.php">
-              <span class="float-left">View All</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
+      <form action="login.php" method="POST">
+         <div class="form-group">
+            <label for="adminuser">Enrollment Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?> id="adminuser" readonly>
         </div>
-        <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Enrollment No" name="ennoquery">
-              <span class="input-group-append">
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
-              </span>
-            </div>
-          </form>
-      
+          <div class="form-group" >
+          <label for="adminname">First Name : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?> id="adminname" readonly>
+        </div>
+        <div class="form-group">
+          <label for="adminlast">Last Name : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?> id="adminlast" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="adminemail">Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['email']?> id="adminuser" readonly>
+        </div>
+        <div class="form-group">
+          <label for="adminuser">Contact Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> id="adminuser" readonly>
+        </div>
+        <div class="form-group">
+          <label for="adminemail">Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> id="adminuser" readonly>
+        </div>
+      </form>
+        
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->

@@ -11,11 +11,13 @@
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
+
             if($row['Enno']==$queryen)
                 $flag=1;
+
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -37,7 +39,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/addnew.php';</script>");
         else
         {
             $error = "Enrollment Number already exist";
