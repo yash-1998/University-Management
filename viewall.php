@@ -143,7 +143,7 @@
 	            <option value="Electronics">Electronics</option>
 	            <option value="MBA">MBA</option>	
 	        </select>
-	        <button class="btn btn-primary " type="submit" name="filter">Apply Filter</button>
+	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
         <div class="card mb-3">
             <div class="card-body">
