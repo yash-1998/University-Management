@@ -5,20 +5,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>ViewAll</title>
-  <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>ViewAll</title>
+        <!-- Bootstrap core CSS-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Page level plugin CSS-->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin.css" rel="stylesheet">
+        <script>
+            function namefilter()
+            {
+                var input, filter, table, tr, td, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++)
+                {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td)
+                    {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
+                        {
+                            tr[i].style.display = "";
+                        }
+                        else 
+                        {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+            function semfilter()
+            {
+                var input, filter, table, tr, td, i;
+                input = document.getElementById("semselect");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++)
+                {
+                    td = tr[i].getElementsByTagName("td")[6];
+                    if (td)
+                    {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
+                        {
+                            tr[i].style.display = "";
+                        }
+                        else 
+                        {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -67,54 +115,118 @@
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Students</li>
-      </ol>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Enrollment Number</th>
-                  <th>Name</th>
-                  <th>Date Of Birth</th>
-                  <th>Contact Number</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Current Semester</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                      $con=mysqli_connect("localhost","root","");
-                      mysqli_select_db($con,"University");
-                      $sql = "Select * from Student";
-                      $rs = mysqli_query($con, $sql);
-                      while($row = mysqli_fetch_array($rs))
-                      { 
-                          echo '<tr>
-                                      <td>'.$row['Enno'].'</td>
-                                      <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
-                                      <td>'.$row['Dob'].'</td>
-                                      <td>'.$row['ContactNo'].'</td>
-                                      <td>'.$row['Email'].'</td>
-                                      <td>'.$row['Address'].'</td>
-                                      <td>'.$row['CurrentSemester'].'</td>
-                                </tr>';
-                      }
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" style = "margin-bottom: 7px;">
+            <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Students</li>
+        </ol>
+        <form action="viewall.php" method="POST">
+	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">
+	        <select name="semsearch" class="semsearch" type="Select" id="semselect">
+	        	<option value="">Select Semester</option>
+	            <option value="1">1</option>
+	            <option value="2">2</option>
+	            <option value="3">3</option>
+	            <option value="4">4</option>
+	            <option value="5">5</option>
+	            <option value="6">6</option>
+	            <option value="7">7</option>
+	            <option value="8">8</option>  
+	        </select>
+	        <select class = "branchsearch" type="Select" id="branchselect" name="branchsearch">
+	        	<option value="">Select Branch</option>
+	            <option value="Information Technology">Information Technology</option>
+	            <option value="Electronics">Electronics</option>
+	            <option value="MBA">MBA</option>	
+	        </select>
+	        <button class="btn btn-primary " type="submit" name="filter">Apply Filter</button>
+    	</form>
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Enrollment Number</th>
+                                <th>Name</th>
+                                <th>Date Of Birth</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Current Semester</th>
+                                <th>Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+	                        $con=mysqli_connect("localhost","root","");
+	                        mysqli_select_db($con,"University");
+	                        $sql = "Select * from student";
+	                        $ssem="";
+	                        $sname="";
+	                        $sbranch="";
+	                        $filter=0;
+	                        if(isset($_POST['filter']))
+	                        {
+	                        	if(isset($_POST['namesearch']))
+						            $sname=$_POST['namesearch']; 
+						        
+						        if(isset($_POST['branchsearch']))
+						            $sbranch=$_POST['branchsearch']; 
+						        
+						        if(isset($_POST['semsearch']))
+						            $ssem=$_POST['semsearch'];
+
+						        $flag1=0;
+		                        
+		                        if($sname!="")
+		                        {
+		                        	$sql.=" where FirstName like '$sname%'";
+		                        	$flag1=1;
+		                        }
+		                        $flag2=0;
+		                        if($sbranch!="")
+		                        {
+		                        	if($flag1==1)
+		                        		$sql.=" and Branch = '$sbranch'";
+		                        	else
+		                        		$sql.=" where Branch = '$sbranch'";
+		                        	
+		                        	$flag2=1;
+		                        }
+		                        if($ssem!="")
+		                        {	
+		                        	if($flag2==1 || $flag1==1)
+		                        		$sql.=" and CurrentSemester = $ssem";
+		                        	else
+		                        		$sql.=" where CurrentSemester = '$ssem'";
+		                        }
+		                    }
+	                        //echo "<script>alert(\"$sql\");</script>";
+	                        $rs = mysqli_query($con, $sql);
+	                        while($row = mysqli_fetch_array($rs))
+	                        { 
+	                            echo '<tr>
+	                                        <td>'.$row['Enno'].'</td>
+	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
+	                                        <td>'.$row['Dob'].'</td>
+	                                        <td>'.$row['ContactNo'].'</td>
+	                                        <td>'.$row['Email'].'</td>
+	                                        <td>'.$row['Address'].'</td>
+	                                        <td>'.$row['CurrentSemester'].'</td>
+	                                        <td>'.$row['Branch'].'</td>
+	                                  </tr>';
+	                        }
+		                ?>
+		              	</tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
     </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->

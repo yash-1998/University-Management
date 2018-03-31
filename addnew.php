@@ -41,7 +41,11 @@
             $addcs=$_POST['addcs']; 
         else   
             $addcs="";
-        if($addfname=="" || $addlname=="" || $addemail=="" || $adddob=="" || $addaddress=="" || $addcontactno=="" || $addcs=="")
+        if(isset($_POST['addbranch']))
+            $addbranch=$_POST['addbranch']; 
+        else   
+            $addbranch="";
+        if($addfname=="" || $addlname=="" || $addemail=="" || $adddob=="" || $addaddress=="" || $addcontactno=="" || $addcs=="" || $addbranch=="")
         {
             $error = "Error! some of  the required fields are empty!!";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
@@ -52,7 +56,7 @@
             $addcs = (int)$addcs;
             $con = mysqli_connect("localhost", "root","");
             mysqli_select_db($con, "university");
-            $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs')";
+            $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch')";
             $rs = mysqli_query($con, $sql);
             $error = "Susscessfully registered";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
@@ -165,6 +169,10 @@
               <div class="form-group" >
               <label for="addcs">Current Semester : &nbsp;&nbsp;&nbsp;</label>
               <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs">
+              </div> 
+              <div class="form-group" >
+              <label for="addbranch">Branch : &nbsp;&nbsp;&nbsp;</label>
+              <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch">
               </div>
               
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
