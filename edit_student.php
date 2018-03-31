@@ -55,7 +55,7 @@
             mysqli_select_db($con, "university");
             $sql = "DELETE FROM student WHERE Enno = '$froll'";
             $rs1 = mysqli_query($con, $sql);
-            $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch')";
+            $sql1 = "INSERT INTO student(Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch)VALUES('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch') ;";
             $rs2 = mysqli_query($con, $sql1);
             $error = "Susscessfully Modified";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
