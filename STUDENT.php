@@ -11,16 +11,10 @@
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-              if($row['Enno']==$queryen) 
-              {
-                   $flag=1;
-                   $_SESSION['roll'] = $queryen ;
-                   $_SESSION['fname']=$row['FirstName'] ;
-                   $_SESSION['lname']=$row['LastName'] ;
-                   $_SESSION['email']=$row['Email'] ;
-                   $_SESSION['contact']=$row['ContactNo'] ; 
-                   $_SESSION['address']=$row['Address'] ;   
-              }
+
+            if($row['Enno']==$queryen)
+                $flag=1;
+
         }
         if($flag==1)
             echo("<script>location.href = 'http://localhost/dbms/findedit.php';</script>");
@@ -35,13 +29,13 @@
         $queryen = $_POST['ennoquery'];
         $con=mysqli_connect("localhost","root","");
         mysqli_select_db($con,"University");
-        $sql = "Select * from Student where ";
+        $sql = "Select * from Student";
         $rs = mysqli_query($con, $sql);
         $_SESSION['queryenno']=$_POST['ennoquery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row1['Enno']==$rusername)
+            if($row['Enno']==$queryen)
                 $flag=1;
         }
         if($flag==0)
