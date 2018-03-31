@@ -23,11 +23,9 @@
             $fmail="";
         
         if(isset($_POST['number']))
-        {
-            $fnumber=$_POST['number']; 
-        } 
+           $fnumber=$_POST['number']; 
         else   
-        $fnumber="" ;  
+           $fnumber="" ;  
 
         if(isset($_POST['address']))
             $faddress=$_POST['address']; 
@@ -38,26 +36,37 @@
             $fbranch=$_POST['branch']; 
         else   
             $fbranch="";
+        
         if(isset($_POST['sem']))
             $fsem=$_POST['sem']; 
         else   
             $fsem="";  
-        if($ffirst=="" || $flast=="" || $froll=="" || $faddress=="" || $fmail=="" || $fnumber=="" || $fbranch=="" || $fsem= "")
+        
+        if($ffirst=="" || $flast=="" || $froll=="" || $faddress=="" || $fmail=="" || $fnumber=="" || $fbranch=="" || $fsem=="")
         {
             $error = "Error! some of  the required fields are empty!!";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
         else
         { 
-            echo $froll;
-            echo $ffirst;
+            $fsem = (int)$fsem;
+            $fnumber = (int)$fnumber;
+            echo $fsem;
             $con = mysqli_connect("localhost", "root","");
             mysqli_select_db($con, "university");
             $sql = "DELETE FROM student WHERE Enno = '$froll'";
             $rs1 = mysqli_query($con, $sql);
-            $sql1 = "INSERT INTO student(Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch)VALUES('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch') ;";
+
+            $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch,ContactNo) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch','$fnumber')";
             $rs2 = mysqli_query($con, $sql1);
             $error = "Susscessfully Modified";
+            $_SESSION['fname']=$ffirst;
+            $_SESSION['lname']=$flast;
+            $_SESSION['email']=$fmail;
+            $_SESSION['contact']=$fnumber;
+            $_SESSION['address']=$faddress;
+            $_SESSION['branch']=$fbranch;    
+            $_SESSION['sem']=$fsem;
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
             echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>"); 
        }   

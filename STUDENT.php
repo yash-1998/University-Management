@@ -27,7 +27,7 @@
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -49,7 +49,8 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/university/dbms/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/addnew.php';</script>");
+
         else
         {
             $error = "Enrollment Number already exist";

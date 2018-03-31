@@ -106,8 +106,8 @@
                     $otp = rand()%10000;
                     $_SESSION['checkotp']=$otp;
                     $_SESSION['active']=0;
-                    //header('location : http://localhost/University/WebD-master/confirm.php');
-                   echo("<script>location.href = 'http://localhost/University/WebD-master/confirm.php';</script>"); 
+                    //header('location : http://localhost/University/dbms/confirm.php');
+                   echo("<script>location.href = 'http://localhost/University/dbms/confirm.php';</script>"); 
                 }
             }
     }

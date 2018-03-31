@@ -206,6 +206,7 @@
 		                        		$sql.=" where CurrentSemester = '$ssem'";
 		                        }
 		                    }
+                            $sql.=" order by CurrentSemester ASC,Enno ASC";
 	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
