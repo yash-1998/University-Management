@@ -11,11 +11,19 @@
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row1['Enno']==$rusername)
-                $flag=1;
+              if($row['Enno']==$queryen) 
+              {
+                   $flag=1;
+                   $_SESSION['roll'] = $queryen ;
+                   $_SESSION['fname']=$row['FirstName'] ;
+                   $_SESSION['lname']=$row['LastName'] ;
+                   $_SESSION['email']=$row['Email'] ;
+                   $_SESSION['contact']=$row['ContactNo'] ; 
+                   $_SESSION['address']=$row['Address'] ;   
+              }
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -37,7 +45,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/WebD-master/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/dbms/addnew.php';</script>");
         else
         {
             $error = "Enrollment Number already exist";
