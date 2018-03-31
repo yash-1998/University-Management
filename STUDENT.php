@@ -11,7 +11,7 @@
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row1['Enno']==$rusername)
+            if($row['Enno']==$queryen)
                 $flag=1;
         }
         if($flag==1)
@@ -27,13 +27,13 @@
         $queryen = $_POST['ennoquery'];
         $con=mysqli_connect("localhost","root","");
         mysqli_select_db($con,"University");
-        $sql = "Select * from Student where ";
+        $sql = "Select * from Student";
         $rs = mysqli_query($con, $sql);
         $_SESSION['queryenno']=$_POST['ennoquery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row1['Enno']==$rusername)
+            if($row['Enno']==$queryen)
                 $flag=1;
         }
         if($flag==0)

@@ -2,60 +2,62 @@
     session_start();
     if(isset($_POST['add']))
     {
+        $enno = $_SESSION['queryenno'];
         if(isset($_POST['addfname']))
             $addfname=$_POST['addfname']; 
         else   
             $addfname="";
 
         if(isset($_POST['addlname']))
-            $addlname=$_POST['addlnae']; 
+            $addlname=$_POST['addlname']; 
         else   
-            $addfname="";
+            $addlname="";
 
-        if(isset($_POST['addfname']))
-            $addfname=$_POST['rfirstname']; 
+        if(isset($_POST['adddob']))
+            $adddob=$_POST['adddob']; 
         else   
-            $addfname="";
-
-        if(isset($_POST['addfname']))
-            $addfname=$_POST['rfirstname']; 
-        else   
-            $addfname="";
-
-        if(isset($_POST['addfname']))
-            $addfname=$_POST['rfirstname']; 
-        else   
-            $addfname="";
-
+            $adddob="";
         
+        if(isset($_POST['addemail']))
+            $addemail=$_POST['addemail']; 
+        else   
+            $addemail="";
+        
+        if(isset($_POST['addcontactno']))
+        {
+            $addcontactno=$_POST['addcontactno']; 
+        } 
+        else   
+        {
+            $addcontactno="";
+        }   
 
+        if(isset($_POST['addaddress']))
+            $addaddress=$_POST['addaddress']; 
+        else   
+            $addaddress="";
 
-
-
-            if($rfirstname=="" || $rlastname=="" || $remail=="" || $rpassword=="" || $remail=="" || $rconfirmpassword=="")
-            {
-                  $error = "Error! some of  the required fields are empty!!";
-                  echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                  $flag = false;
-            }
-            if($rpassword != $rconfirmpassword)
-            {
-                  $error = "Error! Both passwords do not match";
-                  echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                  $flag = false;
-            }
-            if($flag==true)
-            {
-                $_SESSION['remail']=$remail;
-                $_SESSION['rfirstname']=$rfirstname;
-                $_SESSION['rlastname']=$rlastname;
-                $_SESSION['rpassword']=$rpassword;
-                $_SESSION['rusername']=$rusername;
-                $con = mysqli_connect("localhost", "root","");
-                mysqli_select_db($con, "university");
-                $sql1 = "select * from users;";
-                $rs1 = mysqli_query($con, $sql1);
-                $flag1=0;
+        if(isset($_POST['addcs']))
+            $addcs=$_POST['addcs']; 
+        else   
+            $addcs="";
+        if($addfname=="" || $addlname=="" || $addemail=="" || $adddob=="" || $addaddress=="" || $addcontactno=="" || $addcs=="")
+        {
+            $error = "Error! some of  the required fields are empty!!";
+            echo "<script type='text/javascript'>alert(\"$error\");</script>";
+        }
+        else
+        { 
+            $addcontactno = (int)$addcontactno;
+            $addcs = (int)$addcs;
+            $con = mysqli_connect("localhost", "root","");
+            mysqli_select_db($con, "university");
+            $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs')";
+            $rs = mysqli_query($con, $sql);
+            $error = "Susscessfully registered";
+            echo "<script type='text/javascript'>alert(\"$error\");</script>";
+            echo("<script>location.href = 'http://localhost/University/WebD-master/STUDENT.php';</script>"); 
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -134,32 +136,37 @@
           <form action="addnew.php" method="POST">
               <div class="form-group" >
               <label for="addenno">Enrollment Number : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="adminname" readonly> 
+              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" readonly> 
               </div>
               <div class="form-group" >
               <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="text" placeholder="First Name" id="addfname">
+              <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname">
               </div>
               <div class="form-group" >
               <label for="addlname">Last Name : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="text" placeholder="Last Name" id="addlname">
+              <input name="addlname" class="form-control" type="text" placeholder="Last Name" id="addlname">
               </div>
               <div class="form-group" >
-              <label for="addfname">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="date" placeholder="Date of Birth" id="dob">
+              <label for="dob">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
+              <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob">
               </div>
               <div class="form-group" >
               <label for="addemail">Email : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="email" placeholder="Email" id="addemail">
+              <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail">
               </div>
               <div class="form-group" >
               <label for="addcontactno">Contact Number : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="text" placeholder="Contact" id="addcontactno">
+              <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno">
               </div>
               <div class="form-group" >
               <label for="addaddress">Address : &nbsp;&nbsp;&nbsp;</label>
-              <input class="form-control" type="textarea" placeholder="Address" id="addaddress">
+              <input name="addaddress" class="form-control" type="textarea" placeholder="Address" id="addaddress">
               </div>
+              <div class="form-group" >
+              <label for="addcs">Current Semester : &nbsp;&nbsp;&nbsp;</label>
+              <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs">
+              </div>
+              
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>

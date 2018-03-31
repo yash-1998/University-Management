@@ -84,11 +84,11 @@
                 <tr>
                   <th>Enrollment Number</th>
                   <th>Name</th>
-                  <th>Current Semester</th>
                   <th>Date Of Birth</th>
                   <th>Contact Number</th>
                   <th>Email</th>
                   <th>Address</th>
+                  <th>Current Semester</th>
                 </tr>
               </thead>
               <tbody>
@@ -106,7 +106,8 @@
                                       <td>'.$row['ContactNo'].'</td>
                                       <td>'.$row['Email'].'</td>
                                       <td>'.$row['Address'].'</td>
-                                      </tr>';
+                                      <td>'.$row['CurrentSemester'].'</td>
+                                </tr>';
                       }
                 ?>
               </tbody>
