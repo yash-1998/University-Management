@@ -2,24 +2,15 @@
     session_start();
     if(isset($_POST['add']))
     {
-        $enno = $_SESSION['queryenno'];
-        $addfname=$_POST['addfname']; 
-        $addlname=$_POST['addlname']; 
-        $adddob=$_POST['adddob'];
-        $addemail=$_POST['addemail']; 
-        $addcontactno=$_POST['addcontactno']; 
-        $addaddress=$_POST['addaddress']; 
-        $addcs=$_POST['addcs']; 
-        $addbranch=$_POST['addbranch']; 
-        $addcontactno = (int)$addcontactno;
-        $addcs = (int)$addcs;
+        $name = $_POST['adddame'];
+        $head = $_POST['addhead'];
         $con = mysqli_connect("localhost", "root","");
         mysqli_select_db($con, "university");
-        $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch')";
+        $sql = "INSERT INTO department(DeptName,DeptHead) VALUES ('$name','$head')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        echo("<script>location.href = 'http://localhost/University/dbms/STUDENT.php';</script>");     
+        echo("<script>location.href = 'http://localhost/University/dbms/department.php';</script>");
     }
 ?>
 <!DOCTYPE html>
@@ -63,7 +54,7 @@
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
-    </li>  
+    </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
@@ -88,57 +79,29 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="#">Add New Student</a>
+      <a href="#">Add New Department</a>
     </li>
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
           <div class="card-header"><i class="fa fa-user" style="font-size:48px;padding-left: 150px"></i></div>
           <div class="card-body">
-          <form action="addnew.php" method="POST">
+          <form action="deptaddnew.php" method="POST">
               <div class="form-group" >
-              <label for="addenno">Enrollment Number : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno " required> 
+              <label for="addenno">Department Name : &nbsp;&nbsp;&nbsp;</label>
+              <input name="adddname" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" >
               </div>
               <div class="form-group" >
-              <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname" required>
+              <label for="addhead">Department Head Name : &nbsp;&nbsp;&nbsp;</label>
+              <input name="addhead" class="form-control" type="text" placeholder="Department Head" id="addhead">
               </div>
-              <div class="form-group" >
-              <label for="addlname">Last Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addlname" class="form-control" type="text" placeholder="Last Name" id="addlname" required>
-              </div>
-              <div class="form-group" >
-              <label for="dob">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
-              <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob"  required>
-              </div>
-              <div class="form-group" >
-              <label for="addemail">Email : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail"  required>
-              </div>
-              <div class="form-group" >
-              <label for="addcontactno">Contact Number : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno"  required>
-              </div>
-              <div class="form-group" >
-              <label for="addaddress">Address : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addaddress" class="form-control" type="textarea" placeholder="Address" id="addaddress"  required>
-              </div>
-              <div class="form-group" >
-              <label for="addcs">Current Semester : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs"  required>
-              </div> 
-              <div class="form-group" >
-              <label for="addbranch">Branch : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch"  required>
-              </div>
-              
+
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
       </div>
     </div>
-    
+
     <!-- Icon Cards-->
     <!-- Area Chart Example-->
       <!-- Example Bar Chart Card-->

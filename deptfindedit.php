@@ -24,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>STUDENT</title>
+        <title>Find/Edit department</title>
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
@@ -88,7 +88,7 @@
             <li class="breadcrumb-item">
               <a href="index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item"><a href="STUDENT.php">Student</a></li>
+            <li class="breadcrumb-item"><a href="department.php">Department</a></li>
              <li class="breadcrumb-item" active><?php echo $_SESSION['roll']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
@@ -99,45 +99,20 @@
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
 
            <li id="editbtn" class="card text-white bg-primary">
-                <a class="card-footer text-white clearfix medium z-1" href="edit_student.php"s >
+                <a class="card-footer text-white clearfix medium z-1" href="edit_department.php"s >
                  <div class="text-center">Edit Details</div>   
                 </a>
               </li>
           </ol>
           <form action="login.php" method="POST">
              <div class="form-group">
-                <label for="adminuser">Enrollment Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?>  readonly>
+                <label for="adminuser">Department Name : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['dname']?>  readonly>
             </div>
               <div class="form-group" >
-              <label for="adminname">First Name : &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?>  readonly>
+              <label for="adminname">Department Head Name : &nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['dhead']?>  readonly>
             </div>
-            <div class="form-group">
-              <label for="adminlast">Last Name : &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?>  readonly>
-            </div>
-
-            <div class="form-group">
-              <label for="adminemail">Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['email']?>  readonly>
-            </div>
-            <div class="form-group">
-              <label for="adminuser">Contact Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> readonly>
-            </div>
-            <div class="form-group">
-              <label for="adminemail">Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> readonly>
-            </div>
-           <div class="form-group">
-              <label for="adminemail">Semester: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['sem']?>  readonly>
-            </div>
-           <div class="form-group">
-              <label for="adminemail">Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?> readonly>
-            </div>  
           </form>
             
           <!-- Icon Cards-->
