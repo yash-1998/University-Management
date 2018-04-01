@@ -2,21 +2,21 @@
     session_start();
     if(isset($_POST['findedit']))
     {
-        $queryen = $_POST['ennoquery'];
+        $queryname = $_POST['dname'];
         $con=mysqli_connect("localhost","root","");
         mysqli_select_db($con,"University");
-        $sql = "Select * from department where DeptName = '".$queryen."'";
+        $sql = "Select * from department where DeptName = '".$queryname."'";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
+        $_SESSION['queryenno']=$_POST['dname'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        { 
+        {
             if($row['DeptName']==$queryen)
             {
-               $_SESSION['dname']=$queryen ;
-               $_SESSION['dhead']=$row['DeptHead'] ;       
+               $_SESSION['dname']=$queryname ;
+               $_SESSION['dhead']=$row['DeptHead'] ;
                $flag=1;
-             } 
+             }
 
         }
         if($flag==1)
@@ -26,18 +26,18 @@
             $error = "Department does not exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
-    }   
+    }
     if(isset($_POST['addnew']))
     {
-        $queryen = $_POST['ennoquery'];
+        $queryname = $_POST['dname'];
         $con=mysqli_connect("localhost","root","");
         mysqli_select_db($con,"University");
         $sql = "Select * from department";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
+        $_SESSION['queryenno']=$_POST['dname'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        { 
+        {
             if($row['DeptName']==$queryen)
                 $flag=1;
         }
@@ -91,7 +91,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
-        </li>   
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
@@ -139,7 +139,7 @@
         </div>
         <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Department Name" name="ennoquery">
+              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname">
               <span class="input-group-append">
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
@@ -148,7 +148,7 @@
               </span>
             </div>
           </form>
-      
+
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
