@@ -2,15 +2,15 @@
     session_start();
     if(isset($_POST['add']))
     {
-        $name = $_POST['addenno'];
-        $head = $_POST['addhead']; 
+        $name = $_POST['adddame'];
+        $head = $_POST['addhead'];
         $con = mysqli_connect("localhost", "root","");
         mysqli_select_db($con, "university");
         $sql = "INSERT INTO department(DeptName,DeptHead) VALUES ('$name','$head')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        echo("<script>location.href = 'http://localhost/University/dbms/department.php';</script>");     
+        echo("<script>location.href = 'http://localhost/University/dbms/department.php';</script>");
     }
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
-    </li>  
+    </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
@@ -89,19 +89,19 @@
           <form action="deptaddnew.php" method="POST">
               <div class="form-group" >
               <label for="addenno">Department Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" > 
+              <input name="adddname" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" >
               </div>
               <div class="form-group" >
               <label for="addhead">Department Head Name : &nbsp;&nbsp;&nbsp;</label>
               <input name="addhead" class="form-control" type="text" placeholder="Department Head" id="addhead">
               </div>
-              
+
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
       </div>
     </div>
-    
+
     <!-- Icon Cards-->
     <!-- Area Chart Example-->
       <!-- Example Bar Chart Card-->
