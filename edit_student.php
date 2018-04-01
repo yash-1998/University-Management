@@ -106,7 +106,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">University Management System</a>
@@ -157,10 +157,13 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Student</li>
-          <p>
+          <a href="index.php">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item"><a href="STUDENT.php">Student</a></li>
+            <li class="breadcrumb-item"><a href="findedit.php"><?php echo $_SESSION['roll']?></a>
+             </li>
+             <li class="breadcrumb-item" active>Edit
+             </li>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -168,16 +171,6 @@
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  
-          </p>
-
-       <li class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="findedit.php">
-              <span class="float-left"> Done !    </span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </li>
       </ol>
       <form action="edit_student.php" method="POST">
          <div class="form-group">
@@ -213,20 +206,11 @@
           <label >Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?>  name="branch">
         </div>   
-         <div class="input-group">
-
-              <span class="input-group-append">
-                 <p>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-              </p>
-             <button class="btn btn-primary" type="submit" style="background: green" name="change" >Make Changes</button>
-              </span>
-            </div>
+        <div class="input-group">
+        <button  class="btn btn-primary" type="submit" style="background: green;" name="change" >Make Changes</button>
+        </div>
       </form>
-      
+      <br>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
@@ -234,8 +218,8 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
+    <footer class="sticky-footer" >
+      <div class="container" >
         <div class="text-center">
           <small>Copyright © Funkyfunks 2018</small>
         </div>

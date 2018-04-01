@@ -550,3 +550,9 @@ footer.sticky-footer {
   box-sizing: border-box;
   box-shadow: 0 0 5px rgba(81,203,238,1);
 }
+
+#editbtn
+{
+  width:  19%;
+  height: 10%;
+}

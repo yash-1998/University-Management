@@ -78,7 +78,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">University Management System</a>
@@ -129,7 +129,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="index.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Student</li>
       </ol>
