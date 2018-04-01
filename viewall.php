@@ -18,58 +18,10 @@
         <!-- Page level plugin CSS-->
         <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
         <!-- Custom styles for this template-->
-        <link href="css/sb-admin.css" rel="stylesheet">
-        <script>
-            function namefilter()
-            {
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-                for (i = 0; i < tr.length; i++)
-                {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td)
-                    {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
-                        {
-                            tr[i].style.display = "";
-                        }
-                        else 
-                        {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-            function semfilter()
-            {
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("semselect");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-                for (i = 0; i < tr.length; i++)
-                {
-                    td = tr[i].getElementsByTagName("td")[6];
-                    if (td)
-                    {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
-                        {
-                            tr[i].style.display = "";
-                        }
-                        else 
-                        {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        </script>
+        <link href="css/sb-admin.css" rel="stylesheet"?
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">University Management System</a>
@@ -120,9 +72,14 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb" style = "margin-bottom: 7px;">
             <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Students</li>
+            <li class="breadcrumb-item">
+            <a href="STUDENT.php">Students</a>
+            </li>
+            <li class="breadcrumb-item active">
+            ViewAll
+            </li>
         </ol>
         <form action="viewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">

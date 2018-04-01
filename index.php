@@ -22,7 +22,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">University Management System</a>
@@ -134,6 +134,22 @@
                 <i class="fa fa-fw fa-support"></i>
               </div>
               <div class="mr-5">Exams</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Manage</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-support"></i>
+              </div>
+              <div class="mr-5">Attendence</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">Manage</span>
