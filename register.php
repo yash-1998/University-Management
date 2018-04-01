@@ -1,6 +1,6 @@
 <?php
     session_start();
-   use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require 'vendor/autoload.php';
     $flag = true;
@@ -13,105 +13,51 @@
     
     if(isset($_REQUEST['submitbtn']))
     {
-            if(isset($_REQUEST['rfirstname']))
-            {
-                $rfirstname = $_REQUEST['rfirstname'];
-            }
-            else
-            {
-                $rfirstname = "";
-            }
-            if(isset($_REQUEST['rlastname']))
-            {
-                $rlastname = $_REQUEST['rlastname'];
-            }
-            else
-            {
-                $rlastname = "";
-            }
-            if(isset($_REQUEST['rusername']))
-            {
-                $rusername = $_REQUEST['rusername'];
-            }
-            else
-            {
-                $rusername = "";
-            }
-            if(isset($_REQUEST['remail']))
-            {
-                $remail = $_REQUEST['remail'];
-            }
-            else
-            {
-                $remail = "";
-            }
-            if(isset($_REQUEST['rpassword']))
-            {
-                $rpassword = $_REQUEST['rpassword'];
-            }
-            else
-            {
-                $rpassword = "";
-            } 
-            if(isset($_REQUEST['rconfirmpassword']))
-            {
-                $rconfirmpassword = $_REQUEST['rconfirmpassword'];
-            }
-            else
-            {
-                $rconfirmpassword = "";
-            }  
+      $rfirstname = $_REQUEST['rfirstname'];
+      $rlastname = $_REQUEST['rlastname'];
+      $rusername = $_REQUEST['rusername'];
+      $remail = $_REQUEST['remail'];
+      $rpassword = $_REQUEST['rpassword'];
+      $rconfirmpassword = "";
             
-            if($rfirstname=="" || $rlastname=="" || $remail=="" || $rpassword=="" || $remail=="" || $rconfirmpassword=="")
-            {
-                  $error = "Error! some of  the required fields are empty!!";
-                  echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                  $flag = false;
-            }
-            if($rpassword != $rconfirmpassword)
-            {
-                  $error = "Error! Both passwords do not match";
-                  echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                  $flag = false;
-            }
-            if($flag==true)
-            {
-                $_SESSION['remail']=$remail;
-                $_SESSION['rfirstname']=$rfirstname;
-                $_SESSION['rlastname']=$rlastname;
-                $_SESSION['rpassword']=$rpassword;
-                $_SESSION['rusername']=$rusername;
-                $con = mysqli_connect("localhost", "root","");
-                mysqli_select_db($con, "university");
-                $sql1 = "select * from users;";
-                $rs1 = mysqli_query($con, $sql1);
-                $flag1=0;
+      if($rpassword != $rconfirmpassword)
+      {
+            $error = "Error! Both passwords do not match";
+            echo "<script type='text/javascript'>alert(\"$error\");</script>";
+            $flag = false;
+      }
+      if($flag==true)
+      {
+          $_SESSION['remail']=$remail;
+          $_SESSION['rfirstname']=$rfirstname;
+          $_SESSION['rlastname']=$rlastname;
+          $_SESSION['rpassword']=$rpassword;
+          $_SESSION['rusername']=$rusername;
+          $con = mysqli_connect("localhost", "root","");
+          mysqli_select_db($con, "university");
+          $sql1 = "select * from users;";
+          $rs1 = mysqli_query($con, $sql1);
+          $flag1=0;
 
-                while($row1 = mysqli_fetch_array($rs1))
-                { 
-                    //echo $row1['username'];
-                    if($row1['username']==$rusername)
-                    {
-                        $flag1 = 1;
-                        
-                    }
-                }
-                if($flag1==1)
-                {
-                    $error = "username already exists";
-                    echo "<script type='text/javascript'>alert(\"$error\");</script>";  
-                }
-                else
-                {
-                    $otp = rand()%10000;
-                    $_SESSION['checkotp']=$otp;
-                    $_SESSION['active']=0;
-                    //header('location : http://localhost/University/dbms/confirm.php');
-                   echo("<script>location.href = 'http://localhost/University/dbms/confirm.php';</script>"); 
-                }
-            }
+          while($row1 = mysqli_fetch_array($rs1))
+          { 
+              if($row1['username']==$rusername)
+                  $flag1 = 1;
+          }
+          if($flag1==1)
+          {
+              $error = "username already exists";
+              echo "<script type='text/javascript'>alert(\"$error\");</script>";  
+          }
+          else
+          {
+              $otp = rand()%10000;
+              $_SESSION['checkotp']=$otp;
+              $_SESSION['active']=0;
+              echo("<script>location.href = 'http://localhost/University/dbms/confirm.php';</script>"); 
+          }
+      }
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,31 +87,31 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">First name</label>
-                <input name="rfirstname" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <input name="rfirstname" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Last name</label>
-                <input name="rlastname" class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <input name="rlastname" class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleInputName">User name</label>
-                <input name="rusername" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter Username">
+                <input name="rusername" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter Username" required>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input name="remail" class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email" value=>
+            <input name="remail" class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input name="rpassword" class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input name="rpassword" class="form-control" id="exampleInputPassword1" type="password" placeholder="Password" required>
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Confirm password</label>
-                <input name="rconfirmpassword" class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                <input name="rconfirmpassword" class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password" required>
               </div>
             </div>
           </div>

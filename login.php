@@ -27,16 +27,16 @@
         <form action="login.php" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
-            <input name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username">
+            <input name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username" required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" name="pass" id="exampleInputPassword1" type="password" placeholder="Password">
+            <input class="form-control" name="pass" id="exampleInputPassword1" type="password" placeholder="Password" required>
           </div>
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
-                <input name="remem" class="form-check-input" type="checkbox"> Remember Password</label>
+                <input name="remem" class="form-check-input" type="checkbox" > Remember Password</label>
             </div>
           </div>
           <button class="btn btn-primary btn-block">Login</button>
@@ -80,7 +80,8 @@
     }
     else
     {
-      $error = "Your Login Name or Password is invalid";
+      $error = "Invalid Credentials";
+      echo "<script type='text/javascript'>alert(\"$error\");</script>";
     }
   }
 ?>

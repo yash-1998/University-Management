@@ -1,17 +1,45 @@
 <?php
     session_start();
+    if(isset($_POST['change']))
+    {
+      $dhead=$_POST['dhead']; 
+      $dname = $_POST['dname'];
+      $con = mysqli_connect("localhost", "root","");
+      mysqli_select_db($con, "university");
+      $sql = "DELETE FROM department WHERE DeptName = '$dname'";
+      $rs1 = mysqli_query($con, $sql);
+      $sql1 = "INSERT INTO department(DeptName,DeptHead) VALUES ('$dname','$dhead')";
+      $rs2 = mysqli_query($con, $sql1);
+      $error = "Susscessfully Modified";
+      $_SESSION['dhead']=$dhead;
+      echo "<script type='text/javascript'>alert(\"$error\");</script>";
+      echo("<script>location.href = 'http://localhost/university/dbms/deptfindedit.php';</script>");  
+    }  
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+   <style> 
+   input[type=text] 
+  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: white;
+    color: Black;
+    border: 1px solid gray;
+    border-radius: 6px;
+  }
+</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Dashboard</title>
+  <title>Department Edit</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -59,14 +87,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" style="padding-top: 7px;">
-           <b style="color: gray ;">
-           <?php 
-              if(isset($_SESSION['username']))
-                  echo "Welcome " . $_SESSION['username']; 
-              else
-                  echo "<script>location.href = 'http://localhost/University/dbms/login.php';</script>";
-            ?>
-            </b>
+           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -80,101 +101,44 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+          <a href="index.php">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item"><a href="department.php">Department</a></li>
+            <li class="breadcrumb-item"><a href="findedit.php"><?php echo $_SESSION['dname']?></a>
+             </li>
+             <li class="breadcrumb-item" active>Edit
+             </li>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  
       </ol>
+      <form action="edit_department.php" method="POST">
+         <div class="form-group">
+            <label >Department Name : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['dname']?> name="dname" readonly>
+        </div>
+          <div class="form-group" >
+          <label >Department Head : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['dhead']?> name="dhead" required>
+        </div>
+        <div class="input-group">
+        <button  class="btn btn-primary" type="submit" style="background: green;" name="change" >Make Changes</button>
+        </div>
+      </form>
+      <br>
       <!-- Icon Cards-->
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
-              </div>
-              <div class="mr-5">Students</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="STUDENT.php">
-              <span class="float-left">Manage</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-warning o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-list"></i>
-              </div>
-              <div class="mr-5">Deparments</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="department.php">
-              <span class="float-left">Manage</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-success o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-shopping-cart"></i>
-              </div>
-              <div class="mr-5">Courses</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Manage</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
-              </div>
-              <div class="mr-5">Exams</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Manage</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
-              </div>
-              <div class="mr-5">Attendence</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Manage</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
           <!-- Card Columns Example Social Feed-->
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
+    <footer class="sticky-footer" >
+      <div class="container" >
         <div class="text-center">
           <small>Copyright © Funkyfunks 2018</small>
         </div>
