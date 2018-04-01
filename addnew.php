@@ -140,39 +140,39 @@
           <form action="addnew.php" method="POST">
               <div class="form-group" >
               <label for="addenno">Enrollment Number : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" > 
+              <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno " required> 
               </div>
               <div class="form-group" >
               <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname">
+              <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname" required>
               </div>
               <div class="form-group" >
               <label for="addlname">Last Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addlname" class="form-control" type="text" placeholder="Last Name" id="addlname">
+              <input name="addlname" class="form-control" type="text" placeholder="Last Name" id="addlname" required>
               </div>
               <div class="form-group" >
               <label for="dob">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
-              <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob">
+              <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob"  required>
               </div>
               <div class="form-group" >
               <label for="addemail">Email : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail">
+              <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail"  required>
               </div>
               <div class="form-group" >
               <label for="addcontactno">Contact Number : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno">
+              <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno"  required>
               </div>
               <div class="form-group" >
               <label for="addaddress">Address : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addaddress" class="form-control" type="textarea" placeholder="Address" id="addaddress">
+              <input name="addaddress" class="form-control" type="textarea" placeholder="Address" id="addaddress"  required>
               </div>
               <div class="form-group" >
               <label for="addcs">Current Semester : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs">
+              <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs"  required>
               </div> 
               <div class="form-group" >
               <label for="addbranch">Branch : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch">
+              <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch"  required>
               </div>
               
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
