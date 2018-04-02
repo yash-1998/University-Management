@@ -75,31 +75,32 @@
             <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-            <a href="STUDENT.php">Students</a>
+            <a href="courses.php">Courses</a>
             </li>
             <li class="breadcrumb-item active">
             ViewAll
             </li>
         </ol>
-        <form action="viewall.php" method="POST">
-	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">
-	        <select name="semsearch" class="semsearch" type="Select" id="semselect">
-	        	<option value="">Select Semester</option>
-	            <option value="1">1</option>
-	            <option value="2">2</option>
-	            <option value="3">3</option>
-	            <option value="4">4</option>
-	            <option value="5">5</option>
-	            <option value="6">6</option>
-	            <option value="7">7</option>
-	            <option value="8">8</option>  
+        <form action="cviewall.php" method="POST">
+	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Course">
+	        <select name="depsearch" class="depsearch" type="Select" id="depselect">
+	        	<option value="">Select Department</option>
+	            <option value="IT">IT</option>
+	            <option value="ECE">ECE</option>
+	            <option value="Mech">Mech</option>
+	            <option value="CSE">CSE</option> 
 	        </select>
-	        <select class = "branchsearch" type="Select" id="branchselect" name="branchsearch">
-	        	<option value="">Select Branch</option>
-	            <option value="Information Technology">Information Technology</option>
-	            <option value="Electronics">Electronics</option>
-	            <option value="MBA">MBA</option>	
+	        <select class = "typesearch" type="Select" id="typeselect" name="typesearch">
+	        	<option value="">Select Type</option>
+	            <option value="Theory">Theory</option>
+	            <option value="Lab">Lab</option>	
 	        </select>
+          </select>
+          <select class = "creditsearch" type="Select" id="creditselect" name="creditsearch">
+            <option value="">Select credits</option>
+              <option value="2">2</option>
+              <option value="3">3</option>  
+          </select>
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
         <div class="card mb-3">
@@ -108,75 +109,81 @@
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Enrollment Number</th>
-                                <th>Name</th>
-                                <th>Date Of Birth</th>
-                                <th>Contact Number</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Current Semester</th>
-                                <th>Branch</th>
+                                <th>Course Name</th>
+                                <th>Department Name</th>
+                                <th>Type</th>
+                                <th>Credits</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
 	                        $con=mysqli_connect("localhost","root","superman10");
 	                        mysqli_select_db($con,"University");
-	                        $sql = "Select * from student";
-	                        $ssem="";
-	                        $sname="";
-	                        $sbranch="";
+	                        $sql = "Select * from courses";
+	                        $scourse="";
+	                        $sdept="";
+	                        $stype="";
+                          $creds=0;
 	                        $filter=0;
 	                        if(isset($_POST['filter']))
 	                        {
 	                        	if(isset($_POST['namesearch']))
-						            $sname=$_POST['namesearch']; 
+						                    $scourse=$_POST['namesearch']; 
 						        
-						        if(isset($_POST['branchsearch']))
-						            $sbranch=$_POST['branchsearch']; 
+						                if(isset($_POST['depsearch']))
+						                    $sdept=$_POST['depsearch']; 
 						        
-						        if(isset($_POST['semsearch']))
-						            $ssem=$_POST['semsearch'];
+						                if(isset($_POST['typesearch']))
+						                    $stype=$_POST['typesearch'];
 
-						        $flag1=0;
+                            if(isset($_POST['creditsearch']))
+                                $creds=$_POST['creditsearch'];
+
+						                $flag1=0;
 		                        
-		                        if($sname!="")
+		                        if($scourse!="")
 		                        {
-		                        	$sql.=" where FirstName like '$sname%'";
+		                        	$sql.=" where CourseName like '$scourse%'";
 		                        	$flag1=1;
 		                        }
 		                        $flag2=0;
-		                        if($sbranch!="")
+		                        if($sdept!="")
 		                        {
 		                        	if($flag1==1)
-		                        		$sql.=" and Branch = '$sbranch'";
+		                        		$sql.=" and DeptName = '$sdept'";
 		                        	else
-		                        		$sql.=" where Branch = '$sbranch'";
+		                        		$sql.=" where DeptName = '$sdept'";
 		                        	
 		                        	$flag2=1;
 		                        }
-		                        if($ssem!="")
+                            $flag3 = 0;
+		                        if($stype!="")
 		                        {	
 		                        	if($flag2==1 || $flag1==1)
-		                        		$sql.=" and CurrentSemester = $ssem";
+		                        		$sql.=" and Type = '$stype'";
 		                        	else
-		                        		$sql.=" where CurrentSemester = '$ssem'";
+		                        		$sql.=" where Type = '$stype'";
+                              $flag3 = 1;
 		                        }
+
+                            if($creds!=0)
+                            {
+                              if($flag1 ==1 || $flag2 == 1 || $flag3 == 1)
+                                $sql.=" and Credits = '$creds'";
+                              else
+                                $sql.=" where Credits = '$creds'";
+                            }
 		                    }
-                            $sql.=" order by CurrentSemester ASC,Branch ASC,Enno ASC";
+                            $sql.=" order by CourseName,DeptName,Type,Credits";
 	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
 	                            echo '<tr>
-	                                        <td>'.$row['Enno'].'</td>
-	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
-	                                        <td>'.$row['Dob'].'</td>
-	                                        <td>'.$row['ContactNo'].'</td>
-	                                        <td>'.$row['Email'].'</td>
-	                                        <td>'.$row['Address'].'</td>
-	                                        <td>'.$row['CurrentSemester'].'</td>
-	                                        <td>'.$row['Branch'].'</td>
+	                                        <td>'.$row['CourseName'].'</td>
+	                                        <td>'.$row['DeptName'].'</td>
+	                                        <td>'.$row['Type'].'</td>
+	                                        <td>'.$row['Credits'].'</td>
 	                                  </tr>';
 	                        }
 		                ?>

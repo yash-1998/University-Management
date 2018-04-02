@@ -2,32 +2,28 @@
     session_start();
     if(isset($_POST['findedit']))
     {
-        $queryen = $_POST['ennoquery'];
+        $queryen = $_POST['coursequery'];
         $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
-        $sql = "Select * from Student where Enno = '".$queryen."'";
+        $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
+        $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
 
-            if($row['Enno']==$queryen)
+            if($row['CourseName']==$queryen)
             {
-               $_SESSION['roll']=$queryen ;
-               $_SESSION['fname']=$row['FirstName'] ;
-               $_SESSION['lname']=$row['LastName'] ;
-               $_SESSION['email']=$row['Email'] ;
-               $_SESSION['contact']=$row['ContactNo'] ;
-               $_SESSION['address']=$row['Address'] ;
-               $_SESSION['branch']=$row['Branch'] ;    
-               $_SESSION['sem']=$row['CurrentSemester'] ;       
+               $_SESSION['cCourseName']=$queryen;
+               $_SESSION['cDeptName']=$row['DeptName'] ;
+               $_SESSION['cType']=$row['Type'] ;
+               $_SESSION['cCredits']=$row['Credits'] ;       
                $flag=1;
              } 
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/cfindedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";
@@ -36,20 +32,20 @@
     }   
     if(isset($_POST['addnew']))
     {
-        $queryen = $_POST['ennoquery'];
+        $queryen = $_POST['coursequery'];
         $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
-        $sql = "Select * from Student";
+        $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['queryenno']=$_POST['ennoquery'];
+        $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
         { 
-            if($row['Enno']==$queryen)
+            if($row['CourseName']==$queryen)
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/caddnew.php';</script>");
 
         else
         {
@@ -67,7 +63,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>STUDENT</title>
+  <title>COURSES</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -131,12 +127,12 @@
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Student</li>
+        <li class="breadcrumb-item active">Course</li>
       </ol>
       <div class="row">
         <div class="col-xl-2 col-sm-4 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="viewall.php">
+            <a class="card-footer text-white clearfix small z-1" href="cviewall.php">
               <span class="float-left">View All</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -146,7 +142,7 @@
         </div>
         <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Enrollment No" name="ennoquery">
+              <input class="form-control" type="text" placeholder="Enter Course Name" name="coursequery">
               <span class="input-group-append">
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
