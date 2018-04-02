@@ -2,10 +2,10 @@
     session_start();
     if(isset($_POST['add']))
     {
-        $name = $_POST['adddame'];
+        $name = $_SESSION['dname'];
         $head = $_POST['addhead'];
-        $con = mysqli_connect("localhost", "root","");
-        mysqli_select_db($con, "university");
+        $con = mysqli_connect("localhost", "root","superman10");
+        mysqli_select_db($con, "University");
         $sql = "INSERT INTO department(DeptName,DeptHead) VALUES ('$name','$head')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
@@ -89,7 +89,7 @@
           <form action="deptaddnew.php" method="POST">
               <div class="form-group" >
               <label for="addenno">Department Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="adddname" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" >
+              <input name="adddname" class="form-control" type="text" value=<?php echo $_SESSION['dname']?> id="addname" >
               </div>
               <div class="form-group" >
               <label for="addhead">Department Head Name : &nbsp;&nbsp;&nbsp;</label>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+    <head>  
         <style> 
         input[type=text] 
         {
@@ -88,7 +88,7 @@
             <li class="breadcrumb-item">
               <a href="index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item"><a href="department.php">Department</a></li>
+            <li class="breadcrumb-item"><a href="department.php">Department</li>
              <li class="breadcrumb-item" active><?php echo $_SESSION['roll']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;

@@ -1,73 +1,24 @@
 <?php
     session_start();
-    if(isset($_POST['findedit']))
-    {
-        $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from department where DeptName = '".$queryname."'";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
-            {
-               $_SESSION['dhead']=$row['DeptHead'] ;
-               $flag=1;
-             }
-
-        }
-        if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptfindedit.php';</script>");
-        else
-        {
-            $error = "Department does not exist";
-            echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-    }
-    if(isset($_POST['addnew']))
-    {
-        $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from department";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
-                $flag=1;
-        }
-        if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptaddnew.php';</script>");
-
-        else
-        {
-            $error = "Department already exist";
-            echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>DEPARTMENTS</title>
-  <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>ViewAll</title>
+        <!-- Bootstrap core CSS-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Page level plugin CSS-->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin.css" rel="stylesheet"?
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -90,7 +41,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
-        </li>
+        </li>   
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
@@ -116,38 +67,54 @@
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="index.php">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Department</li>
-      </ol>
-      <div class="row">
-        <div class="col-xl-2 col-sm-4 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="deptviewall.php">
-              <span class="float-left">View All</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname">
-              <span class="input-group-append">
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
-              </span>
-            </div>
-          </form>
-
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" style = "margin-bottom: 7px;">
+            <li class="breadcrumb-item">
+            <a href="index.php">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+            <a href="department.php">Departments</a>
+            </li>
+            <li class="breadcrumb-item active">
+            ViewAll
+            </li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Department Name</th>
+                                <th>Department Head</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+	                        $con=mysqli_connect("localhost","root","superman10");
+	                        mysqli_select_db($con,"University");
+	                        $sql = "Select * from department";
+	                        $dname="";
+	                        $dhead="";
+	 
+	                        //echo "<script>alert(\"$sql\");</script>";
+	                        $rs = mysqli_query($con, $sql);
+	                        while($row = mysqli_fetch_array($rs))
+	                        { 
+	                            echo '<tr>
+	                                        <td>'.$row['DeptName'].'</td>
+	                                        <td>'.$row['DeptHead'].'</td>
+	                                  </tr>';
+	                        }
+		                ?>
+		              	</tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+    </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
