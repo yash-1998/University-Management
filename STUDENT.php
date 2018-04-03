@@ -10,7 +10,7 @@
         $_SESSION['queryenno']=$_POST['ennoquery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        { 
+        {
 
             if($row['Enno']==$queryen)
             {
@@ -20,10 +20,11 @@
                $_SESSION['email']=$row['Email'] ;
                $_SESSION['contact']=$row['ContactNo'] ;
                $_SESSION['address']=$row['Address'] ;
-               $_SESSION['branch']=$row['Branch'] ;    
-               $_SESSION['sem']=$row['CurrentSemester'] ;       
+               $_SESSION['branch']=$row['Branch'] ;
+               $_SESSION['sem']=$row['CurrentSemester'] ;
+               $_SESSION['imagepath']=$row['ImagePath'];
                $flag=1;
-             } 
+             }
 
         }
         if($flag==1)
@@ -33,7 +34,7 @@
             $error = "Enrollment Number does not exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
-    }   
+    }
     if(isset($_POST['addnew']))
     {
         $queryen = $_POST['ennoquery'];
@@ -44,7 +45,7 @@
         $_SESSION['queryenno']=$_POST['ennoquery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        { 
+        {
             if($row['Enno']==$queryen)
                 $flag=1;
         }
@@ -98,7 +99,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
-        </li>   
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
@@ -155,7 +156,7 @@
               </span>
             </div>
           </form>
-      
+
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
