@@ -18,7 +18,7 @@
       $rusername = $_REQUEST['rusername'];
       $remail = $_REQUEST['remail'];
       $rpassword = $_REQUEST['rpassword'];
-      $rconfirmpassword = "";
+      $rconfirmpassword = $_REQUEST['rconfirmpassword'];
             
       if($rpassword != $rconfirmpassword)
       {
