@@ -63,8 +63,8 @@
     $username = $_POST['user'];
     $password = $_POST['pass'];
     
-    $con=mysqli_connect("localhost","root","superman10");
-    mysqli_select_db($con,"University");
+    $con=mysqli_connect("localhost","root","");
+    mysqli_select_db($con,"university");
 
     $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
     $row = mysqli_fetch_array($result);
@@ -76,7 +76,7 @@
        $_SESSION['adminfirst'] = $row['FirstName'];
        $_SESSION['adminlast'] = $row['LastName'];
        $_SESSION['adminemail'] = $row['Email'];
-       header('location: http://localhost/University/dbms/index.php');
+       header('location: http://localhost/university/dbms/index.php');
     }
     else
     {

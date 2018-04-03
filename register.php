@@ -54,7 +54,7 @@
               $otp = rand()%10000;
               $_SESSION['checkotp']=$otp;
               $_SESSION['active']=0;
-              echo("<script>location.href = 'http://localhost/University/dbms/confirm.php';</script>"); 
+              echo("<script>location.href = 'http://localhost/university/dbms/confirm.php';</script>");
           }
       }
     }

@@ -4,13 +4,13 @@
     {
         $name = $_SESSION['dname'];
         $head = $_POST['addhead'];
-        $con = mysqli_connect("localhost", "root","superman10");
-        mysqli_select_db($con, "University");
+        $con = mysqli_connect("localhost", "root","");
+        mysqli_select_db($con, "university");
         $sql = "INSERT INTO department(DeptName,DeptHead) VALUES ('$name','$head')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        echo("<script>location.href = 'http://localhost/University/dbms/department.php';</script>");
+        echo("<script>location.href = 'http://localhost/university/dbms/department.php';</script>");
     }
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
     </li>
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
       <a class="nav-link" href="admindetails.php">
-      <i class="fa fa-fw fa-area-chart"></i>
+      <i class="fa fa-fw fa-user"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
     </li>
@@ -84,7 +84,7 @@
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
-          <div class="card-header"><i class="fa fa-user" style="font-size:48px;padding-left: 150px"></i></div>
+          <div class="card-header"><i class="fa fa-bank" style="font-size:48px;padding-left: 150px"></i></div>
           <div class="card-body">
           <form action="deptaddnew.php" method="POST">
               <div class="form-group" >

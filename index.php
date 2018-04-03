@@ -37,18 +37,13 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
           <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
         </li>   
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -64,7 +59,7 @@
               if(isset($_SESSION['username']))
                   echo "Welcome " . $_SESSION['username']; 
               else
-                  echo "<script>location.href = 'http://localhost/University/dbms/login.php';</script>";
+                  echo "<script>location.href = 'http://localhost/university/dbms/login.php';</script>";
             ?>
             </b>
         </li>

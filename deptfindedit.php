@@ -52,7 +52,7 @@
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
               <a class="nav-link" href="admindetails.php">
-                <i class="fa fa-fw fa-area-chart"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span class="nav-link-text">Admin Details</span>
               </a>
             </li>   
@@ -88,8 +88,8 @@
             <li class="breadcrumb-item">
               <a href="index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item"><a href="department.php">Department</li>
-             <li class="breadcrumb-item" active><?php echo $_SESSION['roll']?>
+              <li class="breadcrumb-item"><a href="department.php">Department</a></li>
+             <li class="breadcrumb-item" active><?php echo $_SESSION['dname']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,7 +99,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
 
            <li id="editbtn" class="card text-white bg-primary">
-                <a class="card-footer text-white clearfix medium z-1" href="edit_department.php"s >
+                <a class="text-white" href="edit_department.php"s >
                  <div class="text-center">Edit Details</div>   
                 </a>
               </li>

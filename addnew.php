@@ -47,7 +47,7 @@
                 $rs = mysqli_query($con, $sql);
                 $error = "Susscessfully registered";
                 echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                echo("<script>location.href = 'http://localhost/University/dbms/STUDENT.php';</script>");
+                echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
             }
             else
             {
