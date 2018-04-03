@@ -170,7 +170,7 @@
               </div>
               <div class="form-group" >
                   <input name="uploadedimage" class="form-control" type="file"  required>
->>>>>>> 21dc5c72b47b8dc1341d3aad1522483e5ba3660a
+
               </div>
 
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
