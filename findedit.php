@@ -6,6 +6,10 @@
 
     <head>
         <style>
+        img 
+        {
+           border-radius: 8px;
+        }
         input[type=text]
         {
             width: 100%;
@@ -109,7 +113,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-              <img src="<?php echo $_SESSION['imagepath']?>" style="width:150px;height:150px;">
+              <img src="<?php echo $_SESSION['imagepath']?>" style="width:250px;height:350px ;">
           </div>
           <form action="login.php" method="POST">
              <div class="form-group">

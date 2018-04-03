@@ -3,8 +3,8 @@
     if(isset($_POST['findedit']))
     {
         $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
+        $con=mysqli_connect("localhost","root","");
+        mysqli_select_db($con,"university");
         $sql = "Select * from Student where Enno = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
         $_SESSION['queryenno']=$_POST['ennoquery'];
@@ -28,7 +28,7 @@
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/findedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
         else
         {
             $error = "Enrollment Number does not exist";

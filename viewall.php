@@ -120,8 +120,8 @@
                         </thead>
                         <tbody>
                         <?php
-	                        $con=mysqli_connect("localhost","root","superman10");
-	                        mysqli_select_db($con,"University");
+	                        $con=mysqli_connect("localhost","root","");
+	                        mysqli_select_db($con,"university");
 	                        $sql = "Select * from student";
 	                        $ssem="";
 	                        $sname="";

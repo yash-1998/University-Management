@@ -3,8 +3,8 @@
     if(isset($_POST['findedit']))
     {
         $queryen = $_POST['coursequery'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
+        $con=mysqli_connect("localhost","root","");
+        mysqli_select_db($con,"university");
         $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
         $_SESSION['coursequery']=$_POST['coursequery'];
@@ -23,10 +23,10 @@
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/cfindedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
         else
         {
-            $error = "Enrollment Number does not exist";
+            $error = "Course does not exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }   
@@ -45,7 +45,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/caddnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/caddnew.php';</script>");
 
         else
         {

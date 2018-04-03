@@ -6,8 +6,8 @@
         $cDeptName=$_POST['cDeptName']; 
         $cType=$_POST['cType']; 
         $cCredits=$_POST['cCredits'];
-        $con = mysqli_connect("localhost", "root","superman10");
-        mysqli_select_db($con, "University");
+        $con = mysqli_connect("localhost", "root","");
+        mysqli_select_db($con, "university");
         $sql = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
