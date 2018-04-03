@@ -4,8 +4,8 @@
     {
       $dhead=$_POST['dhead']; 
       $dname = $_POST['dname'];
-      $con = mysqli_connect("localhost", "root","");
-      mysqli_select_db($con, "university");
+      $con = mysqli_connect("localhost", "root","superman10");
+      mysqli_select_db($con, "University");
       $sql = "DELETE FROM department WHERE DeptName = '$dname'";
       $rs1 = mysqli_query($con, $sql);
       $sql1 = "INSERT INTO department(DeptName,DeptHead) VALUES ('$dname','$dhead')";
@@ -13,7 +13,7 @@
       $error = "Susscessfully Modified";
       $_SESSION['dhead']=$dhead;
       echo "<script type='text/javascript'>alert(\"$error\");</script>";
-      echo("<script>location.href = 'http://localhost/university/dbms/deptfindedit.php';</script>");  
+      echo("<script>location.href = 'http://localhost/University/dbms/deptfindedit.php';</script>");  
     }  
 ?>
 <!DOCTYPE html>

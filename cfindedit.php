@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>  
+    <head>
         <style> 
         input[type=text] 
         {
@@ -24,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Find/Edit department</title>
+        <title>COURSES</title>
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
@@ -88,8 +88,8 @@
             <li class="breadcrumb-item">
               <a href="index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item"><a href="department.php">Department</li>
-             <li class="breadcrumb-item" active><?php echo $_SESSION['roll']?>
+            <li class="breadcrumb-item"><a href="courses.php">Course</a></li>
+             <li class="breadcrumb-item" active><?php echo $_SESSION['coursequery']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,19 +99,28 @@
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
 
            <li id="editbtn" class="card text-white bg-primary">
-                <a class="card-footer text-white clearfix medium z-1" href="edit_department.php"s >
+                <a class="card-footer text-white clearfix medium z-1" href="edit_courses.php"s >
                  <div class="text-center">Edit Details</div>   
                 </a>
               </li>
           </ol>
-          <form action="login.php" method="POST">
+          <form action="cfindedit.php" method="POST">
              <div class="form-group">
-                <label for="adminuser">Department Name : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['dname']?>  readonly>
+                <label for="adminuser">Course Name : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cCourseName']?>  readonly>
             </div>
               <div class="form-group" >
-              <label for="adminname">Department Head Name : &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['dhead']?>  readonly>
+              <label for="adminname">Department Name : &nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cDeptName']?>  readonly>
+            </div>
+            <div class="form-group">
+              <label for="adminlast">Type : &nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?>  readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="adminemail">Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?>  readonly>
             </div>
           </form>
             

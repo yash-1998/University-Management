@@ -2,50 +2,54 @@
     session_start();
     if(isset($_POST['findedit']))
     {
-        $queryname = $_POST['dname'];
+        $queryen = $_POST['coursequery'];
         $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
-        $sql = "Select * from department where DeptName = '".$queryname."'";
+        $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
+        $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
+        { 
+
+            if($row['CourseName']==$queryen)
             {
-               $_SESSION['dhead']=$row['DeptHead'] ;
+               $_SESSION['cCourseName']=$queryen;
+               $_SESSION['cDeptName']=$row['DeptName'] ;
+               $_SESSION['cType']=$row['Type'] ;
+               $_SESSION['cCredits']=$row['Credits'] ;       
                $flag=1;
-             }
+             } 
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptfindedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/cfindedit.php';</script>");
         else
         {
-            $error = "Department does not exist";
+            $error = "Enrollment Number does not exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
-    }
+    }   
     if(isset($_POST['addnew']))
     {
-        $queryname = $_POST['dname'];
+        $queryen = $_POST['coursequery'];
         $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
-        $sql = "Select * from department";
+        $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
+        $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
+        { 
+            if($row['CourseName']==$queryen)
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptaddnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/University/dbms/caddnew.php';</script>");
 
         else
         {
-            $error = "Department already exist";
+            $error = "Enrollment Number already exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }
@@ -59,7 +63,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>DEPARTMENTS</title>
+  <title>COURSES</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -90,7 +94,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
-        </li>
+        </li>   
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
@@ -123,12 +127,12 @@
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Department</li>
+        <li class="breadcrumb-item active">Course</li>
       </ol>
       <div class="row">
         <div class="col-xl-2 col-sm-4 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="deptviewall.php">
+            <a class="card-footer text-white clearfix small z-1" href="cviewall.php">
               <span class="float-left">View All</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -138,7 +142,7 @@
         </div>
         <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname">
+              <input class="form-control" type="text" placeholder="Enter Course Name" name="coursequery">
               <span class="input-group-append">
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
@@ -147,7 +151,7 @@
               </span>
             </div>
           </form>
-
+      
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->

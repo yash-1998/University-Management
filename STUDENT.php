@@ -3,7 +3,7 @@
     if(isset($_POST['findedit']))
     {
         $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","");
+        $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
         $sql = "Select * from Student where Enno = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
@@ -38,7 +38,7 @@
     if(isset($_POST['addnew']))
     {
         $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","");
+        $con=mysqli_connect("localhost","root","superman10");
         mysqli_select_db($con,"University");
         $sql = "Select * from Student";
         $rs = mysqli_query($con, $sql);

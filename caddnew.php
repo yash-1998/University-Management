@@ -2,60 +2,18 @@
     session_start();
     if(isset($_POST['add']))
     {
-		function GetImageExtension($imagetype)
-		{
-			if (empty($imagetype))
-			    return false;
-			switch ($imagetype)
-            {
-				case 'image/bmp':
-					return '.bmp';
-				case 'image/gif':
-					return '.gif';
-				case 'image/jpeg':
-					return '.jpg';
-				case 'image/png':
-					return '.png';
-				default:
-					return false;
-			}
-		}
-        $enno = $_SESSION['queryenno'];
-        $addfname =$_POST['addfname'];
-        $addlname=$_POST['addlname'];
-        $adddob=$_POST['adddob'];
-        $addemail=$_POST['addemail'];
-        $addcontactno=$_POST['addcontactno'];
-        $addaddress=$_POST['addaddress'];
-        $addcs=$_POST['addcs'];
-        $addbranch=$_POST['addbranch'];
-        $addcontactno = (int)$addcontactno;
-        $addcs = (int)$addcs;
-        $con = mysqli_connect("localhost","root","");
-        mysqli_select_db($con, "university");
-        if (!empty($_FILES["uploadedimage"]["name"]))
-        {
-    	    $file_name=$_FILES["uploadedimage"]["name"];
-    	    $temp_name=$_FILES["uploadedimage"]["tmp_name"];
-    	    $imgtype=$_FILES["uploadedimage"]["type"];
-    	    $ext= GetImageExtension($imgtype);
-    	    $imagename=$enno.$ext;
-    	    $target_path = "images/".$imagename;
-	        if(move_uploaded_file($temp_name, $target_path))
-            {
-                $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
-                $rs = mysqli_query($con, $sql);
-                $error = "Susscessfully registered";
-                echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                echo("<script>location.href = 'http://localhost/University/dbms/STUDENT.php';</script>");
-            }
-            else
-            {
-                $error = "Please Try Again";
-                echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            }
-        }
-   }
+        $cCourseName = $_SESSION['coursequery'];
+        $cDeptName=$_POST['cDeptName']; 
+        $cType=$_POST['cType']; 
+        $cCredits=$_POST['cCredits'];
+        $con = mysqli_connect("localhost", "root","superman10");
+        mysqli_select_db($con, "University");
+        $sql = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
+        $rs = mysqli_query($con, $sql);
+        $error = "Susscessfully registered";
+        echo "<script type='text/javascript'>alert(\"$error\");</script>";
+        echo("<script>location.href = 'http://localhost/University/dbms/courses.php';</script>");     
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +56,7 @@
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
-    </li>
+    </li>  
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
@@ -123,60 +81,37 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="#">Add New Student</a>
+      <a href="#">Add New Course</a>
     </li>
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
           <div class="card-header"><i class="fa fa-user" style="font-size:48px;padding-left: 150px"></i></div>
           <div class="card-body">
-          <form action="addnew.php" method="POST" enctype = "multipart/form-data">
+          <form action="caddnew.php" method="POST">
               <div class="form-group" >
-                  <label for="addenno">Enrollment Number : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" required>
+              <label for="cCourseName">Course Name : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cCourseName" class="form-control" type="text" value=<?php echo $_SESSION['coursequery']?> id="cCourseName" > 
               </div>
               <div class="form-group" >
-                  <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname" required>
+              <label for="cDeptName"> Department Name: &nbsp;&nbsp;&nbsp;</label>
+              <input name="cDeptName" class="form-control" type="text" placeholder="Department Name" id="cDeptName" required>
               </div>
               <div class="form-group" >
-                  <label for="addlname">Last Name : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addlname" class="form-control" type="text" placeholder="Last Name" id="addlname" required>
+              <label for="cType">Type : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cType" class="form-control" type="text" placeholder="Type" id="cType" required>
               </div>
               <div class="form-group" >
-                  <label for="dob">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob" required>
+              <label for="cCredits">Credits : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits" required>
               </div>
-              <div class="form-group" >
-                  <label for="addemail">Email : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail" required>
-              </div>
-              <div class="form-group" >
-                  <label for="addcontactno">Contact Number : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno" required>
-              </div>
-              <div class="form-group" >
-                  <label for="addaddress">Address : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addaddress" class="form-control" type="textarea" placeholder="Address" id="addaddress" required>
-              </div>
-              <div class="form-group" >
-                  <label for="addcs">Current Semester : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addcs" class="form-control" type="textarea" placeholder="Current Semester" id="addcs" required>
-              </div>
-              <div class="form-group" >
-                  <label for="addbranch">Branch : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch" required>
-              </div>
-              <div class="form-group" >
-                  <input name="uploadedimage" class="form-control" type="file"  required>
-              </div>
-
+              
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
       </div>
     </div>
-
+    
     <!-- Icon Cards-->
     <!-- Area Chart Example-->
       <!-- Example Bar Chart Card-->

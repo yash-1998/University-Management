@@ -75,108 +75,37 @@
             <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-            <a href="STUDENT.php">Students</a>
+            <a href="department.php">Departments</a>
             </li>
             <li class="breadcrumb-item active">
             ViewAll
             </li>
         </ol>
-        <form action="viewall.php" method="POST">
-	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">
-	        <select name="semsearch" class="semsearch" type="Select" id="semselect">
-	        	<option value="">Select Semester</option>
-	            <option value="1">1</option>
-	            <option value="2">2</option>
-	            <option value="3">3</option>
-	            <option value="4">4</option>
-	            <option value="5">5</option>
-	            <option value="6">6</option>
-	            <option value="7">7</option>
-	            <option value="8">8</option>  
-	        </select>
-	        <select class = "branchsearch" type="Select" id="branchselect" name="branchsearch">
-	        	<option value="">Select Branch</option>
-	            <option value="Information Technology">Information Technology</option>
-	            <option value="Electronics">Electronics</option>
-	            <option value="MBA">MBA</option>	
-	        </select>
-	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
-    	</form>
         <div class="card mb-3">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Enrollment Number</th>
-                                <th>Name</th>
-                                <th>Date Of Birth</th>
-                                <th>Contact Number</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Current Semester</th>
-                                <th>Branch</th>
+                                <th>Department Name</th>
+                                <th>Department Head</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
 	                        $con=mysqli_connect("localhost","root","superman10");
 	                        mysqli_select_db($con,"University");
-	                        $sql = "Select * from student";
-	                        $ssem="";
-	                        $sname="";
-	                        $sbranch="";
-	                        $filter=0;
-	                        if(isset($_POST['filter']))
-	                        {
-	                        	if(isset($_POST['namesearch']))
-						            $sname=$_POST['namesearch']; 
-						        
-						        if(isset($_POST['branchsearch']))
-						            $sbranch=$_POST['branchsearch']; 
-						        
-						        if(isset($_POST['semsearch']))
-						            $ssem=$_POST['semsearch'];
-
-						        $flag1=0;
-		                        
-		                        if($sname!="")
-		                        {
-		                        	$sql.=" where FirstName like '$sname%'";
-		                        	$flag1=1;
-		                        }
-		                        $flag2=0;
-		                        if($sbranch!="")
-		                        {
-		                        	if($flag1==1)
-		                        		$sql.=" and Branch = '$sbranch'";
-		                        	else
-		                        		$sql.=" where Branch = '$sbranch'";
-		                        	
-		                        	$flag2=1;
-		                        }
-		                        if($ssem!="")
-		                        {	
-		                        	if($flag2==1 || $flag1==1)
-		                        		$sql.=" and CurrentSemester = $ssem";
-		                        	else
-		                        		$sql.=" where CurrentSemester = '$ssem'";
-		                        }
-		                    }
-                            $sql.=" order by CurrentSemester ASC,Branch ASC,Enno ASC";
+	                        $sql = "Select * from department";
+	                        $dname="";
+	                        $dhead="";
+	 
 	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
 	                            echo '<tr>
-	                                        <td>'.$row['Enno'].'</td>
-	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
-	                                        <td>'.$row['Dob'].'</td>
-	                                        <td>'.$row['ContactNo'].'</td>
-	                                        <td>'.$row['Email'].'</td>
-	                                        <td>'.$row['Address'].'</td>
-	                                        <td>'.$row['CurrentSemester'].'</td>
-	                                        <td>'.$row['Branch'].'</td>
+	                                        <td>'.$row['DeptName'].'</td>
+	                                        <td>'.$row['DeptHead'].'</td>
 	                                  </tr>';
 	                        }
 		                ?>

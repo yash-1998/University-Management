@@ -63,7 +63,7 @@
     $username = $_POST['user'];
     $password = $_POST['pass'];
     
-    $con=mysqli_connect("localhost","root","");
+    $con=mysqli_connect("localhost","root","superman10");
     mysqli_select_db($con,"University");
 
     $result = mysqli_query($con,"select * from users where username='". $username ."' and Password='". $password ."'");
