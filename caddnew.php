@@ -2,15 +2,17 @@
     session_start();
     if(isset($_POST['add']))
     {
-        $name = $_SESSION['dname'];
-        $head = $_POST['addhead'];
+        $cCourseName = $_SESSION['coursequery'];
+        $cDeptName=$_POST['cDeptName']; 
+        $cType=$_POST['cType']; 
+        $cCredits=$_POST['cCredits'];
         $con = mysqli_connect("localhost", "root","superman10");
         mysqli_select_db($con, "University");
-        $sql = "INSERT INTO department(DeptName,DeptHead) VALUES ('$name','$head')";
+        $sql = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        echo("<script>location.href = 'http://localhost/University/dbms/department.php';</script>");
+        echo("<script>location.href = 'http://localhost/University/dbms/courses.php';</script>");     
     }
 ?>
 <!DOCTYPE html>
@@ -54,7 +56,7 @@
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
-    </li>
+    </li>  
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
@@ -79,29 +81,37 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="#">Add New Department</a>
+      <a href="#">Add New Course</a>
     </li>
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
           <div class="card-header"><i class="fa fa-user" style="font-size:48px;padding-left: 150px"></i></div>
           <div class="card-body">
-          <form action="deptaddnew.php" method="POST">
+          <form action="caddnew.php" method="POST">
               <div class="form-group" >
-              <label for="addenno">Department Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="adddname" class="form-control" type="text" value=<?php echo $_SESSION['dname']?> id="addname" >
+              <label for="cCourseName">Course Name : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cCourseName" class="form-control" type="text" value=<?php echo $_SESSION['coursequery']?> id="cCourseName" > 
               </div>
               <div class="form-group" >
-              <label for="addhead">Department Head Name : &nbsp;&nbsp;&nbsp;</label>
-              <input name="addhead" class="form-control" type="text" placeholder="Department Head" id="addhead">
+              <label for="cDeptName"> Department Name: &nbsp;&nbsp;&nbsp;</label>
+              <input name="cDeptName" class="form-control" type="text" placeholder="Department Name" id="cDeptName" required>
               </div>
-
+              <div class="form-group" >
+              <label for="cType">Type : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cType" class="form-control" type="text" placeholder="Type" id="cType" required>
+              </div>
+              <div class="form-group" >
+              <label for="cCredits">Credits : &nbsp;&nbsp;&nbsp;</label>
+              <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits" required>
+              </div>
+              
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
       </div>
     </div>
-
+    
     <!-- Icon Cards-->
     <!-- Area Chart Example-->
       <!-- Example Bar Chart Card-->

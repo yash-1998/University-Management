@@ -1,65 +1,74 @@
 <?php
     session_start();
-    if(isset($_POST['findedit']))
+    if(isset($_POST['change']))
     {
-        $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from department where DeptName = '".$queryname."'";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
-            {
-               $_SESSION['dhead']=$row['DeptHead'] ;
-               $flag=1;
-             }
+        if(isset($_POST['cCourseName']))
+            $cCourseName=$_POST['cCourseName']; 
+        else   
+            $cCourseName="";
 
-        }
-        if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptfindedit.php';</script>");
-        else
+        if(isset($_POST['cDeptName']))
+            $cDeptName=$_POST['cDeptName']; 
+        else   
+           $cDeptName="";
+
+        if(isset($_POST['cType']))
+            $cType=$_POST['cType']; 
+        else   
+            $cType="";
+        
+        if(isset($_POST['cCredits']))
+            $cCredits=$_POST['cCredits']; 
+        else   
+            $cCredits="";
+        
+        if($cCourseName=="" || $cDeptName=="" || $cType=="" || $cCredits=="")
         {
-            $error = "Department does not exist";
+            $error = "Error! some of  the required fields are empty!!";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
-    }
-    if(isset($_POST['addnew']))
-    {
-        $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
-        $sql = "Select * from department";
-        $rs = mysqli_query($con, $sql);
-        $_SESSION['dname']=$_POST['dname'];
-        $flag=0;
-        while($row = mysqli_fetch_array($rs))
-        {
-            if($row['DeptName']==$queryname)
-                $flag=1;
-        }
-        if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptaddnew.php';</script>");
-
         else
-        {
-            $error = "Department already exist";
+        { 
+            $con = mysqli_connect("localhost", "root","superman10");
+            mysqli_select_db($con, "University");
+            $sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
+            $rs1 = mysqli_query($con, $sql);
+            $sql1 = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
+            $rs2 = mysqli_query($con, $sql1);
+            $error = "Susscessfully Modified";
+            $_SESSION['cCourseName']=$cCourseName;
+            $_SESSION['cDeptName']=$cDeptName;
+            $_SESSION['cType']=$cType;
+            $_SESSION['cCredits']=$cCredits;
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-    }
+            echo("<script>location.href = 'http://localhost/University/dbms/cfindedit.php';</script>"); 
+       }   
+     }  
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+   <style> 
+   input[type=text] 
+  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: white;
+    color: Black;
+    border: 1px solid gray;
+    border-radius: 6px;
+  }
+</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>DEPARTMENTS</title>
+  <title>COURSES</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -90,7 +99,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
-        </li>
+        </li>   
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
@@ -122,32 +131,43 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Department</li>
+            </li>
+            <li class="breadcrumb-item"><a href="courses.php">Courses</a></li>
+            <li class="breadcrumb-item"><a href="cfindedit.php"><?php echo $_SESSION['cCourseName']?></a>
+             </li>
+             <li class="breadcrumb-item" active>Edit
+             </li>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  
       </ol>
-      <div class="row">
-        <div class="col-xl-2 col-sm-4 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="deptviewall.php">
-              <span class="float-left">View All</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
+      <form action="edit_courses.php" method="POST">
+         <div class="form-group">
+            <label >Course Name : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cCourseName']?> name="cCourseName" readonly>
         </div>
-        <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname">
-              <span class="input-group-append">
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
-              </span>
-            </div>
-          </form>
+          <div class="form-group" >
+          <label >Department Name : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cDeptName']?> name="cDeptName" >
+        </div>
+        <div class="form-group">
+          <label >Type : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?> name="cType" >
+        </div>
 
+        <div class="form-group">
+          <label >Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?> name="cCredits" >
+        </div>
+        <div class="input-group">
+        <button  class="btn btn-primary" type="submit" style="background: green;" name="change" >Make Changes</button>
+        </div>
+      </form>
+      <br>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
@@ -155,8 +175,8 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
+    <footer class="sticky-footer" >
+      <div class="container" >
         <div class="text-center">
           <small>Copyright © Funkyfunks 2018</small>
         </div>

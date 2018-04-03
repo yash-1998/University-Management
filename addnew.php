@@ -55,7 +55,7 @@
                 echo "<script type='text/javascript'>alert(\"$error\");</script>";
             }
         }
-    }
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
