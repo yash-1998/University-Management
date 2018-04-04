@@ -68,7 +68,7 @@
             $_SESSION['branch']=$fbranch;    
             $_SESSION['sem']=$fsem;
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>"); 
+            echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
        }   
      }  
 ?>
@@ -121,18 +121,13 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
           <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
         </li>   
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

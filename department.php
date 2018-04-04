@@ -3,8 +3,8 @@
     if(isset($_POST['findedit']))
     {
         $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
+        $con=mysqli_connect("localhost","root","");
+        mysqli_select_db($con,"university");
         $sql = "Select * from department where DeptName = '".$queryname."'";
         $rs = mysqli_query($con, $sql);
         $_SESSION['dname']=$_POST['dname'];
@@ -19,7 +19,7 @@
 
         }
         if($flag==1)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptfindedit.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/deptfindedit.php';</script>");
         else
         {
             $error = "Department does not exist";
@@ -29,8 +29,8 @@
     if(isset($_POST['addnew']))
     {
         $queryname = $_POST['dname'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
+        $con=mysqli_connect("localhost","root","");
+        mysqli_select_db($con,"university");
         $sql = "Select * from department";
         $rs = mysqli_query($con, $sql);
         $_SESSION['dname']=$_POST['dname'];
@@ -41,7 +41,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/deptaddnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/deptaddnew.php';</script>");
 
         else
         {
@@ -85,18 +85,13 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
           <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

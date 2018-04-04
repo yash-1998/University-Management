@@ -29,8 +29,8 @@
         }
         else
         { 
-            $con = mysqli_connect("localhost", "root","superman10");
-            mysqli_select_db($con, "University");
+            $con = mysqli_connect("localhost", "root","");
+            mysqli_select_db($con, "university");
             $sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
             $rs1 = mysqli_query($con, $sql);
             $sql1 = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
@@ -41,7 +41,7 @@
             $_SESSION['cType']=$cType;
             $_SESSION['cCredits']=$cCredits;
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            echo("<script>location.href = 'http://localhost/University/dbms/cfindedit.php';</script>"); 
+            echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
        }   
      }  
 ?>
@@ -94,18 +94,13 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
           <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
         </li>   
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

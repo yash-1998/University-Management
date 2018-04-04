@@ -15,8 +15,8 @@
         {
             $error = "Try Again";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        //    header('location : http://localhost/University/dbms/confirm.php');
-           echo("<script>location.href = 'http://localhost/University/dbms/register.php';</script>"); 
+        //    header('location : http://localhost/university/dbms/confirm.php');
+           echo("<script>location.href = 'http://localhost/university/dbms/register.php';</script>");
         }
     }
     function rmail($otp,$remail)
@@ -76,8 +76,8 @@
               //  echo $_SESSION['rusername']." ".$_SESSION['rfirstname']." ".$_SESSION['rlastname'];
                 $error = "Susscessfully registered";
                 echo "<script type='text/javascript'>alert(\"$error\");</script>";
-               // header('location : http://localhost/University/dbms/login.php');
-                echo("<script>location.href = 'http://localhost/University/dbms/login.php';</script>"); 
+               // header('location : http://localhost/university/dbms/login.php');
+                echo("<script>location.href = 'http://localhost/university/dbms/login.php';</script>");
             }
              
         }

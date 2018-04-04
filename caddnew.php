@@ -12,7 +12,7 @@
         $rs = mysqli_query($con, $sql);
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        echo("<script>location.href = 'http://localhost/University/dbms/courses.php';</script>");     
+        echo("<script>location.href = 'http://localhost/university/dbms/courses.php';</script>");
     }
 ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
     </li>
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
       <a class="nav-link" href="admindetails.php">
-      <i class="fa fa-fw fa-area-chart"></i>
+      <i class="fa fa-fw fa-user"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
     </li>  
@@ -86,7 +86,7 @@
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
-          <div class="card-header"><i class="fa fa-user" style="font-size:48px;padding-left: 150px"></i></div>
+          <div class="card-header"><i class="fa fa-book" style="font-size:48px;padding-left: 150px"></i></div>
           <div class="card-body">
           <form action="caddnew.php" method="POST">
               <div class="form-group" >

@@ -56,7 +56,7 @@
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
               <a class="nav-link" href="admindetails.php">
-                <i class="fa fa-fw fa-area-chart"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span class="nav-link-text">Admin Details</span>
               </a>
             </li>

@@ -3,7 +3,7 @@
 	require('fpdf.php');
 	// Begin configuration
 
-	$textColour = array( 0, 0, 0 );
+	$textColour = array( 255,1,255 );
 	$headerColour = array( 100, 100, 100 );
 	$tableHeaderTopTextColour = array( 255, 255, 255 );
 	$tableHeaderTopFillColour = array( 125, 152, 179 );
@@ -46,8 +46,8 @@
 	        );
 
 	// End configuration
-	$pdf = new FPDF('P', 'mm', 'A4');
-	$pdf->SetTextColor( $textColour[0], $textColour[1], $textColour[2] )
+	$pdf = new FPDF();
+	$pdf->SetTextColor( $textColour[0], $textColour[1], $textColour[2] );
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',18);
 	$pdf->Cell(40,10,'This is a fpdf demo');

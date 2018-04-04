@@ -38,8 +38,8 @@
     if(isset($_POST['addnew']))
     {
         $queryen = $_POST['ennoquery'];
-        $con=mysqli_connect("localhost","root","superman10");
-        mysqli_select_db($con,"University");
+        $con=mysqli_connect("localhost","root","");
+        mysqli_select_db($con,"university");
         $sql = "Select * from Student";
         $rs = mysqli_query($con, $sql);
         $_SESSION['queryenno']=$_POST['ennoquery'];
@@ -50,7 +50,7 @@
                 $flag=1;
         }
         if($flag==0)
-            echo("<script>location.href = 'http://localhost/University/dbms/addnew.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/addnew.php';</script>");
 
         else
         {
@@ -94,18 +94,13 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
           <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Admin Details</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
