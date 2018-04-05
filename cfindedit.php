@@ -55,13 +55,13 @@
                 <i class="fa fa-fw fa-user"></i>
                 <span class="nav-link-text">Admin Details</span>
               </a>
-            </li>   
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-              <a class="nav-link" href="#">
-                <i class="fa fa-fw fa-link"></i>
-                <span class="nav-link-text">Link</span>
-              </a>
             </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+                  <a class="nav-link" href="department.php">
+                      <i class="fa fa-fw fa-bank"></i>
+                      <span class="nav-link-text">Departments</span>
+                  </a>
+              </li>
           </ul>
           <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -75,7 +75,7 @@
                <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
           </ul>
@@ -96,10 +96,10 @@
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
-                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
-
+                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <li id="editbtn" class="card text-white bg-primary">
-                <a class="card-footer text-white clearfix medium z-1" href="edit_courses.php"s >
+                <a class="text-white" href="edit_courses.php">
                  <div class="text-center">Edit Details</div>   
                 </a>
               </li>

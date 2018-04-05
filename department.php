@@ -85,12 +85,7 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
-          <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-user"></i>
-            <span class="nav-link-text">Admin Details</span>
-          </a>
-        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -133,7 +128,7 @@
         </div>
         <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname">
+              <input class="form-control" type="text" placeholder="Enter Department Name" name="dname" required>
               <span class="input-group-append">
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
