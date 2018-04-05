@@ -36,18 +36,8 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="admindetails.php">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Admin Details</span>
-          </a>
-        </li>   
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -178,13 +168,7 @@
 	                                        <td>'.$row['CurrentSemester'].'</td>
 	                                        <td>'.$row['Branch'].'</td>
 	                                  </tr>';
-	                        }
-		                ?>
-		              	</tbody>
-		            </table>
-		        </div>
-		    </div>
-		</div>
+	                        }?>
     </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->

@@ -553,6 +553,31 @@ footer.sticky-footer {
 
 #editbtn
 {
-  width:  15%;
-  height: 11%;
+  width:  20%;
+  height: 15%;
+}
+
+
+.attsearch {
+  /*-webkit-transition : width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+  */
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0px 7px 0px;
+  display: inline-block;
+  border : 1px solid #ccc;
+  border-radius:  4px;
+  box-sizing: border-box;
+}
+
+.attsearch:focus {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0px 7px 0px;
+  display: inline-block;
+  border : 1px solid lightblue;
+  border-radius:  4px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px rgba(81,203,238,1);
 }
