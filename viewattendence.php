@@ -1,5 +1,6 @@
 <?php
-session_start();
+	session_start();
+	include('config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +20,68 @@ session_start();
 	<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
-		function func()
+		function Branch()
 		{
-		//    alert("HELLO")
-            var x = document.getElementById("BranchSelectid").value;
-			alert(x);
+		    $('#Branchid').empty();
+            $('#Branchid').append("<option value=''>Select Branch...</option>");
+            $('#Courseid').append("<option value=''>Select Course...</option>");
+			$.ajax(
+				{
+					type:"POST",
+					url:"branchdropdown.php",
+					contentType:"application/json; charset=utf-8",
+					dataType:"json",
+					success : function(data)
+					{
+                        $('#Branchid').append('<option value="hello">hello</option>');
+                        $.each(data,function(i,item)
+                        {
+                            $('#Branchid').append('<option value="'+data[i].Branc+'">'+data[i].Branch+'</option>');
+                        });
+                    },
+					complete : function(data)
+					{
 
-		}
+					}
+				}
+			);
+        }
+        function Course(branchname)
+		{
+			$('#Courseid').empty();
+            $.ajax(
+                {
+                    type:"POST",
+                    url:"coursedropdown.php?bid="+branchname,
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    success : function(data)
+                    {
+                        $('#Courseid').empty();
+                        $('#Courseid').append("<option value='0'>Select Course...</option>");
+                        $.each(data,function(i,item)
+                        {
+                            $('#Courseid').append('<option value="'+data[i].Cour+'">'+data[i].Cour+'</option>');
+                        });
+                    },
+                    complete : function(data)
+                    {
+
+                    }
+                }
+            );
+        }
+		$(document).ready(function() {
+            Branch();
+            $("#Branchid").change(function () {
+                var branch = $("#Branchid").val();
+                Course(branch);
+            });
+        });
 	</script>
+-->
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -79,47 +133,16 @@ session_start();
 			<div class="card card-login mx-auto mt-9">
 				<div class="card-header"><i class="fa fa-calendar" style="font-size:48px;padding-left: 150px"></i></div>
 				<div class="card-body">
-					<form action="" method="GET">
+					<form action="" method="POST">
 						<div class="form-group" >
 							<label for="BranchSelect">Branch  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-							<select name="BranchSelect" class="attsearch" type="Select" id="BranchSelectid" onchange="func()">
-								<option value="">Select Branch</option>
-								<?php
-	                        		$con=mysqli_connect("localhost","root","");
-	                        		mysqli_select_db($con,"university");
-	                        		$sql = "Select distinct Branch from student";
-									$rs = mysqli_query($con, $sql);
-									while($row = mysqli_fetch_array($rs))
-									{
-										echo '<option >' . $row['Branch'] . '</option>';
-									}
-	                        	?>
-	                        </select>
+							<select name="BranchSelect" class="attsearch" type="Select" id="Branchid">
+
+							</select>
 						</div>
 						<div class="form-group" >
-							<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-							<script
-								$(document).ready(function ()
-								{
-									$("#BranchSelectid").change(function ()
-									{
-										var val = $(this).val();
-										if (val == "item1")
-							{
-										$("#size").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
-                                } else if (val == "item2") {
-                                    $("#size").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
-                                } else if (val == "item3") {
-                                    $("#size").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
-                                } else if (val == "item0") {
-                                    $("#size").html("<option value=''>--select one--</option>");
-                                }
-                                });
-                                });
-							</script>
 							<label for="CourseSelect">Course  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-							<select name="CourseSelect" class="attsearch" type="Select">
-								<option value="">Select Course</option>
+							<select name="CourseSelect" class="attsearch" type="Select" id="Courseid">
 							</select>
 						</div>
 
@@ -178,9 +201,6 @@ session_start();
 			<!-- Core plugin JavaScript-->
 			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 			<!-- Page level plugin JavaScript-->
-			<script src="vendor/chart.js/Chart.min.js"></script>
-			<script src="vendor/datatables/jquery.dataTables.js"></script>
-			<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 			<!-- Custom scripts for all pages-->
 			<script src="js/sb-admin.min.js"></script>
 			<!-- Custom scripts for this page-->
