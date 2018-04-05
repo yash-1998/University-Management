@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6fec007d-174f-48c3-8737-873bf44ca9ea" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STUDENT.php" beforeDir="false" afterPath="$PROJECT_DIR$/STUDENT.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admindetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admindetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caddnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/caddnew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cfindedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfindedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sb-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/sb-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cviewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/cviewall.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/department.php" beforeDir="false" afterPath="$PROJECT_DIR$/department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deptaddnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptaddnew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deptfindedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptfindedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deptviewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptviewall.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_department.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_student.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/findedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/findedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewattendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewattendence.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +26,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="40" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="2" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="STUDENT.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STUDENT.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="56" column="78" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="78" />
+            <state relative-caret-position="273">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -75,8 +68,8 @@
       <file leaf-file-name="viewattendence.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viewattendence.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="319">
+              <caret line="134" column="39" lean-forward="true" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
               <folding>
                 <element signature="e#770#776#0" expanded="true" />
                 <element signature="e#776#782#0" expanded="true" />
@@ -91,10 +84,28 @@
                 <element signature="e#513#519#0" expanded="true" />
                 <element signature="e#519#525#0" expanded="true" />
                 <element signature="e#525#531#0" expanded="true" />
-                <element signature="e#5578#5584#0#HTML" expanded="true" />
-                <element signature="e#5584#5590#0#HTML" expanded="true" />
-                <element signature="e#5590#5596#0#HTML" expanded="true" />
+                <element signature="e#4785#4791#0#HTML" expanded="true" />
+                <element signature="e#4791#4797#0#HTML" expanded="true" />
+                <element signature="e#4797#4803#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="branchdropdown.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/branchdropdown.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coursedropdown.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursedropdown.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -167,6 +178,9 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/attendence.php" />
         <option value="$PROJECT_DIR$/css/sb-admin.css" />
+        <option value="$PROJECT_DIR$/config.php" />
+        <option value="$PROJECT_DIR$/branchdropdown.php" />
+        <option value="$PROJECT_DIR$/coursedropdown.php" />
         <option value="$PROJECT_DIR$/viewattendence.php" />
       </list>
     </option>
@@ -274,12 +288,12 @@
       <updated>1522681619936</updated>
       <workItem from="1522681623632" duration="4332000" />
       <workItem from="1522766817993" duration="8079000" />
-      <workItem from="1522843310118" duration="16931000" />
+      <workItem from="1522843310118" duration="27954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29342000" />
+    <option name="totallyTimeSpent" value="40365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -290,9 +304,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.09970675" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.0" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11786237" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17203514" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
@@ -306,6 +320,28 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Gulp" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17203514" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -426,13 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="145" column="87" selection-start-line="145" selection-start-column="87" selection-end-line="145" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unimage.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -474,17 +503,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="145" column="87" selection-start-line="145" selection-start-column="87" selection-end-line="145" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/STUDENT.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="56" column="78" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="78" />
+        <state relative-caret-position="273">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="40" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/branchdropdown.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursedropdown.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/viewattendence.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="319">
+          <caret line="134" column="39" lean-forward="true" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
           <folding>
             <element signature="e#770#776#0" expanded="true" />
             <element signature="e#776#782#0" expanded="true" />
@@ -499,9 +556,9 @@
             <element signature="e#513#519#0" expanded="true" />
             <element signature="e#519#525#0" expanded="true" />
             <element signature="e#525#531#0" expanded="true" />
-            <element signature="e#5578#5584#0#HTML" expanded="true" />
-            <element signature="e#5584#5590#0#HTML" expanded="true" />
-            <element signature="e#5590#5596#0#HTML" expanded="true" />
+            <element signature="e#4785#4791#0#HTML" expanded="true" />
+            <element signature="e#4791#4797#0#HTML" expanded="true" />
+            <element signature="e#4797#4803#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
