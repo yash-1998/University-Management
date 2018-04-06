@@ -7,7 +7,7 @@
 	$data = array();
 	while($row = mysqli_fetch_array($rs))
 	{
-		$data[] = array('Cour' => $row['CourseName']);
+		$data[] = array('CourseName' => $row['CourseName']);
 	}
 	header('Content-type : application/json');
 	echo json_encode($data);

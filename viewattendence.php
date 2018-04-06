@@ -1,6 +1,14 @@
 <?php
 	session_start();
 	include('config.php');
+	if(isset($_GET['bid']))
+    {
+        $_SESSION['selectedbranch']=$_GET['bid'];
+    }
+    else
+    {
+		$_SESSION['selectedbranch']="Select Branch";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,67 +29,7 @@
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script>
-		function Branch()
-		{
-		    $('#Branchid').empty();
-            $('#Branchid').append("<option value=''>Select Branch...</option>");
-            $('#Courseid').append("<option value=''>Select Course...</option>");
-			$.ajax(
-				{
-					type:"POST",
-					url:"branchdropdown.php",
-					contentType:"application/json; charset=utf-8",
-					dataType:"json",
-					success : function(data)
-					{
-                        $('#Branchid').append('<option value="hello">hello</option>');
-                        $.each(data,function(i,item)
-                        {
-                            $('#Branchid').append('<option value="'+data[i].Branc+'">'+data[i].Branch+'</option>');
-                        });
-                    },
-					complete : function(data)
-					{
 
-					}
-				}
-			);
-        }
-        function Course(branchname)
-		{
-			$('#Courseid').empty();
-            $.ajax(
-                {
-                    type:"POST",
-                    url:"coursedropdown.php?bid="+branchname,
-                    contentType:"application/json; charset=utf-8",
-                    dataType:"json",
-                    success : function(data)
-                    {
-                        $('#Courseid').empty();
-                        $('#Courseid').append("<option value='0'>Select Course...</option>");
-                        $.each(data,function(i,item)
-                        {
-                            $('#Courseid').append('<option value="'+data[i].Cour+'">'+data[i].Cour+'</option>');
-                        });
-                    },
-                    complete : function(data)
-                    {
-
-                    }
-                }
-            );
-        }
-		$(document).ready(function() {
-            Branch();
-            $("#Branchid").change(function () {
-                var branch = $("#Branchid").val();
-                Course(branch);
-            });
-        });
-	</script>
--->
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -136,13 +84,45 @@
 					<form action="" method="POST">
 						<div class="form-group" >
 							<label for="BranchSelect">Branch  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-							<select name="BranchSelect" class="attsearch" type="Select" id="Branchid">
-
+							<select name="BranchSelect" class="attsearch" type="Select" id="Branchid" onchange="window.location.href=this.value;">
+                                <option value="http://localhost/university/dbms/viewattendence.php"><?php echo $_SESSION['selectedbranch'];?></option>
+                                <?php
+                                    $con=mysqli_connect("localhost","root","");
+                                    mysqli_select_db($con,"university");
+                                    $sql = "Select DISTINCT  Branch from student";
+                                    $rs = mysqli_query($con, $sql);
+                                    if(mysqli_num_rows($rs))
+                                    {
+										while ($row = mysqli_fetch_array($rs))
+                                        {
+											$brn = $row['Branch'];
+											if($_SESSION['selectedbranch']!=$brn)
+											echo "<option value='http://localhost/university/dbms/viewattendence.php?bid=".$brn."'>".$brn."</option>";
+										}
+									}
+								?>
 							</select>
 						</div>
 						<div class="form-group" >
 							<label for="CourseSelect">Course  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 							<select name="CourseSelect" class="attsearch" type="Select" id="Courseid">
+                                <option>Select Course</option>
+								<?php
+                                    if($_SESSION['selectedbranch']!="Select Branch")
+                                    {
+										$con = mysqli_connect("localhost", "root", "");
+										mysqli_select_db($con, "university");
+										$selecbrn = $_SESSION['selectedbranch'];
+										$sql = "Select CourseName from courses where Branch='$selecbrn'";
+										$rs = mysqli_query($con, $sql);
+										if (mysqli_num_rows($rs)) {
+											while ($row = mysqli_fetch_array($rs)) {
+												$brn = $row['CourseName'];
+												echo "<option> ". $brn . "</option>";
+											}
+										}
+									}
+								?>
 							</select>
 						</div>
 
