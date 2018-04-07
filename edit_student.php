@@ -56,6 +56,7 @@
             mysqli_select_db($con, "university");
             $sql = "DELETE FROM student WHERE Enno = '$froll'";
             $rs1 = mysqli_query($con, $sql);
+
             $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch,ContactNo) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch','$fnumber')";
             $rs2 = mysqli_query($con, $sql1);
             $delsql = "DELETE FROM studentcourse where Enno = '$froll'";

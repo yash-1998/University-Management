@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fec007d-174f-48c3-8737-873bf44ca9ea" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/addatten2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addatten2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addattendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/addattendence.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/add_marks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exam.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/iit25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/update_marks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view_marks.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/addnew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/courses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit_student.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_student.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/findedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/findedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewall.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewatten2.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewatten2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewattendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewattendence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +36,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addatten2.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addatten2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addatten2.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
               <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addnew.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addnew.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="170" column="86" selection-start-line="170" selection-start-column="86" selection-end-line="170" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -119,7 +132,6 @@
         <option value="$PROJECT_DIR$/addattendance.php" />
         <option value="$PROJECT_DIR$/attendence.php" />
         <option value="$PROJECT_DIR$/css/sb-admin.css" />
-        <option value="$PROJECT_DIR$/addnew.php" />
         <option value="$PROJECT_DIR$/findedit.php" />
         <option value="$PROJECT_DIR$/edit_student.php" />
         <option value="$PROJECT_DIR$/viewattendence.php" />
@@ -127,6 +139,7 @@
         <option value="$PROJECT_DIR$/addattendence.php" />
         <option value="$PROJECT_DIR$/viewatten2.php" />
         <option value="$PROJECT_DIR$/addatten2.php" />
+        <option value="$PROJECT_DIR$/addnew.php" />
       </list>
     </option>
   </component>
@@ -235,22 +248,23 @@
       <workItem from="1522766817993" duration="8079000" />
       <workItem from="1522843310118" duration="36370000" />
       <workItem from="1523014613346" duration="5012000" />
-      <workItem from="1523076125625" duration="18320000" />
+      <workItem from="1523076125625" duration="18625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72113000" />
+    <option name="totallyTimeSpent" value="72418000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.43841642" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.35630497" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1522694" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -572,19 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addnew.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
-          <folding>
-            <element signature="e#7737#7743#0#HTML" expanded="true" />
-            <element signature="e#35#41#1" expanded="true" />
-            <element signature="e#41#47#0" expanded="true" />
-            <element signature="e#47#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit_student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -642,6 +643,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addnew.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="170" column="86" selection-start-line="170" selection-start-column="86" selection-end-line="170" selection-end-column="86" />
         </state>
       </provider>
     </entry>

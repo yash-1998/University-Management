@@ -127,7 +127,7 @@
               </div>
               <div class="mr-5">Exams</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="exam.php">
               <span class="float-left">Manage</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>

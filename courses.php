@@ -26,7 +26,7 @@
             echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
         else
         {
-            $error = "Enrollment Number does not exist";
+            $error = "Course does not exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }   

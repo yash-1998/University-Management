@@ -154,6 +154,7 @@
                   <input name="addenno" class="form-control" type="text" value=<?php echo $_SESSION['queryenno']?> id="addenno" required>
               </div>
               <div class="form-group" >
+
                   <label for="addfname">First Name : &nbsp;&nbsp;&nbsp;</label>
                   <input name="addfname" class="form-control" type="text" placeholder="First Name" id="addfname" required>
               </div>
