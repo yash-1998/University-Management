@@ -58,6 +58,17 @@
             $rs1 = mysqli_query($con, $sql);
             $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch,ContactNo) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch','$fnumber')";
             $rs2 = mysqli_query($con, $sql1);
+            $delsql = "DELETE FROM studentcourse where Enno = '$froll'";
+			$delrs = mysqli_query($con, $delsql);
+			if(!empty($_POST['check_list']))
+			{
+				// Loop to store and display values of individual checked checkbox.
+				foreach($_POST['check_list'] as $selected)
+				{
+					$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$froll','$selected')";
+					$rs = mysqli_query($con, $sql);
+				}
+			}
             $error = "Susscessfully Modified";
             $_SESSION['fname']=$ffirst;
             $_SESSION['lname']=$flast;
@@ -201,7 +212,41 @@
        <div class="form-group">
           <label >Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?>  name="branch">
-        </div>   
+        </div>
+          <div class="form-group">
+              <label for="addcourses">Courses : &nbsp;&nbsp;&nbsp;</label>
+              </br>
+			  <?php
+			  $con=mysqli_connect("localhost","root","");
+			  mysqli_select_db($con,"university");
+			  $enno = $_SESSION['roll'];
+			  $sql = "Select CourseName from studentcourse where Enno='$enno'";
+			  $sql2 = "Select CourseName from courses";
+			  $rs2=mysqli_query($con,$sql2);
+			  while ($row2 = mysqli_fetch_array($rs2))
+              {
+                  $allcourse = $row2['CourseName'];
+                  $rs = mysqli_query($con, $sql);
+                  $flago=0;
+                  while ($row = mysqli_fetch_array($rs))
+				  {
+					  $studcour = $row['CourseName'];
+					  if($studcour==$allcourse)
+                      {
+                          $flago=1;
+                      }
+				  }
+				  if($flago==1)
+                  {
+					  echo '<input type="checkbox" name="check_list[]" value='.$allcourse.' checked>'.'&nbsp;&nbsp;&nbsp;'.$allcourse.'<br>';
+				  }
+				  else
+                  {
+					  echo '<input type="checkbox" name="check_list[]" value='.$allcourse.'>'.'&nbsp;&nbsp;&nbsp;'.$allcourse.'<br>';
+                  }
+			  }
+			  ?>
+          </div>
         <div class="input-group">
         <button  class="btn btn-primary" type="submit" style="background: green;" name="change" >Make Changes</button>
         </div>

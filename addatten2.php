@@ -38,6 +38,7 @@
 				$rs7 = mysqli_query($con, $sql7);
 			}
 		}
+		echo("<script>location.href = 'http://localhost/university/dbms/addattendence.php';</script>");
 	}
 ?>
 <!DOCTYPE html>
@@ -105,11 +106,17 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Attendence</li>
+            <li class="breadcrumb-item">
+                <a href="attendence.php">Attendence</a>
+            </li>
+			<li class="breadcrumb-item active">Add Attendence</li>
 		</ol>
 		<div class="container">
+            <div class="text-center"><h1>Add Attendence for <?php echo $_SESSION['selectedcourse'];?></h1></div>
+            </br>
 			<form action="addatten2.php" method="POST">
-				<input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total number of classes held for <?php echo $_SESSION['selectedcoursea'];?>" required>
+				<label for="maxclasses">Enter the total number of classes</label>
+                <input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total number of classes held for <?php echo $_SESSION['selectedcoursea'];?>" required>
 			<div class="card mb-3">
 				<br class="card-body">
 				<div class="table-responsive">
