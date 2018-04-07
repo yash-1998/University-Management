@@ -11,7 +11,7 @@
     {
 		$_SESSION['selectedbranch']="Select Branch";
     }
-    if(isset($_POST['add']))
+    if(isset($_POST['view']))
     {
         $cours="";
         if(isset($_POST['CourseSelect']))
@@ -149,7 +149,7 @@
 								?>
 							</select>
 						</div>
-						<button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
+						<button class="btn btn-primary btn-block" type="submit" name="view">VIEW</button>
 					</form>
 				</div>
 			</div>
