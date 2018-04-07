@@ -1,14 +1,18 @@
 <?php
 	$con=mysqli_connect("localhost","root","");
 	mysqli_select_db($con,"university");
-	$sql = "Select distinct Branch from student";
+	$sql = "Select * from student group by Branch";
 	$rs = mysqli_query($con, $sql);
-	$data = array();
-	while($row = mysqli_fetch_array($rs))
+	if(mysqli_num_rows($rs))
 	{
-		echo $row['Branch'];
-		$data[] = array('Branc' => $row['Branch']);
+		$data = array();
+		while ($row = mysqli_fetch_array($rs)) {
+			$data[] = array(
+				'id' => $row['id'],
+				'Branch' => $row['Branch']
+			);
+		}
+		header('Content-type : application/json');
+		echo json_encode($data);
 	}
-	header('Content-type : application/json');
-	echo json_encode($data);
 ?>

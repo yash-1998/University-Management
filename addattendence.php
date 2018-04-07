@@ -2,37 +2,37 @@
 	session_start();
 	include('config.php');
 	$branc = "";
-	if(isset($_GET['bid']))
-    {
-        $_SESSION['selectedbranch']=$_GET['bid'];
-        $branc =$_GET['bid'];
-    }
-    else
-    {
-		$_SESSION['selectedbranch']="Select Branch";
-    }
-    if(isset($_POST['add']))
-    {
-        $cours="";
-        if(isset($_POST['CourseSelect']))
-        {
-            if($_POST['CourseSelect']!="Select Course")
-            {
-                $_SESSION['selectedcourse'] = $_POST['CourseSelect'];
+	if(isset($_GET['bida']))
+	{
+		$_SESSION['selectedbrancha']=$_GET['bida'];
+		$branc=$_GET['bida'];
+	}
+	else
+	{
+		$_SESSION['selectedbrancha']="Select Branch";
+	}
+	if(isset($_POST['add']))
+	{
+		$cours = "";
+		if (isset($_POST['CourseSelect']))
+		{
+			if ($_POST['CourseSelect'] != "Select Course")
+			{
+				$_SESSION['selectedcoursea'] = $_POST['CourseSelect'];
                 $cours = $_POST['CourseSelect'];
 			}
-        }
-		if($branc=="" || $cours=="")
+		}
+
+		if ($branc == "" || $cours == "")
 		{
 			$error = "Please Select a Branch and Course";
 			echo "<script>alert(\"$error\");</script>";
 		}
 		else
 		{
-			echo("<script>location.href = 'http://localhost/university/dbms/viewatten2.php';</script>");
+			echo("<script>location.href = 'http://localhost/university/dbms/addatten2.php';</script>");
 		}
-    }
-
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>View Attendence</title>
+	<title>Add Attendence</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -109,43 +109,43 @@
 						<div class="form-group" >
 							<label for="BranchSelect">Branch  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 							<select name="BranchSelect" class="attsearch" type="Select" id="Branchid" onchange="window.location.href=this.value;">
-                                <option value="http://localhost/university/dbms/viewattendence.php"><?php echo $_SESSION['selectedbranch'];?></option>
-                                <?php
-                                    $con=mysqli_connect("localhost","root","");
-                                    mysqli_select_db($con,"university");
-                                    $sql = "Select DISTINCT  Branch from student";
-                                    $rs = mysqli_query($con, $sql);
-                                    if(mysqli_num_rows($rs))
-                                    {
-										while ($row = mysqli_fetch_array($rs))
-                                        {
-											$brn = $row['Branch'];
-											if($_SESSION['selectedbranch']!=$brn)
-											echo "<option value='http://localhost/university/dbms/viewattendence.php?bid=".$brn."'>".$brn."</option>";
-										}
+								<option value="http://localhost/university/dbms/addattendence.php"><?php echo $_SESSION['selectedbrancha'];?></option>
+								<?php
+								$con=mysqli_connect("localhost","root","");
+								mysqli_select_db($con,"university");
+								$sql = "Select DISTINCT  Branch from student";
+								$rs = mysqli_query($con, $sql);
+								if(mysqli_num_rows($rs))
+								{
+									while ($row = mysqli_fetch_array($rs))
+									{
+										$brn = $row['Branch'];
+										if($_SESSION['selectedbrancha']!=$brn)
+											echo "<option value='http://localhost/university/dbms/addattendence.php?bida=".$brn."'>".$brn."</option>";
 									}
+								}
 								?>
 							</select>
 						</div>
 						<div class="form-group" >
 							<label for="CourseSelect">Course  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 							<select name="CourseSelect" class="attsearch" type="Select" id="Courseid">
-                                <option>Select Course</option>
+								<option>Select Course</option>
 								<?php
-                                    if($_SESSION['selectedbranch']!="Select Branch")
-                                    {
-										$con = mysqli_connect("localhost", "root", "");
-										mysqli_select_db($con, "university");
-										$selecbrn = $_SESSION['selectedbranch'];
-										$sql = "Select CourseName from courses where Branch='$selecbrn'";
-										$rs = mysqli_query($con, $sql);
-										if (mysqli_num_rows($rs)) {
-											while ($row = mysqli_fetch_array($rs)) {
-												$brn = $row['CourseName'];
-												echo "<option> ". $brn . "</option>";
-											}
+								if($_SESSION['selectedbrancha']!="Select Branch")
+								{
+									$con = mysqli_connect("localhost", "root", "");
+									mysqli_select_db($con, "university");
+									$selecbrn = $_SESSION['selectedbrancha'];
+									$sql = "Select CourseName from courses where Branch='$selecbrn'";
+									$rs = mysqli_query($con, $sql);
+									if (mysqli_num_rows($rs)) {
+										while ($row = mysqli_fetch_array($rs)) {
+											$brn = $row['CourseName'];
+											echo "<option> ". $brn . "</option>";
 										}
 									}
+								}
 								?>
 							</select>
 						</div>
@@ -154,48 +154,48 @@
 				</div>
 			</div>
 		</div>
-	<br>
-			<footer class="sticky-footer">
-				<div class="container">
-					<div class="text-center">
-						<small>Copyright © Funkyfunks 2018</small>
-					</div>
+		<br>
+		<footer class="sticky-footer">
+			<div class="container">
+				<div class="text-center">
+					<small>Copyright © Funkyfunks 2018</small>
 				</div>
-			</footer>
-			<!-- Scroll to Top Button-->
-			<a class="scroll-to-top rounded" href="#page-top">
-				<i class="fa fa-angle-up"></i>
-			</a>
-			<!-- Logout Modal-->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-							<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-						</div>
-						<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-						<div class="modal-footer">
-							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-							<a class="btn btn-primary" href="login.php">Logout</a>
-						</div>
+			</div>
+		</footer>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fa fa-angle-up"></i>
+		</a>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+						<a class="btn btn-primary" href="login.php">Logout</a>
 					</div>
 				</div>
 			</div>
-			<!-- Bootstrap core JavaScript-->
-			<script src="vendor/jquery/jquery.min.js"></script>
-			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-			<!-- Core plugin JavaScript-->
-			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-			<!-- Page level plugin JavaScript-->
-			<!-- Custom scripts for all pages-->
-			<script src="js/sb-admin.min.js"></script>
-			<!-- Custom scripts for this page-->
-			<script src="js/sb-admin-datatables.min.js"></script>
-			<script src="js/sb-admin-charts.min.js"></script>
 		</div>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Page level plugin JavaScript-->
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin.min.js"></script>
+		<!-- Custom scripts for this page-->
+		<script src="js/sb-admin-datatables.min.js"></script>
+		<script src="js/sb-admin-charts.min.js"></script>
+	</div>
 </div>
 </body>
 
