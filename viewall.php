@@ -93,7 +93,7 @@
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
         <div class="card mb-3">
-            <div class="card-body">
+            <br class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
@@ -169,6 +169,12 @@
 	                                        <td>'.$row['Branch'].'</td>
 	                                  </tr>';
 	                        }?>
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
     </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
@@ -177,9 +183,11 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
+
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
+
           <small>Copyright © Funkyfunks 2018</small>
         </div>
       </div>
