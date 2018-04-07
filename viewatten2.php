@@ -1,41 +1,39 @@
 <?php
 	session_start();
-	include('config.php');
-	$branc = "";
-	if(isset($_GET['bid']))
+	if(isset($_POST['addatten']))
 	{
-		$_SESSION['selectedbranch']=$_GET['bid'];
-		$branc =$_GET['bid'];
-	}
-	else
-	{
-		$_SESSION['selectedbranch']="Select Branch";
-	}
-	if(isset($_POST['add']))
-	{
-		$cours="";
-		if(isset($_POST['CourseSelect']))
+		$con=mysqli_connect("localhost","root","");
+		mysqli_select_db($con,"university");
+		$selecourse = $_SESSION['selectedcoursea'];
+		$totalclasses = $_POST['maxclasses'];
+		$sql3 = "INSERT INTO attendence2(CourseName,TotalClasses) VALUES ('$selecourse',$totalclasses)";
+		$rs3 = mysqli_query($con, $sql3);
+
+		$sql4 = "Select * from studentcourse where CourseName='$selecourse'";
+		//echo "<script>alert(\"$sql\");</script>";
+		$rs4 = mysqli_query($con, $sql4);
+		while($row4 = mysqli_fetch_array($rs4))
 		{
-			if($_POST['CourseSelect']!="Select Course")
+			$enno = $row4['Enno'];
+			$sql5 = "Select * from attendence where CourseName='$selecourse' and Enno='$enno'";
+			$rs5 = mysqli_query($con, $sql5);
+			$present = $_POST[$enno];
+			//echo "<script>alert($present);</script>";
+			if(mysqli_num_rows($rs5))
 			{
-				$_SESSION['selectedcourse'] = $_POST['CourseSelect'];
-				$cours = $_POST['CourseSelect'];
+				$sql6="UPDATE attendence SET Present = $present WHERE CourseName='$selecourse' and Enno='$enno'";
+				$rs6 = mysqli_query($con, $sql6);
+			}
+			else
+			{
+				$sql7="INSERT INTO attendence(Enno,CourseName,Present) VALUES ('$enno','$selecourse',$present)";
+				$rs7 = mysqli_query($con, $sql7);
 			}
 		}
-		if($branc=="" || $cours=="")
-		{
-			$error = "Please Select a Branch and Course";
-			echo "<script>alert(\"$error\");</script>";
-		}
-		else
-		{
-			echo("<script>location.href = 'http://localhost/university/dbms/viewatten2.php';</script>");
-		}
 	}
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
+</bod lang="en">
 
 <head>
 	<meta charset="utf-8">
@@ -102,51 +100,111 @@
 			<li class="breadcrumb-item active">Attendence</li>
 		</ol>
 		<div class="container">
-
-		</div>
-		<br>
-		<footer class="sticky-footer">
-			<div class="container">
-				<div class="text-center">
-					<small>Copyright © Funkyfunks 2018</small>
-				</div>
-			</div>
-		</footer>
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top">
-			<i class="fa fa-angle-up"></i>
-		</a>
-		<!-- Logout Modal-->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
+			<div class="text-center"><h1>Attendence for <?php echo $_SESSION['selectedcourse'];?></h1></div>
+				<div class="card mb-3">
+					<br class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+							<thead>
+							<tr>
+								<th class = "text-center">Enrollment Number</th>
+								<th class = "text-center">Name</th>
+								<th class = "text-center">Total Classes</th>
+								<th class = "text-center">Classes Attended</th>
+								<th class = "text-center">% Attendence</th>
+							</tr>
+							</thead>
+							<tbody>
+							<?php
+							$con=mysqli_connect("localhost","root","");
+							mysqli_select_db($con,"university");
+							$selecourse = $_SESSION['selectedcourse'];
+							$sql = "Select * from studentcourse where CourseName='$selecourse'";
+							$sql4 = "Select TotalClasses from attendence2 where CourseName='$selecourse'";
+							$rs4 = mysqli_query($con, $sql4);
+							$row4 = mysqli_fetch_array($rs4);
+							$totalclass = $row4['TotalClasses'];
+							//echo "<script>alert(\"$sql\");</script>";
+							$rs = mysqli_query($con, $sql);
+							while($row = mysqli_fetch_array($rs))
+							{
+								$enno = $row['Enno'];
+								$sql2 = "Select * from student where Enno='$enno'";
+								$rs2 = mysqli_query($con, $sql2);
+								$row2 = mysqli_fetch_array($rs2);
+								$sql3 = "Select Present from attendence where Enno = '$enno' and CourseName='$selecourse'";
+								$rs3 = mysqli_query($con, $sql3);
+								$row3 = mysqli_fetch_array($rs3);
+								$percentage = $row3['Present']/$totalclass;
+								$percentage = $percentage*100;
+								if($percentage >= 75)
+								{
+									echo '<tr style="background-color: #47ed52"><td>' . $row['Enno'] . '</td>';
+									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
+									echo '<td class = "text-center">' . $totalclass . '</td>';
+									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
+									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
+									</tr>';
+								}
+								else
+								{
+									echo '<tr style="background-color: #ed4528"><td>' . $row['Enno'] . '</td>';
+									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
+									echo '<td class = "text-center">' . $totalclass . '</td>';
+									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
+									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
+									</tr>';
+								}
+							}
+							?>
+							</tbody>
+						</table>
 					</div>
-					<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.php">Logout</a>
-					</div>
 				</div>
+</div>
+<br>
+<footer class="sticky-footer">
+	<div class="container">
+		<div class="text-center">
+			<small>Copyright © Funkyfunks 2018</small>
+		</div>
+	</div>
+</footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+	<i class="fa fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				<a class="btn btn-primary" href="login.php">Logout</a>
 			</div>
 		</div>
-		<!-- Bootstrap core JavaScript-->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<!-- Core plugin JavaScript-->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-		<!-- Page level plugin JavaScript-->
-		<!-- Custom scripts for all pages-->
-		<script src="js/sb-admin.min.js"></script>
-		<!-- Custom scripts for this page-->
-		<script src="js/sb-admin-datatables.min.js"></script>
-		<script src="js/sb-admin-charts.min.js"></script>
 	</div>
 </div>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="js/sb-admin-datatables.min.js"></script>
+<script src="js/sb-admin-charts.min.js"></script>
+
+
 </body>
 
 </html>

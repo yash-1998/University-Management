@@ -1,41 +1,47 @@
 <?php
 	session_start();
-	include('config.php');
-	$branc = "";
-	if(isset($_GET['bid']))
+	if(isset($_POST['addatten']))
 	{
-		$_SESSION['selectedbranch']=$_GET['bid'];
-		$branc =$_GET['bid'];
-	}
-	else
-	{
-		$_SESSION['selectedbranch']="Select Branch";
-	}
-	if(isset($_POST['add']))
-	{
-		$cours="";
-		if(isset($_POST['CourseSelect']))
+		$con=mysqli_connect("localhost","root","");
+		mysqli_select_db($con,"university");
+		$selecourse = $_SESSION['selectedcoursea'];
+		$totalclasses = $_POST['maxclasses'];
+		$sqll = "Select * from attendence2 where CourseName='$selecourse'";
+		$rsl = mysqli_query($con, $sqll);
+		if(mysqli_num_rows($rsl))
 		{
-			if($_POST['CourseSelect']!="Select Course")
-			{
-				$_SESSION['selectedcourse'] = $_POST['CourseSelect'];
-				$cours = $_POST['CourseSelect'];
-			}
-		}
-		if($branc=="" || $cours=="")
-		{
-			$error = "Please Select a Branch and Course";
-			echo "<script>alert(\"$error\");</script>";
+			$sqll6="UPDATE attendence2 SET TotalClasses = $totalclasses WHERE CourseName='$selecourse'";
+			$rsl6 = mysqli_query($con, $sqll6);
 		}
 		else
 		{
-			echo("<script>location.href = 'http://localhost/university/dbms/viewatten2.php';</script>");
+			$sql3 = "INSERT INTO attendence2(CourseName,TotalClasses) VALUES ('$selecourse',$totalclasses)";
+			$rs3 = mysqli_query($con, $sql3);
+		}
+
+		$sql4 = "Select * from studentcourse where CourseName='$selecourse'";
+		$rs4 = mysqli_query($con, $sql4);
+		while($row4 = mysqli_fetch_array($rs4))
+		{
+			$enno = $row4['Enno'];
+			$sql5 = "Select * from attendence where CourseName='$selecourse' and Enno='$enno'";
+			$rs5 = mysqli_query($con, $sql5);
+			$present = $_POST[$enno];
+			if(mysqli_num_rows($rs5))
+			{
+				$sql6="UPDATE attendence SET Present = $present WHERE CourseName='$selecourse' and Enno='$enno'";
+				$rs6 = mysqli_query($con, $sql6);
+			}
+			else
+			{
+				$sql7="INSERT INTO attendence(Enno,CourseName,Present) VALUES ('$enno','$selecourse',$present)";
+				$rs7 = mysqli_query($con, $sql7);
+			}
 		}
 	}
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
+</bod lang="en">
 
 <head>
 	<meta charset="utf-8">
@@ -103,11 +109,10 @@
 		</ol>
 		<div class="container">
 			<form action="addatten2.php" method="POST">
-				<input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total number of classes held for <?php echo $_SESSION['selectedcourse'];?>"
+				<input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total number of classes held for <?php echo $_SESSION['selectedcoursea'];?>" required>
 			<div class="card mb-3">
 				<br class="card-body">
 				<div class="table-responsive">
-					<form action="viewatten2.php" method="POST">
 					<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 						<thead>
 						<tr>
@@ -120,56 +125,21 @@
 						<?php
 							$con=mysqli_connect("localhost","root","");
 							mysqli_select_db($con,"university");
-							$sql = "Select * from student";
-							$ssem="";
-							$sname="";
-							$sbranch="";
-							$filter=0;
-							if(isset($_POST['filter']))
-							{
-								if(isset($_POST['namesearch']))
-									$sname=$_POST['namesearch'];
-
-								if(isset($_POST['branchsearch']))
-									$sbranch=$_POST['branchsearch'];
-
-								if(isset($_POST['semsearch']))
-									$ssem=$_POST['semsearch'];
-
-								$flag1=0;
-
-								if($sname!="")
-								{
-									$sql.=" where FirstName like '$sname%'";
-									$flag1=1;
-								}
-								$flag2=0;
-								if($sbranch!="")
-								{
-									if($flag1==1)
-										$sql.=" and Branch = '$sbranch'";
-									else
-										$sql.=" where Branch = '$sbranch'";
-
-									$flag2=1;
-								}
-								if($ssem!="")
-								{
-									if($flag2==1 || $flag1==1)
-										$sql.=" and CurrentSemester = $ssem";
-									else
-										$sql.=" where CurrentSemester = '$ssem'";
-								}
-							}
-							$sql.=" order by CurrentSemester ASC,Branch ASC,Enno ASC";
+							$selecourse = $_SESSION['selectedcoursea'];
+							$sql = "Select * from studentcourse where CourseName='$selecourse'";
 							//echo "<script>alert(\"$sql\");</script>";
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))
 							{
+								$enno = $row['Enno'];
 								echo '<tr>
-												<td>'.$row['Enno'].'</td>
-												<td>'.$row['FirstName'].' '.$row['LastName'].'</td>
-												<td>'.$row['ContactNo'].'</td>
+												<td>'.$row['Enno'].'</td>';
+												$sql2 = "Select * from student where Enno='$enno'";
+												//echo "<script>alert(\"$sql\");</script>";
+												$rs2 = mysqli_query($con, $sql2);
+												$row2 = mysqli_fetch_array($rs2);
+											echo '<td>'.$row2['FirstName'].' '.$row2['LastName'].'</td>
+												<td><input name='.$enno.' type="number" required></td>
 										  </tr>';
 							}
 						?>
@@ -181,9 +151,11 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;
-						<button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">ADD ATTENDANCE</button>
+						<button class="btn btn-primary " type="submit" name="addatten" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">ADD ATTENDANCE</button>
 					</form>
 				</div>
+	</div>
+</div>
 		<br>
 		<footer class="sticky-footer">
 			<div class="container">
@@ -225,8 +197,8 @@
 		<!-- Custom scripts for this page-->
 		<script src="js/sb-admin-datatables.min.js"></script>
 		<script src="js/sb-admin-charts.min.js"></script>
-	</div>
-</div>
+
+
 </body>
 
 </html>
