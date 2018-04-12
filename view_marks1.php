@@ -1,5 +1,38 @@
 <?php
 	session_start();
+	include('config.php');
+	$branc = "";
+	if(isset($_GET['bid']))
+    {
+        $_SESSION['selectedbranch']=$_GET['bid'];
+        $branc =$_GET['bid'];
+    }
+    else
+    {
+		$_SESSION['selectedbranch']="Select Branch";
+    }
+    if(isset($_POST['view']))
+    {
+        $cours="";
+        if(isset($_POST['CourseSelect']))
+        {
+            if($_POST['CourseSelect']!="Select Course")
+            {
+                $_SESSION['selectedcourse'] = $_POST['CourseSelect'];
+                $cours = $_POST['CourseSelect'];
+			}
+        }
+		if($branc=="" || $cours=="")
+		{
+			$error = "Please Select a Branch and Course";
+			echo "<script>alert(\"$error\");</script>";
+		}
+		else
+		{
+			echo("<script>location.href = 'http://localhost/university/dbms/view_marks.php';</script>");
+		}
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +43,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Attendence</title>
+	<title>View Marks</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -19,6 +52,8 @@
 	<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -64,30 +99,62 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Exams</li>
+			<li class="breadcrumb-item active">Marks</li>
 		</ol>
-		<div class="row">
-			<div class="col-xl-2 col-sm-4 mb-3">
-				<div class="card text-white bg-primary o-hidden h-100">
-					<a class="card-footer text-white clearfix small z-1" href="view_marks1.php">
-						<span class="float-left">View Marks</span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-					</a>
+		<div class="container">
+			<div class="card card-login mx-auto mt-9">
+				<div class="card-header"><i class="fa fa-calendar" style="font-size:48px;padding-left: 150px"></i></div>
+				<div class="card-body">
+					<form action="" method="POST">
+						<div class="form-group" >
+							<label for="BranchSelect">Branch  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<select name="BranchSelect" class="attsearch" type="Select" id="Branchid" onchange="window.location.href=this.value;">
+                                <option value="http://localhost/university/dbms/view_marks1.php"><?php echo $_SESSION['selectedbranch'];?></option>
+                                <?php
+                                    $con=mysqli_connect("localhost","root","");
+                                    mysqli_select_db($con,"university");
+                                    $sql = "Select DISTINCT  Branch from student";
+                                    $rs = mysqli_query($con, $sql);
+                                    if(mysqli_num_rows($rs))
+                                    {
+										while ($row = mysqli_fetch_array($rs))
+                                        {
+											$brn = $row['Branch'];
+											if($_SESSION['selectedbranch']!=$brn)
+											echo "<option value='http://localhost/university/dbms/view_marks1.php?bid=".$brn."'>".$brn."</option>";
+										}
+									}
+								?>
+							</select>
+						</div>
+						<div class="form-group" >
+							<label for="CourseSelect">Course  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<select name="CourseSelect" class="attsearch" type="Select" id="Courseid">
+                                <option>Select Course</option>
+								<?php
+                                    if($_SESSION['selectedbranch']!="Select Branch")
+                                    {
+										$con = mysqli_connect("localhost", "root", "");
+										mysqli_select_db($con, "university");
+										$selecbrn = $_SESSION['selectedbranch'];
+										$sql = "Select CourseName from courses where Branch='$selecbrn'";
+										$rs = mysqli_query($con, $sql);
+										if (mysqli_num_rows($rs)) {
+											while ($row = mysqli_fetch_array($rs)) {
+												$brn = $row['CourseName'];
+												echo "<option> ". $brn . "</option>";
+											}
+										}
+									}
+								?>
+							</select>
+						</div>
+						<button class="btn btn-primary btn-block" type="submit" name="view">VIEW</button>
+					</form>
 				</div>
 			</div>
-
-			<div class="col-xl-2 col-sm-4 mb-3">
-				<div class="card text-white bg-primary o-hidden h-100" >
-					<a class="card-footer text-white clearfix small z-1" style="background-color: #28a745;" href="update_marks.php">
-						<span class="float-left">Update Marks </span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-					</a>
-				</div>
-			</div>
+		</div>
+	<br>
 			<footer class="sticky-footer">
 				<div class="container">
 					<div class="text-center">
@@ -123,15 +190,15 @@
 			<!-- Core plugin JavaScript-->
 			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 			<!-- Page level plugin JavaScript-->
-			<script src="vendor/chart.js/Chart.min.js"></script>
-			<script src="vendor/datatables/jquery.dataTables.js"></script>
-			<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 			<!-- Custom scripts for all pages-->
 			<script src="js/sb-admin.min.js"></script>
 			<!-- Custom scripts for this page-->
 			<script src="js/sb-admin-datatables.min.js"></script>
 			<script src="js/sb-admin-charts.min.js"></script>
 		</div>
+</div>
 </body>
 
 </html>
+
+
