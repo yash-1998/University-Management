@@ -177,8 +177,26 @@
                 <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete</button>
         </form>
           </span>
-            </div>
 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form>
+
+            <select id="delbatch" class="form-control" type="select" name="delbatch" required>
+                <?php
+                    $con=mysqli_connect("localhost","root","");
+                    mysqli_select_db($con,"university");
+                    $sql = "Select distinct CurrentSemester from Student";
+                    $rs = mysqli_query($con, $sql);
+
+                ?>
+                <span class="input-group-append">
+            &nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
+            </span>
+
+    </form>
+
+      </div>
 
       <!-- Icon Cards-->
       <!-- Area Chart Example-->

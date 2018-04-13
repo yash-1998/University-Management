@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fec007d-174f-48c3-8737-873bf44ca9ea" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/view_marks1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/addnew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/exam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STUDENT.php" beforeDir="false" afterPath="$PROJECT_DIR$/STUDENT.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_marks.php" beforeDir="false" afterPath="$PROJECT_DIR$/add_marks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fpdfdemo.php" beforeDir="false" afterPath="$PROJECT_DIR$/fpdfdemo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view_marks.php" beforeDir="false" afterPath="$PROJECT_DIR$/view_marks.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +22,7 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
+            <state relative-caret-position="1924">
               <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
             </state>
           </provider>
@@ -32,8 +31,8 @@
       <file leaf-file-name="STUDENT.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STUDENT.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126">
-              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+            <state relative-caret-position="370">
+              <caret line="189" selection-start-line="189" selection-end-line="189" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#6165#6171#0#HTML" expanded="true" />
@@ -43,63 +42,62 @@
                 <element signature="e#6303#6309#0#HTML" expanded="true" />
                 <element signature="e#6309#6315#0#HTML" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#6469#6475#0#HTML" expanded="true" />
-                <element signature="e#6475#6481#0#HTML" expanded="true" />
-                <element signature="e#6465#6471#0#HTML" expanded="true" />
+                <element signature="e#7505#7511#0#HTML" expanded="true" />
+                <element signature="e#7511#7517#0#HTML" expanded="true" />
+                <element signature="e#7517#7523#0#HTML" expanded="true" />
                 <element signature="n#style#0;n#button#2;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#7707#7713#0#HTML" expanded="true" />
+                <element signature="e#7713#7719#0#HTML" expanded="true" />
+                <element signature="e#7719#7725#0#HTML" expanded="true" />
+                <element signature="e#7725#7731#0#HTML" expanded="true" />
+                <element signature="e#7731#7737#0#HTML" expanded="true" />
+                <element signature="e#7737#7743#0#HTML" expanded="true" />
+                <element signature="e#7706#7712#0#HTML" expanded="true" />
+                <element signature="e#7712#7718#0#HTML" expanded="true" />
+                <element signature="e#7718#7724#0#HTML" expanded="true" />
+                <element signature="e#7725#7731#0#HTML" expanded="true" />
+                <element signature="e#7731#7737#0#HTML" expanded="true" />
+                <element signature="e#7737#7743#0#HTML" expanded="true" />
+                <element signature="e#7743#7749#0#HTML" expanded="true" />
+                <element signature="e#7749#7755#0#HTML" expanded="true" />
+                <element signature="e#7755#7761#0#HTML" expanded="true" />
+                <element signature="e#7761#7767#0#HTML" expanded="true" />
+                <element signature="e#7767#7773#0#HTML" expanded="true" />
+                <element signature="e#7773#7779#0#HTML" expanded="true" />
+                <element signature="e#7779#7785#0#HTML" expanded="true" />
+                <element signature="e#7785#7791#0#HTML" expanded="true" />
+                <element signature="e#7791#7797#0#HTML" expanded="true" />
+                <element signature="e#7797#7803#0#HTML" expanded="true" />
+                <element signature="e#7803#7809#0#HTML" expanded="true" />
+                <element signature="e#7809#7815#0#HTML" expanded="true" />
+                <element signature="e#7815#7821#0#HTML" expanded="true" />
+                <element signature="e#7821#7827#0#HTML" expanded="true" />
+                <element signature="e#7827#7833#0#HTML" expanded="true" />
+                <element signature="e#7833#7839#0#HTML" expanded="true" />
+                <element signature="e#7839#7845#0#HTML" expanded="true" />
+                <element signature="e#7845#7851#0#HTML" expanded="true" />
+                <element signature="e#7851#7857#0#HTML" expanded="true" />
+                <element signature="e#7857#7863#0#HTML" expanded="true" />
+                <element signature="e#7863#7869#0#HTML" expanded="true" />
+                <element signature="e#7869#7875#0#HTML" expanded="true" />
+                <element signature="e#7875#7881#0#HTML" expanded="true" />
+                <element signature="e#7881#7887#0#HTML" expanded="true" />
+                <element signature="e#7887#7893#0#HTML" expanded="true" />
+                <element signature="e#7893#7899#0#HTML" expanded="true" />
+                <element signature="e#7899#7905#0#HTML" expanded="true" />
+                <element signature="e#8135#8141#0#HTML" expanded="true" />
+                <element signature="e#8141#8147#0#HTML" expanded="true" />
+                <element signature="e#8147#8153#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_marks.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view_marks.php">
+      <file leaf-file-name="fpdfdemo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="findedit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/findedit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_student.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/edit_student.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="81" column="102" selection-start-line="80" selection-start-column="12" selection-end-line="81" selection-end-column="102" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deletestudent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deletestudent.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
-              <folding>
-                <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addattendence.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addattendence.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="143" column="67" lean-forward="true" selection-start-line="139" selection-start-column="36" selection-end-line="143" selection-end-column="67" />
+            <state relative-caret-position="84">
+              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -172,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fpdfdemo.php" />
         <option value="$PROJECT_DIR$/edit_department.php" />
         <option value="$PROJECT_DIR$/department.php" />
         <option value="$PROJECT_DIR$/courses.php" />
@@ -203,8 +200,10 @@
         <option value="$PROJECT_DIR$/findedit.php" />
         <option value="$PROJECT_DIR$/edit_student.php" />
         <option value="$PROJECT_DIR$/deletestudent.php" />
-        <option value="$PROJECT_DIR$/STUDENT.php" />
+        <option value="$PROJECT_DIR$/add_marks.php" />
         <option value="$PROJECT_DIR$/view_marks.php" />
+        <option value="$PROJECT_DIR$/STUDENT.php" />
+        <option value="$PROJECT_DIR$/fpdfdemo.php" />
       </list>
     </option>
   </component>
@@ -316,12 +315,12 @@
       <workItem from="1523076125625" duration="25161000" />
       <workItem from="1523349791081" duration="12000" />
       <workItem from="1523480415727" duration="8657000" />
-      <workItem from="1523596463987" duration="4151000" />
+      <workItem from="1523596463987" duration="7148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91774000" />
+    <option name="totallyTimeSpent" value="94771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -332,9 +331,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3739003" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.058651026" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13689604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.109077595" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -361,20 +360,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/viewattendence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4011">
-          <caret line="191" lean-forward="true" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addattendence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="95" column="53" selection-start-line="95" selection-start-column="53" selection-end-line="95" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3045">
@@ -456,13 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -564,25 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update_marks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exam.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="72" column="53" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/add_marks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/sb-admin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -594,13 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="88" column="66" lean-forward="true" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/viewatten2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="64" column="64" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -646,20 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addnew.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/findedit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -671,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addatten2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="143" column="75" lean-forward="true" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -705,10 +636,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view_marks1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="72" column="53" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addnew.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4756">
+          <caret line="48" column="12" lean-forward="true" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addatten2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="143" column="75" lean-forward="true" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2835" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewatten2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="137" column="79" selection-start-line="137" selection-start-column="53" selection-end-line="137" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1495">
+          <caret line="136" column="83" selection-start-line="136" selection-start-column="83" selection-end-line="136" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="127" column="68" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1924">
+          <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25292" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/STUDENT.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+        <state relative-caret-position="370">
+          <caret line="189" selection-start-line="189" selection-end-line="189" />
           <folding>
             <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#6165#6171#0#HTML" expanded="true" />
@@ -718,22 +718,60 @@
             <element signature="e#6303#6309#0#HTML" expanded="true" />
             <element signature="e#6309#6315#0#HTML" expanded="true" />
             <element signature="n#style#0;n#button#1;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#6469#6475#0#HTML" expanded="true" />
-            <element signature="e#6475#6481#0#HTML" expanded="true" />
-            <element signature="e#6465#6471#0#HTML" expanded="true" />
+            <element signature="e#7505#7511#0#HTML" expanded="true" />
+            <element signature="e#7511#7517#0#HTML" expanded="true" />
+            <element signature="e#7517#7523#0#HTML" expanded="true" />
             <element signature="n#style#0;n#button#2;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7707#7713#0#HTML" expanded="true" />
+            <element signature="e#7713#7719#0#HTML" expanded="true" />
+            <element signature="e#7719#7725#0#HTML" expanded="true" />
+            <element signature="e#7725#7731#0#HTML" expanded="true" />
+            <element signature="e#7731#7737#0#HTML" expanded="true" />
+            <element signature="e#7737#7743#0#HTML" expanded="true" />
+            <element signature="e#7706#7712#0#HTML" expanded="true" />
+            <element signature="e#7712#7718#0#HTML" expanded="true" />
+            <element signature="e#7718#7724#0#HTML" expanded="true" />
+            <element signature="e#7725#7731#0#HTML" expanded="true" />
+            <element signature="e#7731#7737#0#HTML" expanded="true" />
+            <element signature="e#7737#7743#0#HTML" expanded="true" />
+            <element signature="e#7743#7749#0#HTML" expanded="true" />
+            <element signature="e#7749#7755#0#HTML" expanded="true" />
+            <element signature="e#7755#7761#0#HTML" expanded="true" />
+            <element signature="e#7761#7767#0#HTML" expanded="true" />
+            <element signature="e#7767#7773#0#HTML" expanded="true" />
+            <element signature="e#7773#7779#0#HTML" expanded="true" />
+            <element signature="e#7779#7785#0#HTML" expanded="true" />
+            <element signature="e#7785#7791#0#HTML" expanded="true" />
+            <element signature="e#7791#7797#0#HTML" expanded="true" />
+            <element signature="e#7797#7803#0#HTML" expanded="true" />
+            <element signature="e#7803#7809#0#HTML" expanded="true" />
+            <element signature="e#7809#7815#0#HTML" expanded="true" />
+            <element signature="e#7815#7821#0#HTML" expanded="true" />
+            <element signature="e#7821#7827#0#HTML" expanded="true" />
+            <element signature="e#7827#7833#0#HTML" expanded="true" />
+            <element signature="e#7833#7839#0#HTML" expanded="true" />
+            <element signature="e#7839#7845#0#HTML" expanded="true" />
+            <element signature="e#7845#7851#0#HTML" expanded="true" />
+            <element signature="e#7851#7857#0#HTML" expanded="true" />
+            <element signature="e#7857#7863#0#HTML" expanded="true" />
+            <element signature="e#7863#7869#0#HTML" expanded="true" />
+            <element signature="e#7869#7875#0#HTML" expanded="true" />
+            <element signature="e#7875#7881#0#HTML" expanded="true" />
+            <element signature="e#7881#7887#0#HTML" expanded="true" />
+            <element signature="e#7887#7893#0#HTML" expanded="true" />
+            <element signature="e#7893#7899#0#HTML" expanded="true" />
+            <element signature="e#7899#7905#0#HTML" expanded="true" />
+            <element signature="e#8135#8141#0#HTML" expanded="true" />
+            <element signature="e#8141#8147#0#HTML" expanded="true" />
+            <element signature="e#8147#8153#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view_marks.php">
+    <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="84">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>

@@ -10,12 +10,12 @@
 		$rsl = mysqli_query($con, $sqll);
 		if(mysqli_num_rows($rsl))
 		{
-			$sqll6="UPDATE marks2 SET TotalMarks = $totalmarks WHERE CourseName='$selecourse'";
+			$sqll6="UPDATE marks2 SET MaximumMarks = $totalmarks WHERE CourseName='$selecourse'";
 			$rsl6 = mysqli_query($con, $sqll6);
 		}
 		else
 		{
-			$sql3 = "INSERT INTO marks2(CourseName,TotalMarks) VALUES ('$selecourse',$totalmarks)";
+			$sql3 = "INSERT INTO marks2(CourseName,MaximumMarks) VALUES ('$selecourse',$totalmarks)";
 			$rs3 = mysqli_query($con, $sql3);
 		}
 

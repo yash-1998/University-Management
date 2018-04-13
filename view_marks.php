@@ -89,11 +89,16 @@
 							mysqli_select_db($con,"university");
 							$selecourse = $_SESSION['selectedcourse'];
 							$sql = "Select * from studentcourse where CourseName='$selecourse'";
-							$sql4 = "Select TotalMarks from marks2 where CourseName='$selecourse'";
+							$sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse'";
 							$rs4 = mysqli_query($con, $sql4);
 							$row4 = mysqli_fetch_array($rs4);
-							$totalmarks = $row4['TotalMarks'];
-							//echo "<script>alert(\"$sql\");</script>";
+							$totalmarks = $row4['MaximumMarks'];
+							if($totalmarks == 0)
+							{
+								$error = "Marks Not Yet Entered";
+								echo "<script>alert(\"$error\");</script>";
+								echo("<script>location.href = 'http://localhost/university/dbms/view_marks1.php';</script>");
+							}
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))
 							{
@@ -115,15 +120,22 @@
 									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
 									</tr>';
 								}
-								else
+								else if($percentage!=0)
 								{
 									echo '<tr style="background-color: #ed4528"><td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalmarks . '</td>';
-									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
+									echo '<td class = "text-center">' . $row3['Scored'] . '</td>';
 									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
 									</tr>';
 								}
+								else
+                                {
+                                    echo '<tr style="background-color: #ffc107"><td>' . $row['Enno'] . '</td>';
+									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
+									echo '<td class = "text-center">' . $totalmarks . '</td>';
+                                    echo '<td colspan="2" class="text-center">Marks Not Added Yet</td>';
+                                }
 							}
 							?>
 							</tbody>
