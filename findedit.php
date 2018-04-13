@@ -149,6 +149,27 @@
               <label for="adminemail">Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?> readonly>
             </div>
+
+          <div class="form-group">
+              <label for="adminemail">Courses : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+              <input class="form-control" type="text" value="<?php
+			  $con=mysqli_connect("localhost","root","");
+			  mysqli_select_db($con,"university");
+			  $enno = $_SESSION['roll'];
+			  $sql = "Select CourseName from studentcourse where Enno='$enno'";
+			  $rs = mysqli_query($con, $sql);
+			  if(mysqli_num_rows($rs))
+			  {
+				  while ($row = mysqli_fetch_array($rs))
+				  {
+					  $Cour = $row['CourseName'];
+					  echo $Cour."  ,  ";
+				  }
+			  }
+			  ?>" readonly>
+          </div>
+
           </form>
 
           <!-- Icon Cards-->

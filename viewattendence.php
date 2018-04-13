@@ -99,7 +99,9 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Attendence</li>
+            <li class="breadcrumb-item"><a href="attendence.php">Attendence</a></li>
+
+			<li class="breadcrumb-item active">View Attendence</li>
 		</ol>
 		<div class="container">
 			<div class="card card-login mx-auto mt-9">

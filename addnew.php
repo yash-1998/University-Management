@@ -1,5 +1,14 @@
 <?php
     session_start();
+    if(isset($_GET['branchh']))
+    {
+        $_SESSION['branchh']=$_GET['branchh'];
+        $branc =$_GET['branchh'];
+    }
+    else
+    {
+        $_SESSION['branchh']="Select Branch";
+    }
     if(isset($_POST['add']))
     {
 		function GetImageExtension($imagetype)
@@ -45,6 +54,15 @@
             {
                 $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
                 $rs = mysqli_query($con, $sql);
+				if(!empty($_POST['check_list']))
+				{
+                    // Loop to store and display values of individual checked checkbox.
+					foreach($_POST['check_list'] as $selected)
+					{
+						$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$enno','$selected')";
+						$rs = mysqli_query($con, $sql);
+					}
+				}
                 $error = "Susscessfully registered";
                 echo "<script type='text/javascript'>alert(\"$error\");</script>";
                 echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
@@ -148,6 +166,10 @@
                   <label for="dob">Date of Birth : &nbsp;&nbsp;&nbsp;</label>
                   <input name="adddob" class="form-control" type="date" placeholder="Date of Birth" id="dob" required>
               </div>
+
+              <div class="form-group" >
+                  <input name="uploadedimage" class="form-control" type="file"  required>
+              </div>
               <div class="form-group" >
                   <label for="addemail">Email : &nbsp;&nbsp;&nbsp;</label>
                   <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail" required>
@@ -170,12 +192,44 @@
               </div>
               <div class="form-group" >
                   <label for="addbranch">Branch : &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addbranch" class="form-control" type="textarea" placeholder="Branch" id="addbranch" required>
+                  <select name="addbranch" class="form-control" type="select" id="addbranch" required>
+                        <option>Select Branch</option>
+                        <?php
+                            $con=mysqli_connect("localhost","root","");
+                            mysqli_select_db($con,"university");
+                            $sql = "Select DISTINCT  Branch from courses";
+                            $rs = mysqli_query($con, $sql);
+                            if(mysqli_num_rows($rs))
+                            {
+                                while ($row = mysqli_fetch_array($rs))
+                                {
+                                    $brn = $row['Branch'];
+									if($_SESSION['branchh']!=$brn)
+                                    echo "<option>".$brn."</option>";
+                                }
+                            }
+                        ?>
+                  </select>
               </div>
               <div class="form-group" >
-                  <input name="uploadedimage" class="form-control" type="file"  required>
-
+                  <label for="addcourses">Courses : &nbsp;&nbsp;&nbsp;</label>
+                  </br>
+                  <?php
+                        $con=mysqli_connect("localhost","root","");
+                        mysqli_select_db($con,"university");
+                        $sql = "Select CourseName from courses";
+                        $rs = mysqli_query($con, $sql);
+                        if(mysqli_num_rows($rs))
+                        {
+                            while ($row = mysqli_fetch_array($rs))
+                            {
+                                $Cour = $row['CourseName'];
+                                echo '<input type="checkbox" name="check_list[]" value='.$Cour.'>'.'&nbsp;&nbsp;&nbsp;'.$Cour.'<br>';
+                            }
+                        }
+                    ?>
               </div>
+
 
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>

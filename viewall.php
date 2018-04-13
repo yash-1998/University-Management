@@ -97,7 +97,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
+                            <tr style="background-color: #20c997">
                                 <th>Enrollment Number</th>
                                 <th>Name</th>
                                 <th>Date Of Birth</th>
@@ -158,7 +158,7 @@
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
-	                            echo '<tr>
+	                            echo '<tr style="background-color: #eac25f">
 	                                        <td>'.$row['Enno'].'</td>
 	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
 	                                        <td>'.$row['Dob'].'</td>

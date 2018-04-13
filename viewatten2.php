@@ -1,36 +1,5 @@
 <?php
 	session_start();
-	if(isset($_POST['addatten']))
-	{
-		$con=mysqli_connect("localhost","root","");
-		mysqli_select_db($con,"university");
-		$selecourse = $_SESSION['selectedcoursea'];
-		$totalclasses = $_POST['maxclasses'];
-		$sql3 = "INSERT INTO attendence2(CourseName,TotalClasses) VALUES ('$selecourse',$totalclasses)";
-		$rs3 = mysqli_query($con, $sql3);
-
-		$sql4 = "Select * from studentcourse where CourseName='$selecourse'";
-		//echo "<script>alert(\"$sql\");</script>";
-		$rs4 = mysqli_query($con, $sql4);
-		while($row4 = mysqli_fetch_array($rs4))
-		{
-			$enno = $row4['Enno'];
-			$sql5 = "Select * from attendence where CourseName='$selecourse' and Enno='$enno'";
-			$rs5 = mysqli_query($con, $sql5);
-			$present = $_POST[$enno];
-			//echo "<script>alert($present);</script>";
-			if(mysqli_num_rows($rs5))
-			{
-				$sql6="UPDATE attendence SET Present = $present WHERE CourseName='$selecourse' and Enno='$enno'";
-				$rs6 = mysqli_query($con, $sql6);
-			}
-			else
-			{
-				$sql7="INSERT INTO attendence(Enno,CourseName,Present) VALUES ('$enno','$selecourse',$present)";
-				$rs7 = mysqli_query($con, $sql7);
-			}
-		}
-	}
 ?>
 <!DOCTYPE html>
 </bod lang="en">
@@ -97,16 +66,20 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Attendence</li>
-		</ol>
+            <li class="breadcrumb-item"><a href="viewattendence.php">Attendence</a></li>
+
+            <li class="breadcrumb-item active">View Attendence</li>
+
+        </ol>
 		<div class="container">
 			<div class="text-center"><h1>Attendence for <?php echo $_SESSION['selectedcourse'];?></h1></div>
+            </br>
 				<div class="card mb-3">
 					<br class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 							<thead>
-							<tr>
+							<tr style="background-color: #20c997">
 								<th class = "text-center">Enrollment Number</th>
 								<th class = "text-center">Name</th>
 								<th class = "text-center">Total Classes</th>
@@ -124,7 +97,12 @@
 							$rs4 = mysqli_query($con, $sql4);
 							$row4 = mysqli_fetch_array($rs4);
 							$totalclass = $row4['TotalClasses'];
-							//echo "<script>alert(\"$sql\");</script>";
+							if($totalclass == 0)
+                            {
+                                $error = "Attendence Not Yet Entered";
+                                echo "<script>alert(\"$error\");</script>";
+                                echo("<script>location.href = 'http://localhost/university/dbms/viewattendence.php';</script>");
+							}
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))
 							{
@@ -139,14 +117,14 @@
 								$percentage = $percentage*100;
 								if($percentage >= 75)
 								{
-									echo '<tr style="background-color: #47ed52"><td>' . $row['Enno'] . '</td>';
+									echo '<tr style="background-color: #8ff296"><td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalclass . '</td>';
 									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
 									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
 									</tr>';
 								}
-								else
+								else if($percentage !=0 )
 								{
 									echo '<tr style="background-color: #ed4528"><td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
@@ -155,6 +133,14 @@
 									echo '<td class = "text-center">' . round($percentage, 2) . "%" . '</td>
 									</tr>';
 								}
+								else
+                                {
+									echo '<tr style="background-color: #ffc107"><td>' . $row['Enno'] . '</td>';
+									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
+									echo '<td class = "text-center">' . $totalclass . '</td>';
+                                    echo '<td colspan="2" class="text-center">Attendence Not Added Yet</td>
+									</tr>';
+                                }
 							}
 							?>
 							</tbody>
