@@ -153,7 +153,11 @@
                   <input name="addemail" class="form-control" type="email" placeholder="Email" id="addemail" required>
               </div>
               <div class="form-group" >
-                  <label for="addcontactno">Contact Number : &nbsp;&nbsp;&nbsp;</label>
+                  <label for="addcontactno">Contact Number 1 : &nbsp;&nbsp;&nbsp;</label>
+                  <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno" required>
+              </div>
+               <div class="form-group" >
+                  <label for="addcontactno">Contact Number 2: &nbsp;&nbsp;&nbsp;</label>
                   <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno" required>
               </div>
               <div class="form-group" >
