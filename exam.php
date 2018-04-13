@@ -69,7 +69,7 @@
 		<div class="row">
 			<div class="col-xl-2 col-sm-4 mb-3">
 				<div class="card text-white bg-primary o-hidden h-100">
-					<a class="card-footer text-white clearfix small z-1" href="view_marks.php">
+					<a class="card-footer text-white clearfix small z-1" href="view_marks1.php">
 						<span class="float-left">View Marks</span>
 						<span class="float-right">
                 <i class="fa fa-angle-right"></i>

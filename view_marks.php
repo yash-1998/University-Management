@@ -66,8 +66,8 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active text-white">Attendence</li>
-		</ol>
+			<li class="breadcrumb-item text-white active">Marks</li>
+        </ol>
 		<div class="container">
 			<div class="text-center"><h1>Marks for <?php echo $_SESSION['selectedcourse'];?></h1></div>
 				<div class="card mb-3">
