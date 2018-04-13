@@ -31,17 +31,17 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
+          <a class="nav-link text-white" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center text-white" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -51,56 +51,64 @@
            <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color : #ede1c7">
         <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb" style = "margin-bottom: 7px;">
+        <ol class="breadcrumb" style = "margin-bottom: 7px;background-color: #343a40;">
             <li class="breadcrumb-item">
             <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
             <a href="courses.php">Courses</a>
             </li>
-            <li class="breadcrumb-item active">
-            ViewAll
+            <li class="breadcrumb-item active text-white">
+            All Courses
             </li>
         </ol>
         <form action="cviewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Course">
-	        <select name="depsearch" class="depsearch" type="Select" id="depselect">
-	        	<option value="">Select Department</option>
-	            <option value="IT">IT</option>
-	            <option value="ECE">ECE</option>
-	            <option value="Mech">Mech</option>
-	            <option value="CSE">CSE</option> 
-	        </select>
-	        <select class = "typesearch" type="Select" id="typeselect" name="typesearch">
-	        	<option value="">Select Type</option>
-	            <option value="Theory">Theory</option>
-	            <option value="Lab">Lab</option>	
-	        </select>
-          </select>
-          <select class = "creditsearch" type="Select" id="creditselect" name="creditsearch">
-            <option value="">Select credits</option>
-              <option value="2">2</option>
-              <option value="3">3</option>  
-          </select>
-	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
+            <select name="depsearch" class="semsearch" type="Select" id="semselect">
+                <option value="">Select Department</option>
+                <?php
+                    $con=mysqli_connect("localhost","root","");
+                    mysqli_select_db($con,"university");
+                    $sql = "Select distinct Branch from courses";
+                    $rs = mysqli_query($con, $sql);
+                    while($row = mysqli_fetch_array($rs))
+                    {
+                        $brn = $row['Branch'];
+                        echo '<option>'.$brn.'</option>';
+                    }
+
+	            ?>
+            </select>
+            <select class = "branchsearch" type="Select" id="branchselect" name="typesearch">
+                <option value="">Select Type</option>
+                <option value="Theory">Theory</option>
+                <option value="Lab">Lab</option>
+            </select>
+
+            <select class = "branchsearch" type="Select" id="branchselect" name="creditsearch">
+                <option value="">Select Credits</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 0.5%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
         <div class="card mb-3">
-            <div class="card-body">
-                <div class="table-responsive">
+            <br class="card-body" >
+                <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
+                            <tr style="background-color : #20c997">
                                 <th>Course Name</th>
-                                <th>Department Name</th>
+                                <th>Department</th>
                                 <th>Type</th>
                                 <th>Credits</th>
                             </tr>
@@ -113,24 +121,23 @@
 	                        $scourse="";
 	                        $sdept="";
 	                        $stype="";
-                          $creds=0;
+                            $creds=0;
 	                        $filter=0;
 	                        if(isset($_POST['filter']))
 	                        {
 	                        	if(isset($_POST['namesearch']))
 						                    $scourse=$_POST['namesearch']; 
 						        
-						                if(isset($_POST['depsearch']))
+	                        	if(isset($_POST['depsearch']))
 						                    $sdept=$_POST['depsearch']; 
 						        
-						                if(isset($_POST['typesearch']))
+	                        	if(isset($_POST['typesearch']))
 						                    $stype=$_POST['typesearch'];
 
-                            if(isset($_POST['creditsearch']))
-                                $creds=$_POST['creditsearch'];
+                                if(isset($_POST['creditsearch']))
+                                    $creds=$_POST['creditsearch'];
+                                $flag1=0;
 
-						                $flag1=0;
-		                        
 		                        if($scourse!="")
 		                        {
 		                        	$sql.=" where CourseName like '$scourse%'";
@@ -146,14 +153,15 @@
 		                        	
 		                        	$flag2=1;
 		                        }
-                            $flag3 = 0;
+                                $flag3 = 0;
 		                        if($stype!="")
 		                        {	
 		                        	if($flag2==1 || $flag1==1)
 		                        		$sql.=" and Type = '$stype'";
 		                        	else
 		                        		$sql.=" where Type = '$stype'";
-                              $flag3 = 1;
+
+		                        	$flag3 = 1;
 		                        }
 
                             if($creds!=0)
@@ -165,11 +173,10 @@
                             }
 		                    }
                             $sql.=" order by CourseName,DeptName,Type,Credits";
-	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
-	                            echo '<tr>
+	                            echo '<tr style="background-color: #eac25f">
 	                                        <td>'.$row['CourseName'].'</td>
 	                                        <td>'.$row['DeptName'].'</td>
 	                                        <td>'.$row['Type'].'</td>
@@ -180,7 +187,7 @@
 		              	</tbody>
 		            </table>
 		        </div>
-		    </div>
+		    </br>
 		</div>
     </div>
       <!-- Icon Cards-->
@@ -190,9 +197,9 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
+    <footer class="sticky-footer" style="background-color : #343a40;">
       <div class="container">
-        <div class="text-center">
+        <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>
         </div>
       </div>

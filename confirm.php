@@ -33,7 +33,7 @@
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('yashcoderiiita@gmail.com', 'Yash');
+                $mail->setFrom('university@noreply.com', 'NoReply');
                 $mail->addAddress($remail);     // Add a recipient
                 //$mail->addAddress('ellen@example.com');               // Name is optional
                 //$mail->addReplyTo('info@example.com', 'Information');
@@ -46,8 +46,8 @@
 
                 //Content
                 $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'OTP';
-                $mail->Body    = 'Enter this OTP to register successfully. '.$otp;
+                $mail->Subject = 'Verification Code';
+                $mail->Body    = 'Enter this Verification Code to register successfully. '.$otp;
                 //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $mail->send();
@@ -101,9 +101,12 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" style="background-image: url('uni2.JPG');
+   background-repeat:no-repeat;
+
+   background-size:cover;">
   <div class="container">
-    <div class="card card-register mx-auto mt-5">
+    <div class="card card-register mx-auto mt-5" style="background-color: #ede1c7">
       <div class="card-header">Confirm your registration</div>
       <div class="card-body">
         <form action="confirm.php" method="POST">
@@ -112,7 +115,7 @@
                 <div class="col-md-6" id="otp" style="margin: auto;">
                 <label for="exampleConfirmPassword">Enter Verification Code</label>
                 </br>
-                <input name="rotp" class="form-control" id="exampleConfirmPassword" type="text" placeholder="Verification Code">
+                <input style="background-color: #ede1c7" name="rotp" class="form-control" id="exampleConfirmPassword" type="text" placeholder="Verification Code">
                 </br>   
                 <button class="btn btn-primary btn-block" name="registerbtn">Register</button>
                 </div>

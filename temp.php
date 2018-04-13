@@ -64,11 +64,11 @@ td{
 
   <h1>Fixed Table header</h1>
  <div class="card-body">
-  <div class="table-responsive"> 
+  <div class="table-responsive" style="background-color : #ede1c7">
      <div class="tbl-header">
        <table id="myTable"  >
        <thead>
-        <tr>
+        <tr style="background-color : #20c997">
           <th>Code</th>
           <th>Company</th>
           <th>Price</th>

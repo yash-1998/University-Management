@@ -2,18 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fec007d-174f-48c3-8737-873bf44ca9ea" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/add_marks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exam.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/iit25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/photo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/update_marks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view_marks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STUDENT.php" beforeDir="false" afterPath="$PROJECT_DIR$/STUDENT.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_marks.php" beforeDir="false" afterPath="$PROJECT_DIR$/add_marks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addatten2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addatten2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addattendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/addattendence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/addnew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admindetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admindetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/attendence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caddnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/caddnew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfindedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfindedit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/confirm.php" beforeDir="false" afterPath="$PROJECT_DIR$/confirm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/sb-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/sb-admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cviewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/cviewall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/department.php" beforeDir="false" afterPath="$PROJECT_DIR$/department.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deptaddnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptaddnew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deptfindedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptfindedit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deptviewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptviewall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_department.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_department.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit_student.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/exam.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/findedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/findedit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update_marks.php" beforeDir="false" afterPath="$PROJECT_DIR$/update_marks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/jquery/jquery.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view_marks.php" beforeDir="false" afterPath="$PROJECT_DIR$/view_marks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewatten2.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewatten2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewattendence.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewattendence.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,29 +49,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="attendence.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/attendence.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-987">
-              <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state relative-caret-position="840">
+              <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addatten2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addatten2.php">
+      <file leaf-file-name="STUDENT.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/STUDENT.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+            <state relative-caret-position="441">
+              <caret line="180" column="7" lean-forward="true" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#6165#6171#0#HTML" expanded="true" />
+                <element signature="e#6171#6177#0#HTML" expanded="true" />
+                <element signature="e#6177#6183#0#HTML" expanded="true" />
+                <element signature="e#6297#6303#0#HTML" expanded="true" />
+                <element signature="e#6303#6309#0#HTML" expanded="true" />
+                <element signature="e#6309#6315#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#6469#6475#0#HTML" expanded="true" />
+                <element signature="e#6475#6481#0#HTML" expanded="true" />
+                <element signature="e#6465#6471#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#button#2;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addnew.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/addnew.php">
+      <file leaf-file-name="findedit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/findedit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="170" column="86" selection-start-line="170" selection-start-column="86" selection-end-line="170" selection-end-column="86" />
+            <state relative-caret-position="356">
+              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_student.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit_student.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="81" column="102" selection-start-line="80" selection-start-column="12" selection-end-line="81" selection-end-column="102" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deletestudent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deletestudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,25 +114,8 @@
       <file leaf-file-name="addattendence.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addattendence.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="112" column="39" lean-forward="true" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
-              <folding>
-                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewatten2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/viewatten2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="103" column="128" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="128" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="143" column="67" lean-forward="true" selection-start-line="139" selection-start-column="36" selection-end-line="143" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -84,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;superman10&quot;</find>
-      <find>University</find>
       <find>title=&quot;Charts&quot;</find>
       <find>fa-area-chart</find>
       <find>\&lt;li class\=\&quot;nav\-item\&quot; data\-toggle\=\&quot;tooltip\&quot; data\-placement\=\&quot;right\&quot; title\=\&quot;Link\&quot;\&gt;\n          \&lt;a class\=\&quot;nav\-link\&quot; href\=\&quot;\#\&quot;\&gt;\n            \&lt;i class\=\&quot;fa fa\-fw fa\-link\&quot;\&gt;\&lt;\/i\&gt;\n            \&lt;span class\=\&quot;nav\-link\-text\&quot;\&gt;Link\&lt;\/span\&gt;\n          \&lt;\/a\&gt;\n        \&lt;\/li\&gt;</find>
@@ -95,15 +133,53 @@
       <find>\&lt;li class\=\&quot;nav\-item\&quot; data\-toggle\=\&quot;tooltip\&quot; data\-placement\=\&quot;right\&quot; title\=\&quot;Admin\&quot;\&gt;\n          \&lt;a class\=\&quot;nav\-link\&quot; href\=\&quot;admindetails\.php\&quot;\&gt;\n            \&lt;i class\=\&quot;fa fa\-fw fa\-user\&quot;\&gt;\&lt;\/i\&gt;\n            \&lt;span class\=\&quot;nav\-link\-text\&quot;\&gt;Admin Details\&lt;\/span\&gt;\n          \&lt;\/a\&gt;\n        \&lt;\/li\&gt;\n        \&lt;li class\=\&quot;nav\-item\&quot; data\-toggle\=\&quot;tooltip\&quot; data\-placement\=\&quot;right\&quot; title\=\&quot;Departments\&quot;\&gt;\n          \&lt;a class\=\&quot;nav\-link\&quot; href\=\&quot;department\.php\&quot;\&gt;\n              \&lt;i class\=\&quot;fa fa\-fw fa\-bank\&quot;\&gt;\&lt;\/i\&gt;\n              \&lt;span class\=\&quot;nav\-link\-text\&quot;\&gt;Departments\&lt;\/span\&gt;\n          \&lt;\/a\&gt;\n        \&lt;\/li\&gt;</find>
       <find>\&lt;li class\=\&quot;nav\-item\&quot; data\-toggle\=\&quot;tooltip\&quot; data\-placement\=\&quot;right\&quot; title\=\&quot;Admin\&quot;\&gt;\n          \&lt;a class\=\&quot;nav\-link\&quot; href\=\&quot;admindetails\.php\&quot;\&gt;\n            \&lt;i class\=\&quot;fa fa\-fw fa\-user\&quot;\&gt;\&lt;\/i\&gt;\n            \&lt;span class\=\&quot;nav\-link\-text\&quot;\&gt;Admin Details\&lt;\/span\&gt;\n          \&lt;\/a\&gt;\n        \&lt;\/li\&gt;</find>
       <find>addattendance</find>
+      <find>&lt;div class=&quot;content-wrapper&quot;&gt;</find>
+      <find>&lt;div class=&quot;content-wrapper&quot;</find>
+      <find>&lt;div class=&quot;content-wrapper&quot; id=&quot;forbackgr&quot;&gt;</find>
+      <find>&lt;li class=&quot;breadcrumb-item active</find>
+      <find>&lt;li class=&quot;breadcrumb-item active&quot;&gt;</find>
+      <find>&lt;ol class=&quot;breadcrumb&quot;&gt;</find>
+      <find>&lt;b style=&quot;color: gray ;&quot;&gt;</find>
+      <find>&lt;ol class=&quot;breadcrumb&quot; style = &quot;margin-bottom: 7px;&quot;&gt;</find>
+      <find>&lt;ol class=&quot;breadcrumb&quot; style = &quot;margin-bottom: 7px</find>
+      <find>&lt;tr</find>
+      <find>&lt;tr&gt;</find>
+      <find>\&lt;footer class\=\&quot;sticky\-footer\&quot;\&gt;\n      \&lt;div class\=\&quot;container\&quot;\&gt;\n        \&lt;div class\=\&quot;text\-center\&gt;\n          \&lt;small\&gt;Copyright \© Funkyfunks 2018\&lt;\/small\&gt;\n        \&lt;\/div\&gt;\n      \&lt;\/div\&gt;\n    \&lt;\/footer\&gt;</find>
+      <find>&lt;footer class=&quot;sticky-footer&quot;&gt;       &lt;div class=&quot;container&quot;&gt;         &lt;div class=&quot;text-center&gt;           &lt;small&gt;Copyright © Funkyfunks 2018&lt;/small&gt;         &lt;/div&gt;       &lt;/div&gt;     &lt;/footer&gt;</find>
+      <find>&lt;footer class=&quot;sticky-footer&quot;&gt;</find>
+      <find>\&lt;div class\=\&quot;container\&quot;\&gt;\n        \&lt;div class\=\&quot;text\-center\&quot;\&gt;</find>
+      <find>&lt;div class=&quot;text-center&quot;&gt;</find>
+      <find>&lt;div class=&quot;table-responsive&quot;&gt;</find>
+      <find>&lt;a class=&quot;nav-link&quot; data-toggle=&quot;modal&quot; data-target=&quot;#exampleModal&quot;&gt;</find>
+      <find>&lt;a class=&quot;nav-link&quot;</find>
+      <find>&lt;a class=&quot;nav-link&quot; text-white</find>
+      <find>&lt;a class=&quot;nav-link text-center&quot; id=&quot;sidenavToggler&quot;&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;&quot;</replace>
       <replace>university</replace>
       <replace>title=&quot;Admin&quot;</replace>
       <replace>fa-user</replace>
-      <replace />
       <replace>University Management System</replace>
       <replace>&lt;li class=&quot;nav-item&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Admin&quot;&gt;           &lt;a class=&quot;nav-link&quot; href=&quot;admindetails.php&quot;&gt;             &lt;i class=&quot;fa fa-fw fa-user&quot;&gt;&lt;/i&gt;             &lt;span class=&quot;nav-link-text&quot;&gt;Admin Details&lt;/span&gt;           &lt;/a&gt;         &lt;/li&gt;         &lt;li class=&quot;nav-item&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Departments&quot;&gt;           &lt;a class=&quot;nav-link&quot; href=&quot;department.php&quot;&gt;               &lt;i class=&quot;fa fa-fw fa-bank&quot;&gt;&lt;/i&gt;               &lt;span class=&quot;nav-link-text&quot;&gt;Departments&lt;/span&gt;           &lt;/a&gt;         &lt;/li&gt;</replace>
+      <replace>&lt;div class=&quot;content-wrapper&quot; id=&quot;forbackgr&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;content-wrapper&quot; style=&quot;background-color : #ede1c7&quot;&gt;</replace>
+      <replace>&lt;li class=&quot;breadcrumb-item active text-white</replace>
+      <replace>&lt;li class=&quot;breadcrumb-item active text-white&quot;&gt;</replace>
+      <replace>&lt;ol class=&quot;breadcrumb&quot; style=&quot;background-color: #343a40&quot; &gt;</replace>
+      <replace>&lt;b style=&quot;color: white ;&quot;&gt;</replace>
+      <replace>&lt;ol class=&quot;breadcrumb&quot; style = &quot;margin-bottom: 7px;background-color=&quot;&gt;</replace>
+      <replace>&lt;ol class=&quot;breadcrumb&quot; style = &quot;margin-bottom: 7px;background-color: #343a40&quot;&gt;</replace>
+      <replace>&lt;tr style=&quot;background-color : #20c997&quot;&gt;</replace>
+      <replace />
+      <replace>&lt;footer class=&quot;sticky-footer&quot; style=&quot;background-color : &gt;</replace>
+      <replace>&lt;footer class=&quot;sticky-footer&quot; style=&quot;background-color : #343a40;&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;text-center text-white&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;table-responsive&quot; style=&quot;background-color : #ede1c7&quot;&gt;</replace>
+      <replace>&lt;a class=&quot;nav-link text-white&quot; data-toggle=&quot;modal&quot; data-target=&quot;#exampleModal&quot;&gt;</replace>
+      <replace>&lt;a class=&quot;nav-link&quot; text-white</replace>
+      <replace>&lt;a class=&quot;nav-link text-white&quot;</replace>
+      <replace>&lt;a class=&quot;nav-link text-center text-white&quot; id=&quot;sidenavToggler&quot;&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -112,34 +188,39 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/confirm.php" />
-        <option value="$PROJECT_DIR$/cviewall.php" />
         <option value="$PROJECT_DIR$/fpdfdemo.php" />
         <option value="$PROJECT_DIR$/edit_department.php" />
         <option value="$PROJECT_DIR$/department.php" />
         <option value="$PROJECT_DIR$/courses.php" />
-        <option value="$PROJECT_DIR$/STUDENT.php" />
-        <option value="$PROJECT_DIR$/admindetails.php" />
         <option value="$PROJECT_DIR$/deptfindedit.php" />
         <option value="$PROJECT_DIR$/deptaddnew.php" />
         <option value="$PROJECT_DIR$/cfindedit.php" />
         <option value="$PROJECT_DIR$/caddnew.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/coursedropdown.php" />
         <option value="$PROJECT_DIR$/branchdropdown.php" />
         <option value="$PROJECT_DIR$/new1.php" />
         <option value="$PROJECT_DIR$/addattendance.php" />
         <option value="$PROJECT_DIR$/attendence.php" />
-        <option value="$PROJECT_DIR$/css/sb-admin.css" />
-        <option value="$PROJECT_DIR$/findedit.php" />
-        <option value="$PROJECT_DIR$/edit_student.php" />
         <option value="$PROJECT_DIR$/viewattendence.php" />
-        <option value="$PROJECT_DIR$/viewall.php" />
         <option value="$PROJECT_DIR$/addattendence.php" />
+        <option value="$PROJECT_DIR$/view_marks.php" />
+        <option value="$PROJECT_DIR$/css/sb-admin.css" />
         <option value="$PROJECT_DIR$/viewatten2.php" />
         <option value="$PROJECT_DIR$/addatten2.php" />
+        <option value="$PROJECT_DIR$/deptviewall.php" />
+        <option value="$PROJECT_DIR$/admindetails.php" />
+        <option value="$PROJECT_DIR$/cviewall.php" />
+        <option value="$PROJECT_DIR$/viewall.php" />
         <option value="$PROJECT_DIR$/addnew.php" />
+        <option value="$PROJECT_DIR$/register.php" />
+        <option value="$PROJECT_DIR$/confirm.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/findedit.php" />
+        <option value="$PROJECT_DIR$/edit_student.php" />
+        <option value="$PROJECT_DIR$/deletestudent.php" />
+        <option value="$PROJECT_DIR$/STUDENT.php" />
       </list>
     </option>
   </component>
@@ -180,6 +261,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="DBMS" type="cbb8eebc:String" user="DBMS" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,17 +283,6 @@
               <item name="DBMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="DBMS" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="DBMS" type="cbb8eebc:String" user="DBMS" />
             </path>
           </expand>
           <select />
@@ -248,12 +329,15 @@
       <workItem from="1522766817993" duration="8079000" />
       <workItem from="1522843310118" duration="36370000" />
       <workItem from="1523014613346" duration="5012000" />
-      <workItem from="1523076125625" duration="18625000" />
+      <workItem from="1523076125625" duration="25161000" />
+      <workItem from="1523349791081" duration="12000" />
+      <workItem from="1523480415727" duration="8657000" />
+      <workItem from="1523596463987" duration="3900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72418000" />
+    <option name="totallyTimeSpent" value="91523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -264,20 +348,20 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.35630497" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.035190616" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1522694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13689604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
     </layout>
   </component>
@@ -293,34 +377,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="145" column="87" selection-start-line="145" selection-start-column="87" selection-end-line="145" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STUDENT.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attendence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1722">
-          <caret line="82" column="124" selection-start-line="82" selection-start-column="124" selection-end-line="82" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/viewattendence.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4011">
@@ -332,9 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
           <caret line="95" column="53" selection-start-line="95" selection-start-column="53" selection-end-line="95" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -422,31 +475,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/confirm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cviewall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit_department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="101" column="56" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -485,20 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admindetails.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursedropdown.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -510,13 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="145" column="87" selection-start-line="145" selection-start-column="87" selection-end-line="145" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -534,20 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STUDENT.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="51" column="100" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="582" column="1" selection-start-line="582" selection-start-column="1" selection-end-line="582" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -559,47 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="80" lean-forward="true" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
-          <folding>
-            <element signature="e#4984#4990#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/findedit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="162" column="39" selection-start-line="162" selection-start-column="39" selection-end-line="162" selection-end-column="39" />
-          <folding>
-            <element signature="e#8242#8248#0#HTML" expanded="true" />
-            <element signature="e#8248#8254#0#HTML" expanded="true" />
-            <element signature="e#8254#8260#0#HTML" expanded="true" />
-            <element signature="e#8260#8266#0#HTML" expanded="true" />
-            <element signature="e#8266#8272#0#HTML" expanded="true" />
-            <element signature="e#8272#8278#0#HTML" expanded="true" />
-            <element signature="e#8278#8284#0#HTML" expanded="true" />
-            <element signature="e#8284#8290#0#HTML" expanded="true" />
-            <element signature="e#8290#8296#0#HTML" expanded="true" />
-            <element signature="e#8296#8302#0#HTML" expanded="true" />
-            <element signature="e#8302#8308#0#HTML" expanded="true" />
-            <element signature="e#8308#8314#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit_student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="165" column="18" lean-forward="true" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
-          <folding>
-            <element signature="e#9930#9936#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/viewall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="160" column="68" selection-start-line="160" selection-start-column="68" selection-end-line="160" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -612,44 +568,184 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/attendence.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-987">
+        <state relative-caret-position="-965">
           <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changelog.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2953">
+          <caret selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="72" column="53" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_marks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sb-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="583" lean-forward="true" selection-start-line="583" selection-end-line="583" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_department.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="88" column="66" lean-forward="true" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/viewatten2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="103" column="128" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="128" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="592">
+          <caret line="64" column="64" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addattendence.php">
+    <entry file="file://$PROJECT_DIR$/admindetails.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="112" column="39" lean-forward="true" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addatten2.php">
+    <entry file="file://$PROJECT_DIR$/deptviewall.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+        <state relative-caret-position="-18">
+          <caret line="102" column="28" lean-forward="true" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="178" column="32" selection-start-line="178" selection-start-column="32" selection-end-line="178" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cviewall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="82" column="50" lean-forward="true" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/confirm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="117" column="57" selection-start-line="117" selection-start-column="57" selection-end-line="117" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2016">
+          <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addnew.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="170" column="86" selection-start-line="170" selection-start-column="86" selection-end-line="170" selection-end-column="86" />
+        <state relative-caret-position="231">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/findedit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addatten2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="143" column="75" lean-forward="true" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addattendence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="143" column="67" lean-forward="true" selection-start-line="139" selection-start-column="36" selection-end-line="143" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="81" column="102" selection-start-line="80" selection-start-column="12" selection-end-line="81" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deletestudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STUDENT.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="180" column="7" lean-forward="true" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6165#6171#0#HTML" expanded="true" />
+            <element signature="e#6171#6177#0#HTML" expanded="true" />
+            <element signature="e#6177#6183#0#HTML" expanded="true" />
+            <element signature="e#6297#6303#0#HTML" expanded="true" />
+            <element signature="e#6303#6309#0#HTML" expanded="true" />
+            <element signature="e#6309#6315#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6469#6475#0#HTML" expanded="true" />
+            <element signature="e#6475#6481#0#HTML" expanded="true" />
+            <element signature="e#6465#6471#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#button#2;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
