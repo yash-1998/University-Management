@@ -3,13 +3,35 @@
     if(isset($_POST['add']))
     {
         $cCourseName = $_SESSION['coursequery'];
-        $cDeptName=$_POST['cDeptName']; 
-        $cType=$_POST['cType']; 
         $cCredits=$_POST['cCredits'];
+        $cBranchName=$_POST['cBranchName'] ;
         $con = mysqli_connect("localhost", "root","");
-        mysqli_select_db($con, "university");
-        $sql = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
-        $rs = mysqli_query($con, $sql);
+        $f1=0 ; $f2=0 ;
+        if (!empty($_POST['item1'])) $f1=1 ; 
+        if (!empty($_POST['item2'])) $f2=1 ;
+        if ($f1==1 || $f2==1)
+        {
+              mysqli_select_db($con, "university");
+             if($f1==1)
+             {
+              $sql = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
+              $rs = mysqli_query($con, $sql);
+             }    
+             if($f2==1)
+             {
+              $sq2 = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$cCredits')";
+              $rs2 = mysqli_query($con, $sq2);
+             } 
+
+              $sql3 = "INSERT INTO coursebranch(CourseName,Branch) VALUES ('$cCourseName','$cBranchName')";
+              $rs3 = mysqli_query($con, $sql3);   
+        } 
+       else
+       {
+         $error = "Select Type";
+         echo "<script type='text/javascript'>alert(\"$error\");</script>";
+         echo("<script>location.href = 'http://localhost/university/dbms/caddnew.php';</script>");
+       }
         $error = "Susscessfully registered";
         echo "<script type='text/javascript'>alert(\"$error\");</script>";
         echo("<script>location.href = 'http://localhost/university/dbms/courses.php';</script>");
@@ -103,9 +125,14 @@
               <label for="cBranchname"> Branch: &nbsp;&nbsp;&nbsp;</label>
               <input name="cBranchName" class="form-control" type="text" placeholder="Branch Name" id="cBranchName" required>
               </div>
-              <div class="form-group" >
-              <label for="cType">Type : &nbsp;&nbsp;&nbsp;</label>
-              <input name="cType" class="form-control" type="text" placeholder="Type" id="cType" required>
+             <div class="form-group" >
+                  <label for="addtype">Type : &nbsp;&nbsp;&nbsp;</label>
+                  </br>
+                  <?php
+                      
+                        echo '<input type="checkbox" name="item1"  value=Theory>'.'&nbsp;&nbsp;&nbsp;Theory<br>';
+                        echo '<input type="checkbox" name="item2" value=Lab>'.'&nbsp;&nbsp;&nbsp;Lab<br>'; 
+                    ?>
               </div>
               <div class="form-group" >
               <label for="cCredits">Credits : &nbsp;&nbsp;&nbsp;</label>
