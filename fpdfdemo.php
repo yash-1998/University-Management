@@ -1,57 +1,44 @@
+
+
 <?php
-	
-	require('fpdf.php');
-	// Begin configuration
+require('fpdf.php');
 
-	$textColour = array( 255,1,255 );
-	$headerColour = array( 100, 100, 100 );
-	$tableHeaderTopTextColour = array( 255, 255, 255 );
-	$tableHeaderTopFillColour = array( 125, 152, 179 );
-	$tableHeaderTopProductTextColour = array( 0, 0, 0 );
-	$tableHeaderTopProductFillColour = array( 143, 173, 204 );
-	$tableHeaderLeftTextColour = array( 99, 42, 57 );
-	$tableHeaderLeftFillColour = array( 184, 207, 229 );
-	$tableBorderColour = array( 50, 50, 50 );
-	$tableRowFillColour = array( 213, 170, 170 );
-	$reportName = "2009 Widget Sales Report";
-	$reportNameYPos = 160;
-	$logoFile = "widget-company-logo.png";
-	$logoXPos = 50;
-	$logoYPos = 108;
-	$logoWidth = 110;
-	$columnLabels = array( "Q1", "Q2", "Q3", "Q4" );
-	$rowLabels = array( "SupaWidget", "WonderWidget", "MegaWidget", "HyperWidget" );
-	$chartXPos = 20;
-	$chartYPos = 250;
-	$chartWidth = 160;
-	$chartHeight = 80;
-	$chartXLabel = "Product";
-	$chartYLabel = "2009 Sales";
-	$chartYStep = 20000;
+class PDF extends FPDF
+{
+// Page header
+function Header()
+{
+    // Logo
+  //  $this->Image('logo.png',10,6,30);
+    // Arial bold 15
+    $this->SetFont('Arial','B',15);
+    // Move to the right
+    $this->Cell(80);
+    // Title
+    $this->Cell(30,10,'Title',1,0,'C');
+    // Line break
+    $this->Ln(20);
+}
 
-	$chartColours = array
-					(
-	                  	array( 255, 100, 100 ),
-	                  	array( 100, 255, 100 ),
-	                  	array( 100, 100, 255 ),
-	                  	array( 255, 255, 100 ),
-	                );
+// Page footer
+function Footer()
+{
+    // Position at 1.5 cm from bottom
+    $this->SetY(-15);
+    // Arial italic 8
+    $this->SetFont('Arial','I',8);
+    // Page number
+    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+}
+}
 
-	$data = array
-			(
-	          	array( 9940, 10100, 9490, 11730 ),
-	         	array( 19310, 21140, 20560, 22590 ),
-	         	array( 25110, 26260, 25210, 28370 ),
-	          	array( 27650, 24550, 30040, 31980 ),
-	        );
-
-	// End configuration
-	$pdf = new FPDF();
-	$pdf->SetTextColor( $textColour[0], $textColour[1], $textColour[2] );
-	$pdf->AddPage();
-	$pdf->SetFont('Arial','B',18);
-	$pdf->Cell(40,10,'This is a fpdf demo');
-	$pdf->AddPage();
-	$pdf->Cell(40,10,'This is a fpdf demo');
-	$pdf->output();
+// Instanciation of inherited class
+$pdf = new PDF();
+$pdf->AliasNbPages();
+$pdf->AddPage();
+$pdf->SetFont('Times','',12);
+for($i=1;$i<=40;$i++)
+    $pdf->Cell(100,10,'Printing line number '.$i,0,1);
+$pdf->Output();
 ?>
+
