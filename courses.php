@@ -121,29 +121,30 @@
         </li>
         <li class="breadcrumb-item active text-white">Course</li>
       </ol>
-      <div class="row">
-        <div class="col-xl-2 col-sm-4 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="cviewall.php">
-              <span class="float-left">View All</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Course Name" name="coursequery" required>
-              <span class="input-group-append">
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
-              </span>
+        <br>
+        <div class="row" style="margin-left: 15%;">
+            <div class="col-xl-30 col-sm-10 mb-xl-5">
+                <div class="card text-white bg-primary o-hidden h-200">
+                    <a class="card-footer text-center text-white clearfix z-1" href="cviewall.php">
+                        <span class="text-center">View All Courses</span>
+                        <span class="text-center"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
             </div>
-          </form>
-      
+        </div>
+        <div class="card card-login mx-auto mt-9">
+            <div class="card-body " style="background-color : #ede1c7">
+                <form action="" method="POST">
+                    <div class="form-group" >
+                        <input style="text-align: center" class="form-control" type="text" placeholder="Enter Course Name" name="coursequery" required>
+                        <br>
+                        <button class="btn btn-primary btn-block" type="submit" name="findedit">Find/Edit</button>
+                        <br>
+                        <button class="btn btn-primary btn-block" type="submit" style = "background: green" name="addnew">Add New</button>
+                </form>
+            </div>
+        </div>
+    </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->

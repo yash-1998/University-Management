@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Attendence</title>
+	<title>Marks</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -66,28 +66,30 @@
 			</li>
 			<li class="breadcrumb-item active text-white">Exams</li>
 		</ol>
-		<div class="row">
-			<div class="col-xl-2 col-sm-4 mb-3">
-				<div class="card text-white bg-primary o-hidden h-100">
-					<a class="card-footer text-white clearfix small z-1" href="view_marks1.php">
-						<span class="float-left">View Marks</span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-					</a>
-				</div>
-			</div>
-
-			<div class="col-xl-2 col-sm-4 mb-3">
-				<div class="card text-white bg-primary o-hidden h-100" >
-					<a class="card-footer text-white clearfix small z-1" style="background-color: #28a745;" href="update_marks.php">
-						<span class="float-left">Update Marks </span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-					</a>
-				</div>
-			</div>
+        <br>
+        <div class="row" style="margin-left: 15%;">
+            <div class="col-xl-30 col-sm-10 mb-xl-5">
+                <div class="card text-white bg-primary o-hidden h-200">
+                    <a class="card-footer text-center text-white clearfix z-1" href="view_marks1.php">
+                        <span class="text-center">View Marks</span>
+                        <span class="text-center"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-30 col-sm-10 mb-xl-5">
+                <div class="card text-white bg-primary o-hidden h-100" >
+                    <a class="card-footer text-center text-white clearfix z-1" style="background-color: #28a745;" href="update_marks.php">
+                        <span class="text-center">Update Marks</span>
+                        <span class="text-center"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <footer class="sticky-footer" style="background-color : #343a40;">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <small>Copyright © Funkyfunks 2018</small>
+                    </div>
+                </div>
 			<footer class="sticky-footer" style="background-color : #343a40;">
 				<div class="container">
 					<div class="text-center text-white">

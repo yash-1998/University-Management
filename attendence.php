@@ -66,25 +66,21 @@
 			</li>
 			<li class="breadcrumb-item active text-white">Attendence</li>
 		</ol>
-		<div class="row">
-			<div class="col-xl-2 col-sm-4 mb-3">
-				<div class="card text-white bg-primary o-hidden h-100">
-					<a class="card-footer text-white clearfix small z-1" href="viewattendence.php">
-						<span class="float-left">View Attendence</span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
+        <br>
+		<div class="row" style="margin-left: 15%;">
+			<div class="col-xl-30 col-sm-10 mb-xl-5">
+				<div class="card text-white bg-primary o-hidden h-200">
+					<a class="card-footer text-center text-white clearfix z-1" href="viewattendence.php">
+						<span class="text-center">View Attendence</span>
+						<span class="text-center"><i class="fa fa-angle-right"></i></span>
 					</a>
 				</div>
 			</div>
-
-			<div class="col-xl-2 col-sm-4 mb-3">
+			<div class="col-xl-30 col-sm-10 mb-xl-5">
 				<div class="card text-white bg-primary o-hidden h-100" >
-					<a class="card-footer text-white clearfix small z-1" style="background-color: #28a745;" href="addattendence.php">
-						<span class="float-left">Add Attendence</span>
-						<span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
+					<a class="card-footer text-center text-white clearfix z-1" style="background-color: #28a745;" href="addattendence.php">
+						<span class="text-center">Add Attendence</span>
+						<span class="text-center"><i class="fa fa-angle-right"></i></span>
 					</a>
 				</div>
 			</div>

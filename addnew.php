@@ -222,13 +222,13 @@
                   <?php
                         $con=mysqli_connect("localhost","root","");
                         mysqli_select_db($con,"university");
-                        $sql = "Select CourseName from courses";
+                        $sql = "Select CourseName,Type from courses";
                         $rs = mysqli_query($con, $sql);
                         if(mysqli_num_rows($rs))
                         {
                             while ($row = mysqli_fetch_array($rs))
                             {
-                                $Cour = $row['CourseName'];
+                                $Cour = $row['CourseName'] . ' (' . $row['Type'] .')';
                                 echo '<input type="checkbox" name="check_list[]" value='.$Cour.'>'.'&nbsp;&nbsp;&nbsp;'.$Cour.'<br>';
                             }
                         }

@@ -6,35 +6,36 @@
         mysqli_select_db($con,"university");
         $selecourse = $_SESSION['selectedcoursea'];
         $totalclasses = $_POST['maxclasses'];
-        $sqll = "Select * from attendence2 where CourseName='$selecourse'";
+        $type = $_SESSION['selectedtype'];
+        $sqll = "Select * from attendence2 where CourseName='$selecourse' and Type='$type'";
         $rsl = mysqli_query($con, $sqll);
         if(mysqli_num_rows($rsl))
         {
-            $sqll6="UPDATE attendence2 SET TotalClasses = $totalclasses WHERE CourseName='$selecourse'";
+            $sqll6="UPDATE attendence2 SET TotalClasses = $totalclasses WHERE CourseName='$selecourse' and Type='$type'";
             $rsl6 = mysqli_query($con, $sqll6);
         }
         else
         {
-            $sql3 = "INSERT INTO attendence2(CourseName,TotalClasses) VALUES ('$selecourse',$totalclasses)";
+            $sql3 = "INSERT INTO attendence2(CourseName,Type,TotalClasses) VALUES ('$selecourse','$type',$totalclasses)";
             $rs3 = mysqli_query($con, $sql3);
         }
 
-        $sql4 = "Select * from studentcourse where CourseName='$selecourse'";
+        $sql4 = "Select * from studentcourse where CourseName='$selecourse' and Type='$type'";
         $rs4 = mysqli_query($con, $sql4);
         while($row4 = mysqli_fetch_array($rs4))
         {
             $enno = $row4['Enno'];
-            $sql5 = "Select * from attendence where CourseName='$selecourse' and Enno='$enno'";
+            $sql5 = "Select * from attendence where CourseName='$selecourse' and Type='$type' and Enno='$enno'";
             $rs5 = mysqli_query($con, $sql5);
             $present = $_POST[$enno];
             if(mysqli_num_rows($rs5))
             {
-                $sql6="UPDATE attendence SET Present = $present WHERE CourseName='$selecourse' and Enno='$enno'";
+                $sql6="UPDATE attendence SET Present = $present WHERE CourseName='$selecourse' and Type='$type' and Enno='$enno'";
                 $rs6 = mysqli_query($con, $sql6);
             }
             else
             {
-                $sql7="INSERT INTO attendence(Enno,CourseName,Present) VALUES ('$enno','$selecourse',$present)";
+                $sql7="INSERT INTO attendence(Enno,CourseName,Type,Present) VALUES ('$enno','$selecourse','$type',$present)";
                 $rs7 = mysqli_query($con, $sql7);
             }
         }
@@ -112,15 +113,16 @@
             <li class="breadcrumb-item active text-white">Add Attendence</li>
         </ol>
         <div class="container">
-            <div class="text-center"><h1>Add Attendence for <?php echo $_SESSION['selectedcourse']."(".$_SESSION['selectedtype'].")";?></h1></div>
+            <div class="text-center"><h1>Add Attendence for <?php echo $_SESSION['selectedcoursea']." (".$_SESSION['selectedtype'].")";?></h1></div>
             </br>
             <form action="addatten2.php" method="POST">
                 <input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1"  placeholder="Enter the total marks for <?php echo $_SESSION['selectedcoursea']." "."(".$_SESSION['selectedtype'].")";?>"
                 <?php
                         $con=mysqli_connect("localhost","root","");
                         mysqli_select_db($con,"university");
-                        $selecourse = $_SESSION['selectedcourse'];
-                        $sql4 = "Select TotalClasses from attendence2 where CourseName='$selecourse'";
+                        $selecourse = $_SESSION['selectedcoursea'];
+                        $type = $_SESSION['selectedtype'];
+                        $sql4 = "Select TotalClasses from attendence2 where CourseName='$selecourse' and Type='$type'";
                         $rs4 = mysqli_query($con, $sql4);
 				        if(mysqli_num_rows($rs4)>0)
                         {
@@ -146,10 +148,16 @@
                             $con=mysqli_connect("localhost","root","");
                             mysqli_select_db($con,"university");
                             $selecourse = $_SESSION['selectedcoursea'];
-                            $sql = "Select * from studentcourse where CourseName='$selecourse'";
+						    $type = $_SESSION['selectedtype'];
+                            $sql = "Select * from studentcourse where CourseName='$selecourse' and Type='$type'";
                             //echo "<script>alert(\"$sql\");</script>";
                             $rs = mysqli_query($con, $sql);
                             $count=1;
+                            if(mysqli_num_rows($rs)==0)
+                            {
+                                $error="No student registered for this course";
+                                echo '<script>alert('.$error.');</script>';
+                            }
                             while($row = mysqli_fetch_array($rs))
                             {
                                 $enno = $row['Enno'];
@@ -160,7 +168,7 @@
                                     $sql2 = "Select * from student where Enno='$enno'";
                                     $rs2 = mysqli_query($con, $sql2);
                                     $row2 = mysqli_fetch_array($rs2);
-                                    $sqlm = "Select Present from attendence where Enno='$enno' and CourseName='$selecourse'";
+                                    $sqlm = "Select Present from attendence where Enno='$enno' and CourseName='$selecourse' and Type='$type'";
                                     $rsm = mysqli_query($con, $sqlm);
                                     $rowm = mysqli_fetch_array($rsm);
                                     $rowcount=mysqli_num_rows($rsm);

@@ -2,6 +2,7 @@
 	session_start();
 	include('config.php');
 	$branc = "";
+
 	if(isset($_GET['bid']))
     {
         $_SESSION['selectedbranch']=$_GET['bid'];
@@ -13,6 +14,7 @@
     }
     if(isset($_POST['view']))
     {
+		$type="";
         $cours="";
         if(isset($_POST['CourseSelect']))
         {
@@ -22,9 +24,14 @@
                 $cours = $_POST['CourseSelect'];
 			}
         }
-		if($branc=="" || $cours=="")
+        if(isset($_POST['TypeSelect']))
+        {
+			$_SESSION['selectedtype'] = $_POST['TypeSelect'];
+			$type = $_POST['TypeSelect'];
+		}
+		if($branc=="" || $cours=="" || $type=="")
 		{
-			$error = "Please Select a Branch and Course";
+			$error = "Please Select a Branch and Course and type";
 			echo "<script>alert(\"$error\");</script>";
 		}
 		else
@@ -115,7 +122,7 @@
                                 <?php
                                     $con=mysqli_connect("localhost","root","");
                                     mysqli_select_db($con,"university");
-                                    $sql = "Select DISTINCT  Branch from student";
+                                    $sql = "Select DISTINCT Branch from coursebranch";
                                     $rs = mysqli_query($con, $sql);
                                     if(mysqli_num_rows($rs))
                                     {
@@ -139,7 +146,7 @@
 										$con = mysqli_connect("localhost", "root", "");
 										mysqli_select_db($con, "university");
 										$selecbrn = $_SESSION['selectedbranch'];
-										$sql = "Select CourseName from courses where Branch='$selecbrn'";
+										$sql = "Select CourseName from coursebranch where Branch='$selecbrn'";
 										$rs = mysqli_query($con, $sql);
 										if (mysqli_num_rows($rs)) {
 											while ($row = mysqli_fetch_array($rs)) {
@@ -150,6 +157,12 @@
 									}
 								?>
 							</select>
+                            <label for="TypeSelect">Type  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select name="TypeSelect" class="attsearch" type="Select" id="Courseid">
+                                <option value="">Select Type</option>
+                                <option>Theory</option>
+                                <option>Lab</option>
+                            </select>
 						</div>
 						<button class="btn btn-primary btn-block" type="submit" name="view">VIEW</button>
 					</form>

@@ -14,6 +14,7 @@
     if(isset($_POST['view']))
     {
         $cours="";
+        $type="";
         if(isset($_POST['CourseSelect']))
         {
             if($_POST['CourseSelect']!="Select Course")
@@ -22,9 +23,17 @@
                 $cours = $_POST['CourseSelect'];
 			}
         }
-		if($branc=="" || $cours=="")
+		if(isset($_POST['TypeSelect']))
 		{
-			$error = "Please Select a Branch and Course";
+			if($_POST['TypeSelect']!="Select Type")
+			{
+				$_SESSION['selectedtype'] = $_POST['TypeSelect'];
+				$type = $_POST['TypeSelect'];
+			}
+		}
+		if($branc=="" || $cours=="" || $type=="")
+		{
+			$error = "Please Select a Branch,Course and Type";
 			echo "<script>alert(\"$error\");</script>";
 		}
 		else
@@ -117,7 +126,7 @@
                                 <?php
                                     $con=mysqli_connect("localhost","root","");
                                     mysqli_select_db($con,"university");
-                                    $sql = "Select DISTINCT  Branch from student";
+                                    $sql = "Select DISTINCT  Branch from coursebranch";
                                     $rs = mysqli_query($con, $sql);
                                     if(mysqli_num_rows($rs))
                                     {
@@ -141,7 +150,7 @@
 										$con = mysqli_connect("localhost", "root", "");
 										mysqli_select_db($con, "university");
 										$selecbrn = $_SESSION['selectedbranch'];
-										$sql = "Select CourseName from courses where Branch='$selecbrn'";
+										$sql = "Select CourseName from coursebranch where Branch='$selecbrn'";
 										$rs = mysqli_query($con, $sql);
 										if (mysqli_num_rows($rs)) {
 											while ($row = mysqli_fetch_array($rs)) {
@@ -153,6 +162,14 @@
 								?>
 							</select>
 						</div>
+                        <div class="form-group" >
+                            <label for="TypeSelect">Type  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select name="TypeSelect" class="attsearch" type="Select" id="Typeid">
+                                <option>Select Type</option>
+                                <option>Theory</option>
+                                <option>Lab</option>
+                            </select>
+                        </div>
 						<button class="btn btn-primary btn-block" type="submit" name="view">VIEW</button>
 					</form>
 				</div>

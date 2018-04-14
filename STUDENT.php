@@ -89,6 +89,32 @@
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }
+    if(isset($_POST['deletebatch']))
+    {
+        if(isset($_POST['delbatch']))
+        {
+            if($_POST['delbatch']!='Select Batch to delete whole batch')
+            {
+                $delsem=$_POST['delbatch'];
+				$con=mysqli_connect("localhost","root","");
+				mysqli_select_db($con,"university");
+				$sql1 = "Select Enno from Student where CurrentSemester = '".$delsem."'";
+				$rs1 = mysqli_query($con, $sql1);
+				while($row=mysqli_fetch_array($rs1))
+                {
+                    $delenno=$row['Enno'];
+					$sql = "Delete from Student where Enno = '$delenno'";
+					$rs = mysqli_query($con, $sql);
+					$sql = "Delete from studentcourse where Enno = '$delenno'";
+					$rs = mysqli_query($con, $sql);
+					$sql = "Delete from marks where Enno = '$delenno'";
+					$rs = mysqli_query($con, $sql);
+					$sql = "Delete from attendence where Enno = '$delenno'";
+					$rs = mysqli_query($con, $sql);
+                }
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">s
@@ -154,58 +180,52 @@
         </li>
         <li class="breadcrumb-item active text-white">Student</li>
       </ol>
-
-        <div class="col-xl-2 col-sm-4 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <a class="card-footer text-white clearfix small z-1" href="viewall.php">
-              <span class="float-left">View All</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
+        <br>
+        <div class="row" style="margin-left: 15%;">
+            <div class="col-xl-30 col-sm-10 mb-xl-5">
+                <div class="card text-white bg-primary o-hidden h-200">
+                    <a class="card-footer text-center text-white z-1" href="viewall.php">
+                        <span class="text-center">View All Student Details</span>
+                        <span class="text-center"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
         </div>
-        <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
-            <div class="input-group">
-              <input id="enroll" class="form-control" type="text" placeholder="Enter Enrollment No" name="ennoquery" required>
-              <span class="input-group-append">
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete</button>
-              </span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </form>
-        <form>
-            <select id="delbatch" class="form-control" type="select" name="delbatch" required>
-                <option>Select Batch to delete whole batch </option>
-                <?php
-                    $con=mysqli_connect("localhost","root","");
-                    mysqli_select_db($con,"university");
-                    $sql = "Select distinct CurrentSemester from Student order by CurrentSemester";
-                    $rs = mysqli_query($con, $sql);
-                    while($row = mysqli_fetch_array($rs))
-                    {
-                        echo '<option>'.$row['CurrentSemester'].'</option>';
-                    }
-                ?>
-            </select>
-            <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete Whole Batch</button>
-        </form>
-
-      </div>
-
-      <!-- Icon Cards-->
-      <!-- Area Chart Example-->
-          <!-- Example Bar Chart Card-->
-          <!-- Card Columns Example Social Feed-->
-            <!-- Example Social Card-->
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
+        <div class="card card-login mx-auto mt-9">
+            <div class="card-body " style="background-color : #ede1c7">
+                <form action="" method="POST">
+                    <div class="form-group" >
+                        <input style="text-align: center" class="form-control" type="text" placeholder="Enter Student Enrollment Number" name="ennoquery" required>
+                        <br>
+                        <button class="btn btn-primary btn-block" type="submit" name="findedit">Find/Edit</button>
+                        <br>
+                        <button class="btn btn-primary btn-block" type="submit" style = "background: green" name="addnew">Add New</button>
+                        <br>
+                        <button class="btn btn-primary btn-block" type="submit" style = "background: darkred" name="delete">Delete</button>
+                        <br>
+                        <br>
+                </form>
+                <form action="" method="POST">
+                    <select id="delbatch" class="form-control" type="select" name="delbatch" required>
+                        <option>Select Batch to delete whole batch</option>
+						<?php
+						$con=mysqli_connect("localhost","root","");
+						mysqli_select_db($con,"university");
+						$sql = "Select distinct CurrentSemester from Student order by CurrentSemester";
+						$rs = mysqli_query($con, $sql);
+						while($row = mysqli_fetch_array($rs))
+						{
+							echo '<option>'.$row['CurrentSemester'].'</option>';
+						}
+						?>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary btn-block" type="submit" style = "background: darkred" name="deletebatch">Delete Whole Batch</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
     <footer class="sticky-footer" style="background-color : #343a40;">
       <div class="container">
         <div class="text-center text-white">
@@ -249,7 +269,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-
+  </div>
 </body>
 
 </html>

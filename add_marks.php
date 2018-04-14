@@ -4,37 +4,38 @@
 	{
 		$con=mysqli_connect("localhost","root","");
 		mysqli_select_db($con,"university");
-		$selecourse = $_SESSION['selectedcoursea'];
+		$selecourse = $_SESSION['selectedcourse'];
 		$totalmarks = $_POST['maxmarks'];
-		$sqll = "Select * from marks2 where CourseName='$selecourse'";
+		$type = $_SESSION['selectedtype'];
+		$sqll = "Select * from marks2 where CourseName='$selecourse' and Type = '$type'";
 		$rsl = mysqli_query($con, $sqll);
 		if(mysqli_num_rows($rsl))
 		{
-			$sqll6="UPDATE marks2 SET MaximumMarks = $totalmarks WHERE CourseName='$selecourse'";
+			$sqll6="UPDATE marks2 SET MaximumMarks = $totalmarks WHERE CourseName='$selecourse' and Type = '$type'";
 			$rsl6 = mysqli_query($con, $sqll6);
 		}
 		else
 		{
-			$sql3 = "INSERT INTO marks2(CourseName,MaximumMarks) VALUES ('$selecourse',$totalmarks)";
+			$sql3 = "INSERT INTO marks2(CourseName,Type,MaximumMarks) VALUES ('$selecourse','$type',$totalmarks)";
 			$rs3 = mysqli_query($con, $sql3);
 		}
 
-		$sql4 = "Select * from studentcourse where CourseName='$selecourse'";
+		$sql4 = "Select * from studentcourse where CourseName='$selecourse' and Type = '$type'";
 		$rs4 = mysqli_query($con, $sql4);
 		while($row4 = mysqli_fetch_array($rs4))
 		{
 			$enno = $row4['Enno'];
-			$sql5 = "Select * from marks where CourseName='$selecourse' and Enno='$enno'";
+			$sql5 = "Select * from marks where CourseName='$selecourse' and Enno='$enno' and Type='$type'";
 			$rs5 = mysqli_query($con, $sql5);
 			$scored = $_POST[$enno];
 			if(mysqli_num_rows($rs5))
 			{
-				$sql6="UPDATE marks SET Scored = $scored WHERE CourseName='$selecourse' and Enno='$enno'";
+				$sql6="UPDATE marks SET Scored = $scored WHERE CourseName='$selecourse' and Enno='$enno' and Type='$type'";
 				$rs6 = mysqli_query($con, $sql6);
 			}
 			else
 			{
-				$sql7="INSERT INTO marks(Enno,CourseName,Scored) VALUES ('$enno','$selecourse',$scored)";
+				$sql7="INSERT INTO marks(Enno,CourseName,Type,Scored) VALUES ('$enno','$selecourse','$type',$scored)";
 				$rs7 = mysqli_query($con, $sql7);
 			}
 		}
@@ -124,15 +125,16 @@
             <li class="breadcrumb-item active text-white">Update Marks</li>
 		</ol>
 		<div class="container">
-            <div class="text-center"><h1>Update Marks for <?php echo $_SESSION['selectedcourse']."(".$_SESSION['selectedtype'].")";?></h1></div>
+            <div class="text-center"><h1>Update Marks for <?php echo $_SESSION['selectedcourse']." (".$_SESSION['selectedtype'].")";?></h1></div>
             <br>
 			<form action="add_marks.php" method="POST">
-				<input name="maxmarks" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total marks for <?php echo $_SESSION['selectedcoursea']."(".$_SESSION['selectedtype'].")";?>"
+				<input name="maxmarks" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total marks for <?php echo $_SESSION['selectedcourse']."(".$_SESSION['selectedtype'].")";?>"
 					   <?php
 					   $con=mysqli_connect("localhost","root","");
 					   mysqli_select_db($con,"university");
 					   $selecourse = $_SESSION['selectedcourse'];
-					   $sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse'";
+					   $type = $_SESSION['selectedtype'];
+					   $sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse' and Type = '$type'";
 					   $rs4 = mysqli_query($con, $sql4);
 					   if(mysqli_num_rows($rs4)>0)
                        {
@@ -156,8 +158,9 @@
 						<?php
 							$con=mysqli_connect("localhost","root","");
 							mysqli_select_db($con,"university");
-							$selecourse = $_SESSION['selectedcoursea'];
-							$sql = "Select * from studentcourse where CourseName='$selecourse'";
+							$selecourse = $_SESSION['selectedcourse'];
+							$type = $_SESSION['selectedtype'];
+							$sql = "Select * from studentcourse where CourseName='$selecourse' and Type = '$type' ";
 							//echo "<script>alert(\"$sql\");</script>";
 							$rs = mysqli_query($con, $sql);
 							$count=1;
@@ -170,7 +173,7 @@
                                 $sql2 = "Select * from student where Enno='$enno'";
                                 $rs2 = mysqli_query($con, $sql2);
                                 $row2 = mysqli_fetch_array($rs2);
-								$sqlm = "Select Scored from marks where Enno='$enno' and CourseName='$selecourse'";
+								$sqlm = "Select Scored from marks where Enno='$enno' and CourseName='$selecourse' and Type = '$type' ";
 								$rsm = mysqli_query($con, $sqlm);
 								$rowm = mysqli_fetch_array($rsm);
 								$rowcount=mysqli_num_rows($rsm);

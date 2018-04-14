@@ -60,12 +60,13 @@
                 <span class="nav-link-text">Admin Details</span>
               </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-              <a class="nav-link text-white" href="#">
-                <i class="fa fa-fw fa-link"></i>
-                <span class="nav-link-text">Link</span>
-              </a>
-            </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+                  <a class="nav-link text-white" href="department.php">
+                      <i class="fa fa-fw fa-bank"></i>
+                      <span class="nav-link-text">Departments</span>
+                  </a>
+              </li>
+
           </ul>
           <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
