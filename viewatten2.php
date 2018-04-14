@@ -72,7 +72,7 @@
 
         </ol>
 		<div class="container">
-			<div class="text-center"><h1>Attendence for <?php echo $_SESSION['selectedcourse'];?></h1></div>
+			<div class="text-center"><h1>Attendence for <?php echo $_SESSION['selectedcourse']."(".$_SESSION['selectedtype'].")";?></h1></div>
                 <br class="card-body">
 					<div class="table-responsive" style="background-color:  #ede1c7 ">
 						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
@@ -91,17 +91,19 @@
 							$con=mysqli_connect("localhost","root","");
 							mysqli_select_db($con,"university");
 							$selecourse = $_SESSION['selectedcourse'];
-							$sql = "Select * from studentcourse where CourseName='$selecourse'";
-							$sql4 = "Select TotalClasses from attendence2 where CourseName='$selecourse'";
+                            $selectype= $_SESSION['selectedtype'];
+							$sql = "Select * from studentcourse where CourseName='$selecourse' and Type='$selectype'";
+							$sql4 = "Select TotalClasses from attendence2 where CourseName='$selecourse' and Type='$selectype'";
 							$rs4 = mysqli_query($con, $sql4);
-							$row4 = mysqli_fetch_array($rs4);
-							$totalclass = $row4['TotalClasses'];
-							if($totalclass == 0)
+							$row4count = mysqli_num_rows($rs4);
+							if($row4count==0)
                             {
                                 $error = "Attendence Not Yet Entered";
                                 echo "<script>alert(\"$error\");</script>";
                                 echo("<script>location.href = 'http://localhost/university/dbms/viewattendence.php';</script>");
 							}
+							$row4 = mysqli_fetch_array($rs4);
+							$totalclass = $row4['TotalClasses'];
 							$count=1;
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))

@@ -14,31 +14,31 @@
 	if(isset($_POST['add']))
 	{
 		$cours = "";
+		$type = "";
 		if (isset($_POST['CourseSelect']))
 		{
 			if ($_POST['CourseSelect'] != "Select Course")
 			{
-				$_SESSION['selectedcoursea'] = $_POST['CourseSelect'];
+				$_SESSION['selectedcourse'] = $_POST['CourseSelect'];
                 $cours = $_POST['CourseSelect'];
 			}
 		}
-
-		if ($branc == "" || $cours == "")
+		if (isset($_POST['TypeSelect']))
 		{
-			$error = "Please Select a Branch and Course";
+			if ($_POST['TypeSelect'] != "Select Type")
+			{
+				$_SESSION['selectedtype'] = $_POST['TypeSelect'];
+				$type = $_POST['TypeSelect'];
+			}
+		}
+		if ($branc == "" || $cours == "" || $type=="")
+		{
+			$error = "Please Select a Branch,Course and type";
 			echo "<script>alert(\"$error\");</script>";
 		}
 		else
 		{
 			echo("<script>location.href = 'http://localhost/university/dbms/add_marks.php';</script>");
-		}
-       
-        if (isset($_POST['TypeSelect']))
-		{
-			if ($_POST['TypeSelect'] != "Select Type")
-			{
-				$_SESSION['selectedtype'] = $_POST['TypeSelect'];
-			}
 		}
 	}
 ?>
@@ -51,7 +51,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Add Attendence</title>
+	<title>Marks</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -124,7 +124,7 @@
 								<?php
 								$con=mysqli_connect("localhost","root","");
 								mysqli_select_db($con,"university");
-								$sql = "Select DISTINCT  Branch from student";
+								$sql = "Select DISTINCT  Branch from coursebranch";
 								$rs = mysqli_query($con, $sql);
 								if(mysqli_num_rows($rs))
 								{
@@ -148,7 +148,7 @@
 									$con = mysqli_connect("localhost", "root", "");
 									mysqli_select_db($con, "university");
 									$selecbrn = $_SESSION['selectedbrancha'];
-									$sql = "Select CourseName from courses where Branch='$selecbrn'";
+									$sql = "Select CourseName from coursebranch where Branch='$selecbrn'";
 									$rs = mysqli_query($con, $sql);
 									if (mysqli_num_rows($rs)) {
 										while ($row = mysqli_fetch_array($rs)) {
