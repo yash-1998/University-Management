@@ -51,7 +51,7 @@
 
         else
         {
-            $error = "Enrollment Number already exist";
+            $error = "Course already exist";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }
