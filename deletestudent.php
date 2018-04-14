@@ -7,6 +7,12 @@
 		mysqli_select_db($con, "university");
 		$sql = "DELETE FROM student where Enno = '$delno'";
 		$rs = mysqli_query($con, $sql);
+		$sql = "DELETE FROM studentcourse where Enno = '$delno'";
+		$rs = mysqli_query($con, $sql);
+		$sql = "DELETE FROM marks where Enno = '$delno'";
+		$rs = mysqli_query($con, $sql);
+		$sql = "DELETE FROM attendence where Enno = '$delno'";
+		$rs = mysqli_query($con, $sql);
 		$error = "Successfully Deleted";
 		echo "<script type='text/javascript'>alert(\"$error\");</script>";
 		echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");

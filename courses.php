@@ -7,20 +7,22 @@
         mysqli_select_db($con,"university");
         $sql = "Select * from courses where CourseName = '".$queryen."'";
         $rs = mysqli_query($con, $sql);
+        $sql2 = "Select Branch from coursebranch where CourseName = '".$queryen."'";
+		$rs2 = mysqli_query($con, $sql2);
+		$row2 = mysqli_fetch_array($rs2);
+		$brrr = $row2['Branch'];
         $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
         while($row = mysqli_fetch_array($rs))
-        { 
-
+        {
             if($row['CourseName']==$queryen)
             {
                $_SESSION['cCourseName']=$queryen;
-               $_SESSION['cDeptName']=$row['DeptName'] ;
                $_SESSION['cType']=$row['Type'] ;
-               $_SESSION['cCredits']=$row['Credits'] ;       
+               $_SESSION['cCredits']=$row['Credits'] ;
+               $_SESSION['cBranch']=$brrr;
                $flag=1;
-             } 
-
+            }
         }
         if($flag==1)
             echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");

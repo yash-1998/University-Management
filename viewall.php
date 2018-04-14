@@ -36,8 +36,16 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
-
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
+        <a class="nav-link text-white" href="admindetails.php">
+           <i class="fa fa-fw fa-user"></i>
+        <span class="nav-link-text">Admin Details</span>           </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+        <a class="nav-link text-white" href="department.php">
+        <i class="fa fa-fw fa-bank"></i>
+         <span class="nav-link-text">Departments</span></a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -71,8 +79,10 @@
             ViewAll
             </li>
         </ol>
+        </br>
         <form action="viewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <select name="semsearch" class="semsearch" type="Select" id="semselect">
 	        	<option value="">Select Semester</option>
 				<?php
@@ -87,6 +97,7 @@
                     }
 				?>
 	        </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <select class = "branchsearch" type="Select" id="branchselect" name="branchsearch">
 	        	<option value="">Select Branch</option>
                 <?php
@@ -103,19 +114,19 @@
 	        </select>
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
-        <div class="card mb-3">
             <br class="card-body">
                 <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr style="background-color: #20c997">
-                                <th>Enrollment Number</th>
+                                <th>SNo.</th>
+                                <th>Enroll. Number</th>
                                 <th>Name</th>
                                 <th>Date Of Birth</th>
                                 <th>Contact Number</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Current Semester</th>
+                                <th>Semester</th>
                                 <th>Branch</th>
                             </tr>
                         </thead>
@@ -165,11 +176,12 @@
 		                        }
 		                    }
                             $sql.=" order by CurrentSemester ASC,Branch ASC,Enno ASC";
-	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
+	                        $count=1;
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
 	                            echo '<tr style="background-color: #eac25f">
+                                            <td>'.$count.'</td>
 	                                        <td>'.$row['Enno'].'</td>
 	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
 	                                        <td>'.$row['Dob'].'</td>
@@ -179,6 +191,7 @@
 	                                        <td>'.$row['CurrentSemester'].'</td>
 	                                        <td>'.$row['Branch'].'</td>
 	                                  </tr>';
+	                            $count=$count+1;
 	                        }?>
                         </tbody>
                     </table>
@@ -186,7 +199,7 @@
                     <br>
                     <br>
                     <br>
-    </div>
+                </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
@@ -231,7 +244,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+
 </body>
 
 </html>

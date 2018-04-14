@@ -71,12 +71,12 @@
             ViewAll
             </li>
         </ol>
-        <div class="card mb-3">
             <br class="card-body">
                 <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr style="background-color : #20c997">
+                                <th class="text-center">S No.</th>
                                 <th class="text-center">Department Name</th>
                                 <th class="text-center">Department Head</th>
                             </tr>
@@ -88,15 +88,16 @@
 	                        $sql = "Select * from department";
 	                        $dname="";
 	                        $dhead="";
-	 
-	                        //echo "<script>alert(\"$sql\");</script>";
+	                        $count=1;
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
-	                        { 
+	                        {
 	                            echo '<tr style="background-color: #eac25f">
+	                                        <td class="text-center">'.$count.'</td>
 	                                        <td class="text-center">'.$row['DeptName'].'</td>
 	                                        <td class="text-center">'.$row['DeptHead'].'</td>
 	                                  </tr>';
+	                            $count=$count+1;
 	                        }
 		                ?>
 		              	</tbody>

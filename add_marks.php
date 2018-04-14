@@ -38,6 +38,7 @@
 				$rs7 = mysqli_query($con, $sql7);
 			}
 		}
+		echo("<script>location.href = 'http://localhost/university/dbms/update_marks.php';</script>");
 	}
 ?>
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>View Attendence</title>
+	<title>Update Marks</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -77,8 +78,16 @@
 					<span class="nav-link-text">Dashboard</span>
 				</a>
 			</li>
-			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
-
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
+                <a class="nav-link text-white" href="admindetails.php">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="nav-link-text">Admin Details</span></a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+                <a class="nav-link text-white" href="department.php">
+                    <i class="fa fa-fw fa-bank"></i>
+                    <span class="nav-link-text">Departments</span></a>
+            </li>
 		</ul>
 		<ul class="navbar-nav sidenav-toggler">
 			<li class="nav-item">
@@ -105,20 +114,42 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active text-white">Attendence</li>
+            <li class="breadcrumb-item">
+                <a href="exam.php">Exams</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="update_marks.php">Update Marks</a>
+            </li>
+
+            <li class="breadcrumb-item active text-white">Update Marks</li>
 		</ol>
 		<div class="container">
+            <div class="text-center"><h1>Update Marks for <?php echo $_SESSION['selectedcourse']."(".$_SESSION['selectedtype'].")";?></h1></div>
+            <br>
 			<form action="add_marks.php" method="POST">
-				<input name="maxmarks" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total marks for <?php echo $_SESSION['selectedcoursea']." "."(".$_SESSION['selectedtype'].")";?>" required>
+				<input name="maxmarks" class ="attsearch" type="number" id="maxclasses" type="number" step="1" placeholder="Enter the total marks for <?php echo $_SESSION['selectedcoursea']."(".$_SESSION['selectedtype'].")";?>"
+					   <?php
+					   $con=mysqli_connect("localhost","root","");
+					   mysqli_select_db($con,"university");
+					   $selecourse = $_SESSION['selectedcourse'];
+					   $sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse'";
+					   $rs4 = mysqli_query($con, $sql4);
+					   if(mysqli_num_rows($rs4)>0)
+                       {
+                           $row4 = mysqli_fetch_array($rs4);
+						   $totalmarks = $row4['MaximumMarks'];
+						   echo ' value = '.$totalmarks;
+					   }
+					   ?> required>
 			<div class="card mb-3">
-				<br class="card-body">
 				<div class="table-responsive" style="background-color : #ede1c7">
 					<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 						<thead>
 						<tr style="background-color : #20c997">
-							<th>Enrollment Number</th>
-							<th>Name</th>
-							<th>Enter Marks</th>
+                            <th class="text-center">SNo.</th>
+							<th class="text-center">Enrollment Number</th>
+							<th class="text-center">Name</th>
+							<th class="text-center">Enter Marks</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -129,18 +160,34 @@
 							$sql = "Select * from studentcourse where CourseName='$selecourse'";
 							//echo "<script>alert(\"$sql\");</script>";
 							$rs = mysqli_query($con, $sql);
+							$count=1;
 							while($row = mysqli_fetch_array($rs))
 							{
 								$enno = $row['Enno'];
-								echo '<tr>
-												<td>'.$row['Enno'].'</td>';
-												$sql2 = "Select * from student where Enno='$enno'";
-												//echo "<script>alert(\"$sql\");</script>";
-												$rs2 = mysqli_query($con, $sql2);
-												$row2 = mysqli_fetch_array($rs2);
-											echo '<td>'.$row2['FirstName'].' '.$row2['LastName'].'</td>
-												<td> <input name='.$enno.' type="number" required></td>
-										  </tr>';
+								echo '<tr style="background-color: #495057">';
+								echo '<td class="text-center text-white">'.$count.'</td>
+                                <td class="text-center text-white">'.$row['Enno'].'</td>';
+                                $sql2 = "Select * from student where Enno='$enno'";
+                                $rs2 = mysqli_query($con, $sql2);
+                                $row2 = mysqli_fetch_array($rs2);
+								$sqlm = "Select Scored from marks where Enno='$enno' and CourseName='$selecourse'";
+								$rsm = mysqli_query($con, $sqlm);
+								$rowm = mysqli_fetch_array($rsm);
+								$rowcount=mysqli_num_rows($rsm);
+                                if($rowcount==0)
+                                {
+                                    echo '<td class="text-center text-white">'.$row2['FirstName'].' '.$row2['LastName'].'</td>
+                                    <td class="text-white text-center"> <input style="text-align: center;" name='.$enno.' type="number" placeholder="Add marks" required></td>
+                                    </tr>';
+								}
+								else
+                                {
+                                    $currentscore=$rowm['Scored'];
+									echo '<td class="text-center text-white">'.$row2['FirstName'].' '.$row2['LastName'].'</td>
+                                    <td class="text-white text-center"> <input style="text-align: center;" name='.$enno.' type="number" value='.$currentscore.' required></td>
+                                    </tr>';
+								}
+							    $count=$count+1;
 							}
 						?>
 						</tbody>

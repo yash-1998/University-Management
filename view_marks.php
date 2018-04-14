@@ -66,16 +66,22 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
+            <li class="breadcrumb-item">
+                <a href="exam.php">Exams</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="view_marks1.php">View Marks</a>
+            </li>
 			<li class="breadcrumb-item text-white active">Marks</li>
         </ol>
 		<div class="container">
 			<div class="text-center"><h1>Marks for <?php echo $_SESSION['selectedcourse'];?></h1></div>
-				<div class="card mb-3">
 					<br class="card-body">
 					<div class="table-responsive" style="background-color : #ede1c7">
 						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 							<thead>
 							<tr style="background-color : #20c997">
+                                <th class="text-center">SNo.</th>
 								<th class = "text-center">Enrollment Number</th>
 								<th class = "text-center">Name</th>
 								<th class = "text-center">Total Marks</th>
@@ -99,6 +105,7 @@
 								echo "<script>alert(\"$error\");</script>";
 								echo("<script>location.href = 'http://localhost/university/dbms/view_marks1.php';</script>");
 							}
+							$count=1;
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))
 							{
@@ -113,7 +120,9 @@
 								$percentage = $percentage*100;
 								if($percentage >= 30)
 								{
-									echo '<tr style="background-color: #47ed52"><td>' . $row['Enno'] . '</td>';
+								    echo '<tr style="background-color: #47ed52">';
+									echo '<td>'.$count.'</td>';
+									echo '<td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalmarks . '</td>';
 									echo '<td class = "text-center">' . $row3['Scored'] . '</td>';
@@ -122,7 +131,9 @@
 								}
 								else if($percentage!=0)
 								{
-									echo '<tr style="background-color: #ed4528"><td>' . $row['Enno'] . '</td>';
+									echo '<tr style="background-color: #ed4528">';
+									echo '<td>'.$count.'</td>';
+									echo '<td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalmarks . '</td>';
 									echo '<td class = "text-center">' . $row3['Scored'] . '</td>';
@@ -131,11 +142,14 @@
 								}
 								else
                                 {
-                                    echo '<tr style="background-color: #ffc107"><td>' . $row['Enno'] . '</td>';
-									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
+                                    echo '<tr style="background-color: #ffc107">';
+                                    echo '<td>'.$count.'</td>';
+                                    echo '<td>' . $row['Enno'] . '</td>';
+                                    echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalmarks . '</td>';
                                     echo '<td colspan="2" class="text-center">Marks Not Added Yet</td>';
                                 }
+                                $count=$count+1;
 							}
 							?>
 							</tbody>

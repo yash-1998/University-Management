@@ -89,7 +89,7 @@
               <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item"><a href="courses.php">Course</a></li>
-             <li class="breadcrumb-item" active><?php echo $_SESSION['coursequery']?>
+             <li class="breadcrumb-item text-white" active><?php echo $_SESSION['coursequery']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -110,8 +110,8 @@
                 <input class="form-control" type="text" value=<?php echo $_SESSION['cCourseName']?>  readonly>
             </div>
               <div class="form-group" >
-              <label for="adminname">Department Name : &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['cDeptName']?>  readonly>
+              <label for="adminname">Branch: &nbsp;&nbsp;&nbsp;</label>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch'] ?>  readonly>
             </div>
             <div class="form-group">
               <label for="adminlast">Type : &nbsp;&nbsp;&nbsp;</label>

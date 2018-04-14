@@ -107,7 +107,10 @@
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active text-white">Exams</li>
+            <li class="breadcrumb-item">
+                <a href="exam.php">Exams</a>
+            </li>
+			<li class="breadcrumb-item active text-white">Update Marks</li>
 		</ol>
 		<div class="container">
 			<div class="card card-login mx-auto mt-9">

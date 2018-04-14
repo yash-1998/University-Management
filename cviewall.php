@@ -71,14 +71,15 @@
             All Courses
             </li>
         </ol>
+            <br>
         <form action="cviewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Course">
-            <select name="depsearch" class="semsearch" type="Select" id="semselect">
-                <option value="">Select Department</option>
+            <select name="brnsearch" class="semsearch" type="Select" id="semselect">
+                <option value="">Select Branch</option>
                 <?php
                     $con=mysqli_connect("localhost","root","");
                     mysqli_select_db($con,"university");
-                    $sql = "Select distinct Branch from courses";
+                    $sql = "Select distinct Branch from coursebranch";
                     $rs = mysqli_query($con, $sql);
                     while($row = mysqli_fetch_array($rs))
                     {
@@ -94,23 +95,18 @@
                 <option value="Lab">Lab</option>
             </select>
 
-            <select class = "branchsearch" type="Select" id="branchselect" name="creditsearch">
-                <option value="">Select Credits</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 0.5%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
-        <div class="card mb-3">
-            <br class="card-body" >
+           <br class="card-body" >
                 <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr style="background-color : #20c997">
+                                <th>SNo.</th>
                                 <th>Course Name</th>
-                                <th>Department</th>
                                 <th>Type</th>
                                 <th>Credits</th>
+                                <th>Branch</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,23 +115,18 @@
 	                        mysqli_select_db($con,"university");
 	                        $sql = "Select * from courses";
 	                        $scourse="";
-	                        $sdept="";
+	                        $sbrn="";
 	                        $stype="";
-                            $creds=0;
-	                        $filter=0;
-	                        if(isset($_POST['filter']))
+                            if(isset($_POST['filter']))
 	                        {
 	                        	if(isset($_POST['namesearch']))
 						                    $scourse=$_POST['namesearch']; 
 						        
-	                        	if(isset($_POST['depsearch']))
-						                    $sdept=$_POST['depsearch']; 
+	                        	if(isset($_POST['brnsearch']))
+						                    $sbrn=$_POST['brnsearch'];
 						        
 	                        	if(isset($_POST['typesearch']))
 						                    $stype=$_POST['typesearch'];
-
-                                if(isset($_POST['creditsearch']))
-                                    $creds=$_POST['creditsearch'];
                                 $flag1=0;
 
 		                        if($scourse!="")
@@ -144,44 +135,53 @@
 		                        	$flag1=1;
 		                        }
 		                        $flag2=0;
-		                        if($sdept!="")
+		                        if($stype!="")
 		                        {
 		                        	if($flag1==1)
-		                        		$sql.=" and DeptName = '$sdept'";
-		                        	else
-		                        		$sql.=" where DeptName = '$sdept'";
-		                        	
-		                        	$flag2=1;
-		                        }
-                                $flag3 = 0;
-		                        if($stype!="")
-		                        {	
-		                        	if($flag2==1 || $flag1==1)
 		                        		$sql.=" and Type = '$stype'";
 		                        	else
 		                        		$sql.=" where Type = '$stype'";
 
-		                        	$flag3 = 1;
+		                        	$flag2=1;
 		                        }
-
-                            if($creds!=0)
-                            {
-                              if($flag1 ==1 || $flag2 == 1 || $flag3 == 1)
-                                $sql.=" and Credits = '$creds'";
-                              else
-                                $sql.=" where Credits = '$creds'";
-                            }
 		                    }
-                            $sql.=" order by CourseName,DeptName,Type,Credits";
+                            $sql.=" order by CourseName,Type,Credits";
 	                        $rs = mysqli_query($con, $sql);
+	                        $count=1;
 	                        while($row = mysqli_fetch_array($rs))
-	                        { 
-	                            echo '<tr style="background-color: #eac25f">
+	                        {
+	                            $cour=$row['CourseName'];
+								$con=mysqli_connect("localhost","root","");
+								mysqli_select_db($con,"university");
+								$sqlc = "Select Branch from coursebranch where CourseName = '$cour'";
+	                            $rsc=mysqli_query($con, $sqlc);
+								$rowc = mysqli_fetch_array($rsc);
+								if($sbrn=="")
+                                {
+                                    echo '<tr style="background-color: #eac25f">
+                                            <td>'.$count.'</td>
 	                                        <td>'.$row['CourseName'].'</td>
-	                                        <td>'.$row['DeptName'].'</td>
 	                                        <td>'.$row['Type'].'</td>
 	                                        <td>'.$row['Credits'].'</td>
+	                                        <td>'.$rowc['Branch'].'</td>
 	                                  </tr>';
+									$count=$count+1;
+								}
+								else
+                                {
+                                    if($rowc['Branch']==$sbrn)
+                                    {
+										echo '<tr style="background-color: #eac25f">
+                                            <td>'.$count.'</td>
+	                                        <td>'.$row['CourseName'].'</td>
+	                                        <td>'.$row['Type'].'</td>
+	                                        <td>'.$row['Credits'].'</td>
+	                                        <td>'.$rowc['Branch'].'</td>
+	                                  </tr>';
+										$count=$count+1;
+                                    }
+                                }
+
 	                        }
 		                ?>
 		              	</tbody>

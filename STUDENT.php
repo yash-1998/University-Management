@@ -154,7 +154,7 @@
         </li>
         <li class="breadcrumb-item active text-white">Student</li>
       </ol>
-      <div class="row">
+
         <div class="col-xl-2 col-sm-4 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
             <a class="card-footer text-white clearfix small z-1" href="viewall.php">
@@ -175,26 +175,27 @@
                 <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete</button>
+              </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </form>
-          </span>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <form>
-
+        <form>
             <select id="delbatch" class="form-control" type="select" name="delbatch" required>
+                <option>Select Batch to delete whole batch </option>
                 <?php
                     $con=mysqli_connect("localhost","root","");
                     mysqli_select_db($con,"university");
-                    $sql = "Select distinct CurrentSemester from Student";
+                    $sql = "Select distinct CurrentSemester from Student order by CurrentSemester";
                     $rs = mysqli_query($con, $sql);
-
+                    while($row = mysqli_fetch_array($rs))
+                    {
+                        echo '<option>'.$row['CurrentSemester'].'</option>';
+                    }
                 ?>
-                <span class="input-group-append">
-            &nbsp;&nbsp;&nbsp;
-            <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
-            </span>
-
-    </form>
+            </select>
+            <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete Whole Batch</button>
+        </form>
 
       </div>
 
@@ -248,7 +249,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+
 </body>
 
 </html>

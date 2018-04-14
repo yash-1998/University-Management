@@ -100,8 +100,8 @@
               <input name="cCourseName" class="form-control" type="text" value=<?php echo $_SESSION['coursequery']?> id="cCourseName" > 
               </div>
               <div class="form-group" >
-              <label for="cDeptName"> Department Name: &nbsp;&nbsp;&nbsp;</label>
-              <input name="cDeptName" class="form-control" type="text" placeholder="Department Name" id="cDeptName" required>
+              <label for="cBranchname"> Branch: &nbsp;&nbsp;&nbsp;</label>
+              <input name="cBranchName" class="form-control" type="text" placeholder="Branch Name" id="cBranchName" required>
               </div>
               <div class="form-group" >
               <label for="cType">Type : &nbsp;&nbsp;&nbsp;</label>
