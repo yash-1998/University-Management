@@ -31,54 +31,54 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
+          <a class="nav-link text-white" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center text-white" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" style="padding-top: 7px;">
-           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+           <b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color : #ede1c7">
         <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb" style = "margin-bottom: 7px;">
+        <ol class="breadcrumb" style = "margin-bottom: 7px;background-color: #343a40">
             <li class="breadcrumb-item">
             <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
             <a href="department.php">Departments</a>
             </li>
-            <li class="breadcrumb-item active">
+            <li class="breadcrumb-item active text-white">
             ViewAll
             </li>
         </ol>
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="table-responsive">
+            <br class="card-body">
+                <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
-                                <th>Department Name</th>
-                                <th>Department Head</th>
+                            <tr style="background-color : #20c997">
+                                <th class="text-center">S No.</th>
+                                <th class="text-center">Department Name</th>
+                                <th class="text-center">Department Head</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,21 +88,22 @@
 	                        $sql = "Select * from department";
 	                        $dname="";
 	                        $dhead="";
-	 
-	                        //echo "<script>alert(\"$sql\");</script>";
+	                        $count=1;
 	                        $rs = mysqli_query($con, $sql);
 	                        while($row = mysqli_fetch_array($rs))
-	                        { 
-	                            echo '<tr>
-	                                        <td>'.$row['DeptName'].'</td>
-	                                        <td>'.$row['DeptHead'].'</td>
+	                        {
+	                            echo '<tr style="background-color: #eac25f">
+	                                        <td class="text-center">'.$count.'</td>
+	                                        <td class="text-center">'.$row['DeptName'].'</td>
+	                                        <td class="text-center">'.$row['DeptHead'].'</td>
 	                                  </tr>';
+	                            $count=$count+1;
 	                        }
 		                ?>
 		              	</tbody>
 		            </table>
 		        </div>
-		    </div>
+		    </br>
 		</div>
     </div>
       <!-- Icon Cards-->
@@ -112,9 +113,9 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
+    <footer class="sticky-footer" style="background-color : #343a40;">
       <div class="container">
-        <div class="text-center">
+        <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>
         </div>
       </div>

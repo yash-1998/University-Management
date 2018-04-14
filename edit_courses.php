@@ -2,48 +2,29 @@
     session_start();
     if(isset($_POST['change']))
     {
-        if(isset($_POST['cCourseName']))
-            $cCourseName=$_POST['cCourseName']; 
-        else   
-            $cCourseName="";
+		$cCourseName = $_POST['cCourseName'];
+		$cBrname = $_POST['cBrname'];
+		$cType = $_POST['cType'];
+		$cCredits = $_POST['cCredits'];
+		$con = mysqli_connect("localhost", "root", "");
+		mysqli_select_db($con, "university");
+		$sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
+		$rs1 = mysqli_query($con, $sql);
+		$sql1 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','$cType','$cCredits')";
+		$rs2 = mysqli_query($con, $sql1);
+		$sqll = "DELETE FROM coursebranch WHERE Courses = '$cCourseName'";
+		$rsll = mysqli_query($con, $sqll);
+		$sqlll = "INSERT INTO coursebranch(CourseName,Branch) VALUES ('$cCourseName','$cBrname')";
+		$rslll = mysqli_query($con, $sqlll);
 
-        if(isset($_POST['cDeptName']))
-            $cDeptName=$_POST['cDeptName']; 
-        else   
-           $cDeptName="";
-
-        if(isset($_POST['cType']))
-            $cType=$_POST['cType']; 
-        else   
-            $cType="";
-        
-        if(isset($_POST['cCredits']))
-            $cCredits=$_POST['cCredits']; 
-        else   
-            $cCredits="";
-        
-        if($cCourseName=="" || $cDeptName=="" || $cType=="" || $cCredits=="")
-        {
-            $error = "Error! some of  the required fields are empty!!";
-            echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-        else
-        { 
-            $con = mysqli_connect("localhost", "root","");
-            mysqli_select_db($con, "university");
-            $sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
-            $rs1 = mysqli_query($con, $sql);
-            $sql1 = "INSERT INTO courses(CourseName,DeptName,Type,Credits) VALUES ('$cCourseName','$cDeptName','$cType','$cCredits')";
-            $rs2 = mysqli_query($con, $sql1);
-            $error = "Susscessfully Modified";
-            $_SESSION['cCourseName']=$cCourseName;
-            $_SESSION['cDeptName']=$cDeptName;
-            $_SESSION['cType']=$cType;
-            $_SESSION['cCredits']=$cCredits;
-            echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
-       }   
-     }  
+		$error = "Susscessfully Modified";
+		$_SESSION['cCourseName'] = $cCourseName;
+		$_SESSION['cBranch'] = $cBrname;
+		$_SESSION['cType'] = $cType;
+		$_SESSION['cCredits'] = $cCredits;
+		echo "<script type='text/javascript'>alert(\"$error\");</script>";
+		echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,43 +70,43 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
+          <a class="nav-link text-white" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center text-white" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" style="padding-top: 7px;">
-           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+           <b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color : #ede1c7">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" style="background-color: #343a40" >
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item"><a href="courses.php">Courses</a></li>
             <li class="breadcrumb-item"><a href="cfindedit.php"><?php echo $_SESSION['cCourseName']?></a>
              </li>
-             <li class="breadcrumb-item" active>Edit
+             <li class="breadcrumb-item text-white" active>Edit
              </li>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -141,20 +122,20 @@
             <input class="form-control" type="text" value=<?php echo $_SESSION['cCourseName']?> name="cCourseName" readonly>
         </div>
           <div class="form-group" >
-          <label >Department Name : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cDeptName']?> name="cDeptName" >
+          <label >Branch : &nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?> name="cBrname" required>
         </div>
         <div class="form-group">
           <label >Type : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?> name="cType" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?> name="cType" required>
         </div>
 
         <div class="form-group">
           <label >Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?> name="cCredits" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?> name="cCredits" required>
         </div>
         <div class="input-group">
-        <button  class="btn btn-primary" type="submit" style="background: green;" name="change" >Make Changes</button>
+        <button  class="btn btn-primary" type="submit" style="background: green;" name="change">Make Changes</button>
         </div>
       </form>
       <br>
@@ -167,7 +148,7 @@
     <!-- /.content-wrapper-->
     <footer class="sticky-footer" >
       <div class="container" >
-        <div class="text-center">
+        <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>
         </div>
       </div>

@@ -23,8 +23,7 @@
                $_SESSION['sem']=$row['CurrentSemester'] ;
                $_SESSION['imagepath']=$row['ImagePath'];
                $flag=1;
-             }
-
+            }
         }
         if($flag==1)
             echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
@@ -34,6 +33,40 @@
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
         }
     }
+    else if(isset($_POST['delete']))
+	{
+		$queryen = $_POST['ennoquery'];
+		$con=mysqli_connect("localhost","root","");
+		mysqli_select_db($con,"university");
+		$sql = "Select * from Student where Enno = '".$queryen."'";
+		$rs = mysqli_query($con, $sql);
+		$_SESSION['queryenno']=$_POST['ennoquery'];
+		$flag=0;
+		while($row = mysqli_fetch_array($rs))
+		{
+			if($row['Enno']==$queryen)
+			{
+				$_SESSION['roll']=$queryen ;
+				$_SESSION['fname']=$row['FirstName'] ;
+				$_SESSION['lname']=$row['LastName'] ;
+				$_SESSION['email']=$row['Email'] ;
+				$_SESSION['contact']=$row['ContactNo'] ;
+				$_SESSION['address']=$row['Address'] ;
+				$_SESSION['branch']=$row['Branch'] ;
+				$_SESSION['sem']=$row['CurrentSemester'] ;
+				$_SESSION['imagepath']=$row['ImagePath'];
+				$flag=1;
+			}
+
+		}
+		if($flag==1)
+			echo("<script>location.href = 'http://localhost/university/dbms/deletestudent.php';</script>");
+		else
+		{
+			$error = "Enrollment Number does not exist";
+			echo "<script type='text/javascript'>alert(\"$error\");</script>";
+		}
+	}
     if(isset($_POST['addnew']))
     {
         $queryen = $_POST['ennoquery'];
@@ -50,7 +83,6 @@
         }
         if($flag==0)
             echo("<script>location.href = 'http://localhost/university/dbms/addnew.php';</script>");
-
         else
         {
             $error = "Enrollment Number already exist";
@@ -59,8 +91,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en">s
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,42 +119,42 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
+          <a class="nav-link text-white" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center text-white" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" style="padding-top: 7px;">
-           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+           <b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color : #ede1c7">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" style="background-color: #343a40" >
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Student</li>
+        <li class="breadcrumb-item active text-white">Student</li>
       </ol>
-      <div class="row">
+
         <div class="col-xl-2 col-sm-4 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
             <a class="card-footer text-white clearfix small z-1" href="viewall.php">
@@ -136,15 +167,37 @@
         </div>
         <form class="form-inline my-2 my-lg-0 mr-lg-2" style="height: 50px" method="POST" action="">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Enter Enrollment No" name="ennoquery" required>
+              <input id="enroll" class="form-control" type="text" placeholder="Enter Enrollment No" name="ennoquery" required>
               <span class="input-group-append">
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" name="findedit">Find/Edit</button>
                 &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary" type="submit" style = "background: green" name="addnew">Add New</button>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete</button>
               </span>
-            </div>
-          </form>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
+        <form>
+            <select id="delbatch" class="form-control" type="select" name="delbatch" required>
+                <option>Select Batch to delete whole batch </option>
+                <?php
+                    $con=mysqli_connect("localhost","root","");
+                    mysqli_select_db($con,"university");
+                    $sql = "Select distinct CurrentSemester from Student order by CurrentSemester";
+                    $rs = mysqli_query($con, $sql);
+                    while($row = mysqli_fetch_array($rs))
+                    {
+                        echo '<option>'.$row['CurrentSemester'].'</option>';
+                    }
+                ?>
+            </select>
+            <button class="btn btn-primary" type="submit" style = "background: #900000" name="delete">Delete Whole Batch</button>
+        </form>
+
+      </div>
 
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
@@ -153,9 +206,9 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
+    <footer class="sticky-footer" style="background-color : #343a40;">
       <div class="container">
-        <div class="text-center">
+        <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>
         </div>
       </div>
@@ -196,7 +249,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+
 </body>
 
 </html>

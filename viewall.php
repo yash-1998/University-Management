@@ -31,80 +31,102 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.php">
+          <a class="nav-link text-white" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
-
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
+        <a class="nav-link text-white" href="admindetails.php">
+           <i class="fa fa-fw fa-user"></i>
+        <span class="nav-link-text">Admin Details</span>           </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+        <a class="nav-link text-white" href="department.php">
+        <i class="fa fa-fw fa-bank"></i>
+         <span class="nav-link-text">Departments</span></a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center text-white" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" style="padding-top: 7px;">
-           <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+           <b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color : #ede1c7">
         <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb" style = "margin-bottom: 7px;">
+        <ol class="breadcrumb" style = "  margin-bottom: 7px;background-color: #343a40">
             <li class="breadcrumb-item">
             <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
             <a href="STUDENT.php">Students</a>
             </li>
-            <li class="breadcrumb-item active">
+            <li class="breadcrumb-item active text-white">
             ViewAll
             </li>
         </ol>
+        </br>
         <form action="viewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Name">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <select name="semsearch" class="semsearch" type="Select" id="semselect">
 	        	<option value="">Select Semester</option>
-	            <option value="1">1</option>
-	            <option value="2">2</option>
-	            <option value="3">3</option>
-	            <option value="4">4</option>
-	            <option value="5">5</option>
-	            <option value="6">6</option>
-	            <option value="7">7</option>
-	            <option value="8">8</option>  
+				<?php
+                    $con=mysqli_connect("localhost","root","");
+                    mysqli_select_db($con,"university");
+                    $sql = "select distinct CurrentSemester from student order by CurrentSemester ";
+                    $rs = mysqli_query($con, $sql);
+                    while($row = mysqli_fetch_array($rs))
+                    {
+                        $brn = $row['CurrentSemester'];
+                        echo '<option>'.$brn.'</option>';
+                    }
+				?>
 	        </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <select class = "branchsearch" type="Select" id="branchselect" name="branchsearch">
 	        	<option value="">Select Branch</option>
-	            <option value="Information Technology">Information Technology</option>
-	            <option value="Electronics">Electronics</option>
-	            <option value="MBA">MBA</option>	
+                <?php
+                    $con=mysqli_connect("localhost","root","");
+                    mysqli_select_db($con,"university");
+                    $sql = "select distinct Branch from student";
+                    $rs = mysqli_query($con, $sql);
+                    while($row = mysqli_fetch_array($rs))
+                    {
+                        $brn = $row['Branch'];
+                        echo '<option>'.$brn.'</option>';
+                    }
+	            ?>
 	        </select>
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 10%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
-        <div class="card mb-3">
             <br class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive" style="background-color : #ede1c7">
                     <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr style="background-color: #20c997">
-                                <th>Enrollment Number</th>
+                                <th>SNo.</th>
+                                <th>Enroll. Number</th>
                                 <th>Name</th>
                                 <th>Date Of Birth</th>
                                 <th>Contact Number</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Current Semester</th>
+                                <th>Semester</th>
                                 <th>Branch</th>
                             </tr>
                         </thead>
@@ -154,11 +176,12 @@
 		                        }
 		                    }
                             $sql.=" order by CurrentSemester ASC,Branch ASC,Enno ASC";
-	                        //echo "<script>alert(\"$sql\");</script>";
 	                        $rs = mysqli_query($con, $sql);
+	                        $count=1;
 	                        while($row = mysqli_fetch_array($rs))
 	                        { 
 	                            echo '<tr style="background-color: #eac25f">
+                                            <td>'.$count.'</td>
 	                                        <td>'.$row['Enno'].'</td>
 	                                        <td>'.$row['FirstName'].' '.$row['LastName'].'</td>
 	                                        <td>'.$row['Dob'].'</td>
@@ -168,6 +191,7 @@
 	                                        <td>'.$row['CurrentSemester'].'</td>
 	                                        <td>'.$row['Branch'].'</td>
 	                                  </tr>';
+	                            $count=$count+1;
 	                        }?>
                         </tbody>
                     </table>
@@ -175,7 +199,7 @@
                     <br>
                     <br>
                     <br>
-    </div>
+                </div>
       <!-- Icon Cards-->
       <!-- Area Chart Example-->
           <!-- Example Bar Chart Card-->
@@ -184,14 +208,6 @@
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
 
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-
-          <small>Copyright © Funkyfunks 2018</small>
-        </div>
-      </div>
-    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
@@ -228,7 +244,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-  </div>
+
 </body>
 
 </html>

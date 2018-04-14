@@ -33,53 +33,52 @@
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-				<a class="nav-link" href="index.php">
+				<a class="nav-link text-white" href="index.php">
 					<i class="fa fa-fw fa-dashboard"></i>
 					<span class="nav-link-text">Dashboard</span>
 				</a>
 			</li>
-			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">           <a class="nav-link text-white" href="admindetails.php">             <i class="fa fa-fw fa-user"></i>             <span class="nav-link-text">Admin Details</span>           </a>         </li>         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">           <a class="nav-link text-white" href="department.php">               <i class="fa fa-fw fa-bank"></i>               <span class="nav-link-text">Departments</span>           </a>         </li>
 
 		</ul>
 		<ul class="navbar-nav sidenav-toggler">
 			<li class="nav-item">
-				<a class="nav-link text-center" id="sidenavToggler">
+				<a class="nav-link text-center text-white" id="sidenavToggler">
 					<i class="fa fa-fw fa-angle-left"></i>
 				</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item" style="padding-top: 7px;">
-				<b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+				<b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+				<a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
 					<i class="fa fa-fw fa-sign-out"></i>Logout</a>
 			</li>
 		</ul>
 	</div>
 </nav>
-<div class="content-wrapper">
+<div class="content-wrapper" style="background-color : #ede1c7">
 	<div class="container-fluid">
 		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
+		<ol class="breadcrumb" style="background-color: #343a40">
 			<li class="breadcrumb-item">
 				<a href="index.php">Dashboard</a>
 			</li>
             <li class="breadcrumb-item"><a href="viewattendence.php">Attendence</a></li>
 
-            <li class="breadcrumb-item active">View Attendence</li>
+            <li class="breadcrumb-item active text-white">View Attendence</li>
 
         </ol>
 		<div class="container">
 			<div class="text-center"><h1>Attendence for <?php echo $_SESSION['selectedcourse'];?></h1></div>
-            </br>
-				<div class="card mb-3">
-					<br class="card-body">
-					<div class="table-responsive">
+                <br class="card-body">
+					<div class="table-responsive" style="background-color:  #ede1c7 ">
 						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 							<thead>
 							<tr style="background-color: #20c997">
+                                <th class="text-center">SNo.</th>
 								<th class = "text-center">Enrollment Number</th>
 								<th class = "text-center">Name</th>
 								<th class = "text-center">Total Classes</th>
@@ -103,6 +102,7 @@
                                 echo "<script>alert(\"$error\");</script>";
                                 echo("<script>location.href = 'http://localhost/university/dbms/viewattendence.php';</script>");
 							}
+							$count=1;
 							$rs = mysqli_query($con, $sql);
 							while($row = mysqli_fetch_array($rs))
 							{
@@ -115,9 +115,12 @@
 								$row3 = mysqli_fetch_array($rs3);
 								$percentage = $row3['Present']/$totalclass;
 								$percentage = $percentage*100;
+
 								if($percentage >= 75)
 								{
-									echo '<tr style="background-color: #8ff296"><td>' . $row['Enno'] . '</td>';
+									echo '<tr style="background-color: #8ff296">';
+									echo '<td>'.$count.'</td>';
+									echo '<td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalclass . '</td>';
 									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
@@ -126,7 +129,9 @@
 								}
 								else if($percentage !=0 )
 								{
-									echo '<tr style="background-color: #ed4528"><td>' . $row['Enno'] . '</td>';
+									echo '<tr style="background-color: #ed4528">';
+									echo '<td>'.$count.'</td>';
+                                    echo '<td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalclass . '</td>';
 									echo '<td class = "text-center">' . $row3['Present'] . '</td>';
@@ -135,23 +140,26 @@
 								}
 								else
                                 {
-									echo '<tr style="background-color: #ffc107"><td>' . $row['Enno'] . '</td>';
+									echo '<tr style="background-color: #ffc107">';
+									echo '<td>'.$count.'</td>';
+									echo '<td>' . $row['Enno'] . '</td>';
 									echo '<td>' . $row2['FirstName'] . ' ' . $row2['LastName'] . '</td>';
 									echo '<td class = "text-center">' . $totalclass . '</td>';
                                     echo '<td colspan="2" class="text-center">Attendence Not Added Yet</td>
 									</tr>';
                                 }
+                                $count=$count+1;
 							}
 							?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-</div>
+            </div>
 <br>
-<footer class="sticky-footer">
+<footer class="sticky-footer" style="background-color : #343a40;">
 	<div class="container">
-		<div class="text-center">
+		<div class="text-center text-white">
 			<small>Copyright © Funkyfunks 2018</small>
 		</div>
 	</div>

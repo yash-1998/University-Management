@@ -33,46 +33,51 @@
         $addfname =$_POST['addfname'];
         $addlname=$_POST['addlname'];
         $adddob=$_POST['adddob'];
-        $addemail=$_POST['addemail'];
+
         $addcontactno=$_POST['addcontactno'];
         $addaddress=$_POST['addaddress'];
         $addcs=$_POST['addcs'];
         $addbranch=$_POST['addbranch'];
         $addcontactno = (int)$addcontactno;
         $addcs = (int)$addcs;
-        $con = mysqli_connect("localhost","root","");
-        mysqli_select_db($con, "university");
-        if (!empty($_FILES["uploadedimage"]["name"]))
-        {
-    	    $file_name=$_FILES["uploadedimage"]["name"];
-    	    $temp_name=$_FILES["uploadedimage"]["tmp_name"];
-    	    $imgtype=$_FILES["uploadedimage"]["type"];
-    	    $ext= GetImageExtension($imgtype);
-    	    $imagename=$enno.$ext;
-    	    $target_path = "images/".$imagename;
-	        if(move_uploaded_file($temp_name, $target_path))
-            {
-                $sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
-                $rs = mysqli_query($con, $sql);
-				if(!empty($_POST['check_list']))
-				{
-                    // Loop to store and display values of individual checked checkbox.
-					foreach($_POST['check_list'] as $selected)
-					{
-						$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$enno','$selected')";
-						$rs = mysqli_query($con, $sql);
+		$addemail=$_POST['addemail'];
+		if (!filter_var($addemail, FILTER_VALIDATE_EMAIL))
+		{
+			$error = "Invalid Email ID";
+			echo "<script type='text/javascript'>alert(\"$error\");</script>";
+		}
+		else
+		{
+			$con = mysqli_connect("localhost", "root", "");
+			mysqli_select_db($con, "university");
+			if (!empty($_FILES["uploadedimage"]["name"])) {
+				$file_name = $_FILES["uploadedimage"]["name"];
+				$temp_name = $_FILES["uploadedimage"]["tmp_name"];
+				$imgtype = $_FILES["uploadedimage"]["type"];
+				$ext = GetImageExtension($imgtype);
+				$imagename = $enno . $ext;
+				$target_path = "images/" . $imagename;
+				if (move_uploaded_file($temp_name, $target_path)) {
+					$sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
+					$rs = mysqli_query($con, $sql);
+					if (!empty($_POST['check_list'])) {
+						// Loop to store and display values of individual checked checkbox.
+						foreach ($_POST['check_list'] as $selected) {
+							$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$enno','$selected')";
+							$rs = mysqli_query($con, $sql);
+						}
 					}
+					$error = "Susscessfully registered";
+					echo "<script type='text/javascript'>alert(\"$error\");</script>";
+					echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
 				}
-                $error = "Susscessfully registered";
-                echo "<script type='text/javascript'>alert(\"$error\");</script>";
-                echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
-            }
-            else
-            {
-                $error = "Please Try Again";
-                echo "<script type='text/javascript'>alert(\"$error\");</script>";
-            }
-        }
+				else
+				{
+					$error = "Please Try Again";
+					echo "<script type='text/javascript'>alert(\"$error\");</script>";
+				}
+			}
+		}
    }
 ?>
 <!DOCTYPE html>
@@ -106,13 +111,13 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-      <a class="nav-link" href="index.php">
+      <a class="nav-link text-white" href="index.php">
       <i class="fa fa-fw fa-dashboard"></i>
       <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
-      <a class="nav-link" href="admindetails.php">
+      <a class="nav-link text-white" href="admindetails.php">
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Admin Details</span>
       </a>
@@ -120,26 +125,26 @@
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
-      <a class="nav-link text-center" id="sidenavToggler">
+      <a class="nav-link text-center text-white" id="sidenavToggler">
       <i class="fa fa-fw fa-angle-left"></i>
       </a>
     </li>
     </ul>
     <ul class="navbar-nav ml-auto">
     <li class="nav-item" style="padding-top: 7px;">
-       <b style="color: gray ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
+       <b style="color: white ;"><?php echo "Welcome " . $_SESSION['username']; ?></b>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+      <a class="nav-link text-white" data-toggle="modal" data-target="#exampleModal">
       <i class="fa fa-fw fa-sign-out"></i>Logout</a>
     </li>
     </ul>
   </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color : #ede1c7">
   <div class="container-fluid">
     <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" style="background-color: #343a40" >
     <li class="breadcrumb-item">
       <a href="#">Add New Student</a>
     </li>
@@ -244,9 +249,9 @@
       <!-- Example Social Card-->
   <!-- /.container-fluid-->
   <!-- /.content-wrapper-->
-  <footer class="sticky-footer">
+  <footer class="sticky-footer" style="background-color : #343a40;">
     <div class="container">
-    <div class="text-center">
+    <div class="text-center text-white">
       <small>Copyright © Funkyfunks 2018</small>
     </div>
     </div>

@@ -19,31 +19,29 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" style="background-image: url('uni2.JPG');
+   background-repeat:no-repeat;
+
+   background-size:cover;">
   <div class="container">
-    <div class="card card-login mx-auto mt-5">
+    <div class="card card-login mx-auto mt-5" style="background-color: #cfb0acaa">
       <div class="card-header">Login</div>
       <div class="card-body">
         <form action="login.php" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
-            <input name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username" required>
+            <input style="background-color: #ede1c7" name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username" required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" name="pass" id="exampleInputPassword1" type="password" placeholder="Password" required>
+            <input style="background-color: #ede1c7" class="form-control" name="pass" id="exampleInputPassword1" type="password" placeholder="Password" required>
           </div>
           <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input name="remem" class="form-check-input" type="checkbox" > Remember Password</label>
-            </div>
           </div>
-          <button class="btn btn-primary btn-block">Login</button>
+          <button class="btn btn-primary btn-block" style="background-color: #343a40">Login</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.php">Register an Account</a>
-          <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
+            <a class="d-block small mt-3" href="register.php" style="color: #343a40"><b>Register an Account</b></a>
         </div>
       </div>
     </div>
