@@ -123,7 +123,7 @@
         </div>
           <div class="form-group" >
           <label >Branch : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?> name="cBrname" required>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?>   name="cBrname" required>
         </div>
         <div class="form-group">
           <label >Type : &nbsp;&nbsp;&nbsp;</label>

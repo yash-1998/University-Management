@@ -111,7 +111,7 @@
             </div>
               <div class="form-group" >
               <label for="adminname">Branch: &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch'] ?>  readonly>
+                <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?>  readonly>
             </div>
             <div class="form-group">
               <label for="adminlast">Type : &nbsp;&nbsp;&nbsp;</label>
