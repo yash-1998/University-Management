@@ -136,6 +136,7 @@
                     ?>
               </div>
               <div class="form-group" >
+
               <label for="cCredits">Theory Credits : &nbsp;&nbsp;&nbsp;</label>
               <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits" required>
               </div>

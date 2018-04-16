@@ -1,5 +1,21 @@
 <?php
 	session_start();
+	if(isset($_POST['Res']))
+    {
+		$con = mysqli_connect("localhost", "root","");
+		mysqli_select_db($con, "university");
+
+		$_SESSION['ResultEnno'] = $_POST['Enno'];
+		$temp = $_SESSION['ResultEnno'];
+		$query1 = mysqli_query($con,"select * from student where Enno = '$temp'");
+		if(mysqli_num_rows($query1) > 0)
+		    echo("<script>location.href = 'http://localhost/university/dbms/fpdfdemo.php';</script>");
+		else
+        {
+			$error = "Enrollment Number does not exist";
+			echo "<script type='text/javascript'>alert(\"$error\");</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +100,17 @@
                     </a>
                 </div>
             </div>
+            <div class="card card-login mx-auto mt-9">
+                <div class="card-body " style="background-color : #ede1c7">
+                    <form action="" method="POST">
+                        <div class="form-group" >
+                            <input style="text-align: center" class="form-control" type="text" placeholder="Enter Enrollment Number" name="Enno" required>
+                            <br>
+                            <button class="btn btn-primary btn-block" type="submit" name="Res">Generate Result</button>
+                    </form>
+                </div>
+            </div>
+        </div>
             <footer class="sticky-footer" style="background-color : #343a40;">
                 <div class="container">
                     <div class="text-center text-white">
