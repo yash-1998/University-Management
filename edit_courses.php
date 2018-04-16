@@ -2,26 +2,55 @@
     session_start();
     if(isset($_POST['change']))
     {
+       $_SESSION['cCredits']=-1 ;
+       $_SESSION['lCredits']=-1 ; 
+       $_SESSION['lType']=-1 ;  
+       $_SESSION['cType']=-1 ; 
 		$cCourseName = $_POST['cCourseName'];
 		$cBrname = $_POST['cBrname'];
-		$cType = $_POST['cType'];
+
 		$cCredits = $_POST['cCredits'];
+    $lCredits = $_POST['lCredits']; 
 		$con = mysqli_connect("localhost", "root", "");
 		mysqli_select_db($con, "university");
+
 		$sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
 		$rs1 = mysqli_query($con, $sql);
-		$sql1 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','$cType','$cCredits')";
-		$rs2 = mysqli_query($con, $sql1);
+//		$sql1 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
+//		$rs2 = mysqli_query($con, $sql1);
+//    $sql0 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$lCredits')";
+//   $rs0 = mysqli_query($con, $sql0);
 		$sqll = "DELETE FROM coursebranch WHERE Courses = '$cCourseName'";
 		$rsll = mysqli_query($con, $sqll);
 		$sqlll = "INSERT INTO coursebranch(CourseName,Branch) VALUES ('$cCourseName','$cBrname')";
 		$rslll = mysqli_query($con, $sqlll);
 
+      $f1=0 ; $f2=0 ;
+       if (!empty($_POST['item1'])) $f1=1 ; 
+       if (!empty($_POST['item2'])) $f2=1 ;
+       if ($f1==1 || $f2==1)
+        {
+               if($f1==1)
+               {
+                $sql = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
+                $rs = mysqli_query($con, $sql);
+                $_SESSION['cCredits']=$cCredits ; 
+                $_SESSION['cType']="Theory";  
+               }    
+               if($f2==1)
+               {
+                $sq2 = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$lCredits')";
+                $rs2 = mysqli_query($con, $sq2);
+                $_SESSION['lCredits']=$lCredits ; 
+                $_SESSION['lType']="Lab"; 
+               }    
+          } 
 		$error = "Susscessfully Modified";
+
 		$_SESSION['cCourseName'] = $cCourseName;
 		$_SESSION['cBranch'] = $cBrname;
-		$_SESSION['cType'] = $cType;
-		$_SESSION['cCredits'] = $cCredits;
+		//$_SESSION['cType'] = $cType;
+		//$_SESSION['cCredits'] = $cCredits;
 		echo "<script type='text/javascript'>alert(\"$error\");</script>";
 		echo("<script>location.href = 'http://localhost/university/dbms/cfindedit.php';</script>");
 	}
@@ -123,17 +152,25 @@
         </div>
           <div class="form-group" >
           <label >Branch : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?>   name="cBrname" required>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['cBranch']?>  name="cBrname" required>
         </div>
+         <div class="form-group" >
+                  <label for="addtype">Type : &nbsp;&nbsp;&nbsp;</label>
+                  </br>
+                  <?php
+                      
+                        echo '<input type="checkbox" name="item1"  value=Theory>'.'&nbsp;&nbsp;&nbsp;Theory<br>';
+                        echo '<input type="checkbox" name="item2" value=Lab>'.'&nbsp;&nbsp;&nbsp;Lab<br>'; 
+                    ?>
+              </div>
         <div class="form-group">
-          <label >Type : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?> name="cType" required>
-        </div>
-
-        <div class="form-group">
-          <label >Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label >Theory Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?> name="cCredits" required>
         </div>
+       <div class="form-group">
+          <label >Lab Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['lCredits']?> name="lCredits" required>
+        </div> 
         <div class="input-group">
         <button  class="btn btn-primary" type="submit" style="background: green;" name="change">Make Changes</button>
         </div>

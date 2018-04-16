@@ -115,12 +115,33 @@
             </div>
             <div class="form-group">
               <label for="adminlast">Type : &nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['cType']?>  readonly>
+                <input class="form-control" type="text" value=
+                <?php 
+                  if($_SESSION['cType']!=-1 && $_SESSION['lType']!=-1) 
+                    echo $_SESSION['cType'].',' .$_SESSION['lType'] ;
+                   elseif ($_SESSION['cType']!=-1) 
+                   {
+                       echo $_SESSION['cType'] ;
+                   }  
+                  else
+                       echo $_SESSION['lType'];
+                 ?>  readonly>
             </div>
 
             <div class="form-group">
               <label for="adminemail">Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?>  readonly>
+                <input class="form-control" type="text" value=
+                <?php 
+                   if($_SESSION['cCredits']!=-1  && $_SESSION['lCredits']!=-1) 
+                      echo $_SESSION['cCredits'].'(Theory),' .$_SESSION['lCredits'].'(Lab)' ;
+                   elseif ($_SESSION['cCredits']!=-1) 
+                   {
+                     echo $_SESSION['cCredits'].'(Theory)' ;
+                   }  
+                  else
+                     echo $_SESSION['lCredits'].'(Lab)';
+                ?> 
+                 readonly>
             </div>
           </form>
             

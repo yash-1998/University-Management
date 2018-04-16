@@ -5,21 +5,33 @@
         $queryen = $_POST['coursequery'];
         $con=mysqli_connect("localhost","root","");
         mysqli_select_db($con,"university");
-        $sql = "Select * from courses where CourseName = '".$queryen."'";
+        $sql = "Select * from courses where CourseName = '$queryen'";
         $rs = mysqli_query($con, $sql);
-        $sql2 = "Select Branch from coursebranch where CourseName = '".$queryen."'";
-		$rs2 = mysqli_query($con, $sql2);
-		$row2 = mysqli_fetch_array($rs2);
-		$brrr = $row2['Branch'];
+        $sql2 = "Select Branch from coursebranch where CourseName = '$queryen'";
+    		$rs2 = mysqli_query($con, $sql2);
+    		$row2 = mysqli_fetch_array($rs2);
+    		$brrr = $row2['Branch'];
         $_SESSION['coursequery']=$_POST['coursequery'];
         $flag=0;
+         $_SESSION['cCredits']=-1 ;
+         $_SESSION['lCredits']=-1 ; 
+         $_SESSION['lType']=-1 ;  
+         $_SESSION['cType']=-1 ;  
         while($row = mysqli_fetch_array($rs))
         {
             if($row['CourseName']==$queryen)
             {
                $_SESSION['cCourseName']=$queryen;
-               $_SESSION['cType']=$row['Type'] ;
-               $_SESSION['cCredits']=$row['Credits'] ;
+               if($row['Type']=="Theory")
+               {
+                  $_SESSION['cCredits']=$row['Credits'] ; 
+                  $_SESSION['cType']="Theory" ; 
+               }
+               if($row['Type']=="Lab")
+               {
+                  $_SESSION['lCredits']=$row['Credits'] ; 
+                  $_SESSION['lType']="Lab" ; 
+               }
                $_SESSION['cBranch']=$brrr;
                $flag=1;
             }

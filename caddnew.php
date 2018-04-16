@@ -4,6 +4,7 @@
     {
         $cCourseName = $_SESSION['coursequery'];
         $cCredits=$_POST['cCredits'];
+        $lCredits=$_POST['lCredits']; 
         $cBranchName=$_POST['cBranchName'] ;
         $con = mysqli_connect("localhost", "root","");
         $f1=0 ; $f2=0 ;
@@ -19,7 +20,7 @@
              }    
              if($f2==1)
              {
-              $sq2 = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$cCredits')";
+              $sq2 = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$lCredits')";
               $rs2 = mysqli_query($con, $sq2);
              } 
 
@@ -135,10 +136,14 @@
                     ?>
               </div>
               <div class="form-group" >
-              <label for="cCredits">Credits for Theory: &nbsp;&nbsp;&nbsp;</label>
+
+              <label for="cCredits">Theory Credits : &nbsp;&nbsp;&nbsp;</label>
               <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits" required>
               </div>
-              
+              <div class="form-group" >
+              <label for="cCredits">Lab Credits : &nbsp;&nbsp;&nbsp;</label>
+              <input name="lCredits" class="form-control" type="text" placeholder="Credits" id="lCredits" required>
+              </div>
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
