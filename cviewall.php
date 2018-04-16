@@ -154,7 +154,7 @@
 								$con=mysqli_connect("localhost","root","");
 								mysqli_select_db($con,"university");
 								$sqlc = "Select Branch from coursebranch where CourseName = '$cour'";
-	                   w         $rsc=mysqli_query($con, $sqlc);
+	                            $rsc=mysqli_query($con, $sqlc);
 								$rowc = mysqli_fetch_array($rsc);
 								if($sbrn=="")
                                 {
