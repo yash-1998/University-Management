@@ -100,7 +100,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card card-login mx-auto mt-9">
+            <div class="card card-login mx-auto mt-8">
                 <div class="card-body " style="background-color : #ede1c7">
                     <form action="" method="POST">
                         <div class="form-group" >
@@ -116,14 +116,7 @@
                     <div class="text-center text-white">
                         <small>Copyright © Funkyfunks 2018</small>
                     </div>
-                </div>
-			<footer class="sticky-footer" style="background-color : #343a40;">
-				<div class="container">
-					<div class="text-center text-white">
-						<small>Copyright © Funkyfunks 2018</small>
-					</div>
-				</div>
-			</footer>
+                </div
 			<!-- Scroll to Top Button-->
 			<a class="scroll-to-top rounded" href="#page-top">
 				<i class="fa fa-angle-up"></i>
