@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fec007d-174f-48c3-8737-873bf44ca9ea" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caddnew.php" beforeDir="false" afterPath="$PROJECT_DIR$/caddnew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cviewall.php" beforeDir="false" afterPath="$PROJECT_DIR$/cviewall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deptfindedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deptfindedit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_department.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_department.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/exam.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,68 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fpdfdemo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="caddnew.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/caddnew.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2877">
-              <caret line="137" column="75" lean-forward="true" selection-start-line="137" selection-start-column="75" selection-end-line="137" selection-end-column="75" />
-              <folding>
-                <element signature="e#50#56#0" expanded="true" />
-                <element signature="e#56#62#0" expanded="true" />
-                <element signature="e#62#68#0" expanded="true" />
-                <element signature="e#46#52#0" expanded="true" />
-                <element signature="e#52#58#0" expanded="true" />
-                <element signature="e#58#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cviewall.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cviewall.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_student.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/edit_student.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="exam.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exam.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="102" column="52" selection-start-line="102" selection-start-column="52" selection-end-line="102" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="courses.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courses.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="31" selection-end-column="78" />
+            <state relative-caret-position="257">
+              <caret line="106" column="131" selection-start-line="106" selection-start-column="131" selection-end-line="106" selection-end-column="131" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,8 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/edit_department.php" />
-        <option value="$PROJECT_DIR$/deptfindedit.php" />
         <option value="$PROJECT_DIR$/deptaddnew.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/coursedropdown.php" />
@@ -170,7 +120,6 @@
         <option value="$PROJECT_DIR$/edit_student.php" />
         <option value="$PROJECT_DIR$/404.html" />
         <option value="$PROJECT_DIR$/cfindedit.php" />
-        <option value="$PROJECT_DIR$/edit_courses.php" />
         <option value="$PROJECT_DIR$/viewattendence.php" />
         <option value="$PROJECT_DIR$/viewatten2.php" />
         <option value="$PROJECT_DIR$/addattendence.php" />
@@ -185,9 +134,12 @@
         <option value="$PROJECT_DIR$/department.php" />
         <option value="$PROJECT_DIR$/courses.php" />
         <option value="$PROJECT_DIR$/STUDENT.php" />
+        <option value="$PROJECT_DIR$/fpdfdemo.php" />
         <option value="$PROJECT_DIR$/caddnew.php" />
         <option value="$PROJECT_DIR$/cviewall.php" />
-        <option value="$PROJECT_DIR$/fpdfdemo.php" />
+        <option value="$PROJECT_DIR$/edit_department.php" />
+        <option value="$PROJECT_DIR$/deptfindedit.php" />
+        <option value="$PROJECT_DIR$/edit_courses.php" />
         <option value="$PROJECT_DIR$/exam.php" />
       </list>
     </option>
@@ -304,19 +256,19 @@
       <workItem from="1523596463987" duration="36691000" />
       <workItem from="1523735334005" duration="6797000" />
       <workItem from="1523775556136" duration="405000" />
-      <workItem from="1523886398732" duration="251000" />
+      <workItem from="1523886398732" duration="3284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131767000" />
+    <option name="totallyTimeSpent" value="134800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13543192" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15885799" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -324,7 +276,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.039589442" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1686217" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -353,6 +305,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -475,13 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit_department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="88" column="66" lean-forward="true" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admindetails.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -536,31 +484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deptfindedit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit_courses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfindedit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -641,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STUDENT.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="178" column="34" selection-start-line="178" selection-start-column="34" selection-end-line="178" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/attendence.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -662,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="31" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit_student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
@@ -676,28 +589,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
+    <entry file="file://$PROJECT_DIR$/STUDENT.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="256">
+          <caret line="196" column="33" lean-forward="true" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="43" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cviewall.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+        <state relative-caret-position="372">
+          <caret line="98" column="114" selection-start-line="98" selection-start-column="114" selection-end-line="98" selection-end-column="114" />
           <folding>
+            <element signature="e#3826#3832#0#HTML" expanded="true" />
+            <element signature="e#3832#3838#0#HTML" expanded="true" />
+            <element signature="e#3838#3844#0#HTML" expanded="true" />
+            <element signature="e#3844#3850#0#HTML" expanded="true" />
+            <element signature="e#3850#3856#0#HTML" expanded="true" />
+            <element signature="e#3856#3862#0#HTML" expanded="true" />
+            <element signature="e#3862#3868#0#HTML" expanded="true" />
+            <element signature="e#3868#3874#0#HTML" expanded="true" />
+            <element signature="e#3874#3880#0#HTML" expanded="true" />
+            <element signature="e#3880#3886#0#HTML" expanded="true" />
+            <element signature="e#3886#3892#0#HTML" expanded="true" />
+            <element signature="e#3892#3898#0#HTML" expanded="true" />
+            <element signature="e#3898#3904#0#HTML" expanded="true" />
+            <element signature="e#3904#3910#0#HTML" expanded="true" />
+            <element signature="e#3910#3916#0#HTML" expanded="true" />
+            <element signature="e#3916#3922#0#HTML" expanded="true" />
+            <element signature="e#3922#3928#0#HTML" expanded="true" />
+            <element signature="e#3928#3934#0#HTML" expanded="true" />
+            <element signature="e#4479#4485#0#HTML" expanded="true" />
+            <element signature="e#4485#4491#0#HTML" expanded="true" />
+            <element signature="e#4491#4497#0#HTML" expanded="true" />
+            <element signature="e#4497#4503#0#HTML" expanded="true" />
+            <element signature="e#4503#4509#0#HTML" expanded="true" />
+            <element signature="e#4509#4515#0#HTML" expanded="true" />
+            <element signature="e#4515#4521#0#HTML" expanded="true" />
+            <element signature="e#4521#4527#0#HTML" expanded="true" />
+            <element signature="e#4527#4533#0#HTML" expanded="true" />
+            <element signature="e#4600#4606#0#HTML" expanded="true" />
+            <element signature="e#4606#4612#0#HTML" expanded="true" />
+            <element signature="e#4612#4618#0#HTML" expanded="true" />
+            <element signature="e#4618#4624#0#HTML" expanded="true" />
+            <element signature="e#4624#4630#0#HTML" expanded="true" />
+            <element signature="e#4630#4636#0#HTML" expanded="true" />
+            <element signature="e#4636#4642#0#HTML" expanded="true" />
+            <element signature="e#4642#4648#0#HTML" expanded="true" />
+            <element signature="e#4648#4654#0#HTML" expanded="true" />
+            <element signature="e#4887#4893#0#HTML" expanded="true" />
+            <element signature="e#4893#4899#0#HTML" expanded="true" />
+            <element signature="e#4899#4905#0#HTML" expanded="true" />
+            <element signature="e#4905#4911#0#HTML" expanded="true" />
+            <element signature="e#4911#4917#0#HTML" expanded="true" />
+            <element signature="e#4917#4923#0#HTML" expanded="true" />
+            <element signature="e#4923#4929#0#HTML" expanded="true" />
+            <element signature="e#4929#4935#0#HTML" expanded="true" />
+            <element signature="e#4935#4941#0#HTML" expanded="true" />
+            <element signature="e#4941#4947#0#HTML" expanded="true" />
+            <element signature="e#4947#4953#0#HTML" expanded="true" />
+            <element signature="e#4953#4959#0#HTML" expanded="true" />
+            <element signature="e#4959#4965#0#HTML" expanded="true" />
+            <element signature="e#4965#4971#0#HTML" expanded="true" />
+            <element signature="e#4971#4977#0#HTML" expanded="true" />
+            <element signature="e#4977#4983#0#HTML" expanded="true" />
+            <element signature="e#5091#5097#0#HTML" expanded="true" />
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caddnew.php">
+    <entry file="file://$PROJECT_DIR$/edit_department.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2877">
-          <caret line="137" column="75" lean-forward="true" selection-start-line="137" selection-start-column="75" selection-end-line="137" selection-end-column="75" />
+        <state relative-caret-position="315">
+          <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#footer#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deptfindedit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_courses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="e#50#56#0" expanded="true" />
             <element signature="e#56#62#0" expanded="true" />
@@ -709,10 +701,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cfindedit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="104" column="19" lean-forward="true" selection-start-line="87" selection-start-column="11" selection-end-line="104" selection-end-column="19" />
+          <folding>
+            <element signature="e#4569#4575#0#HTML" expanded="true" />
+            <element signature="e#4730#4736#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caddnew.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="115" column="67" selection-start-line="115" selection-start-column="67" selection-end-line="115" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#li#0;n#ul#2;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5170#5176#0#HTML" expanded="true" />
+            <element signature="e#5176#5182#0#HTML" expanded="true" />
+            <element signature="e#5182#5188#0#HTML" expanded="true" />
+            <element signature="e#5443#5449#0#HTML" expanded="true" />
+            <element signature="e#5449#5455#0#HTML" expanded="true" />
+            <element signature="e#5455#5461#0#HTML" expanded="true" />
+            <element signature="e#6122#6128#0#HTML" expanded="true" />
+            <element signature="e#6128#6134#0#HTML" expanded="true" />
+            <element signature="e#6134#6140#0#HTML" expanded="true" />
+            <element signature="e#50#56#0" expanded="true" />
+            <element signature="e#56#62#0" expanded="true" />
+            <element signature="e#62#68#0" expanded="true" />
+            <element signature="e#46#52#0" expanded="true" />
+            <element signature="e#52#58#0" expanded="true" />
+            <element signature="e#58#64#0" expanded="true" />
+            <element signature="e#6160#6166#0#HTML" expanded="true" />
+            <element signature="e#6166#6172#0#HTML" expanded="true" />
+            <element signature="e#6172#6178#0#HTML" expanded="true" />
+            <element signature="e#6414#6420#0#HTML" expanded="true" />
+            <element signature="e#6420#6426#0#HTML" expanded="true" />
+            <element signature="e#6426#6432#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpdfdemo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exam.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="102" column="52" selection-start-line="102" selection-start-column="52" selection-end-line="102" selection-end-column="52" />
+        <state relative-caret-position="257">
+          <caret line="106" column="131" selection-start-line="106" selection-start-column="131" selection-end-line="106" selection-end-column="131" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -89,7 +89,7 @@
               <a href="index.php">Dashboard</a>
             </li>
               <li class="breadcrumb-item"><a href="department.php">Department</a></li>
-             <li class="breadcrumb-item" active><?php echo $_SESSION['dname']?>
+             <li class="breadcrumb-item text-white" active><?php echo $_SESSION['dname']?>
              </li>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;

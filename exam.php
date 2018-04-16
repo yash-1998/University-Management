@@ -100,7 +100,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card card-login mx-auto mt-8">
+            <div class="card card-login mt-8" style="margin-left: 29%">
                 <div class="card-body " style="background-color : #ede1c7">
                     <form action="" method="POST">
                         <div class="form-group" >
