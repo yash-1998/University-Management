@@ -74,8 +74,10 @@
 	  <!-- Breadcrumbs-->
 	  <ol class="breadcrumb" style="background-color: #343a40" >
 		<li class="breadcrumb-item">
-		  <a href="#">Admin Details</a>
+		  <a href="index.php">Dashboard</a>
 		</li>
+		
+			<li class="breadcrumb-item active text-white">Admin Details</li>
 	  </ol>
 	<div class="container">
     	<div class="card card-login mx-auto mt-5">

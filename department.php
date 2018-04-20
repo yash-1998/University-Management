@@ -120,7 +120,7 @@
             <div class="col-xl-30 col-sm-10 mb-xl-5">
                 <div class="card text-white bg-primary o-hidden h-200">
                     <a class="card-footer text-center text-white clearfix z-1" href="deptviewall.php">
-                        <span class="text-center">View All Courses</span>
+                        <span class="text-center">View All Departments</span>
                         <span class="text-center"><i class="fa fa-angle-right"></i></span>
                     </a>
                 </div>

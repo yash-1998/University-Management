@@ -33,52 +33,61 @@
         $addfname =$_POST['addfname'];
         $addlname=$_POST['addlname'];
         $adddob=$_POST['adddob'];
-
         $addcontactno=$_POST['addcontactno'];
+        $addcontactno2=$_POST['addcontactno2'];
         $addaddress=$_POST['addaddress'];
         $addcs=$_POST['addcs'];
         $addbranch=$_POST['addbranch'];
         $addcontactno = (int)$addcontactno;
         $addcs = (int)$addcs;
-		$addemail=$_POST['addemail'];
-		if (!filter_var($addemail, FILTER_VALIDATE_EMAIL))
-		{
-			$error = "Invalid Email ID";
-			echo "<script type='text/javascript'>alert(\"$error\");</script>";
-		}
-		else
-		{
-			$con = mysqli_connect("localhost", "root", "");
-			mysqli_select_db($con, "university");
-			if (!empty($_FILES["uploadedimage"]["name"])) {
-				$file_name = $_FILES["uploadedimage"]["name"];
-				$temp_name = $_FILES["uploadedimage"]["tmp_name"];
-				$imgtype = $_FILES["uploadedimage"]["type"];
-				$ext = GetImageExtension($imgtype);
-				$imagename = $enno . $ext;
-				$target_path = "images/" . $imagename;
-				if (move_uploaded_file($temp_name, $target_path)) {
-					$sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
-					$rs = mysqli_query($con, $sql);
-					if (!empty($_POST['check_list'])) {
-						// Loop to store and display values of individual checked checkbox.
-						foreach ($_POST['check_list'] as $selected) {
-							$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$enno','$selected')";
-							$rs = mysqli_query($con, $sql);
-						}
-					}
-					$error = "Susscessfully registered";
-					echo "<script type='text/javascript'>alert(\"$error\");</script>";
-					echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
-				}
-				else
-				{
-					$error = "Please Try Again";
-					echo "<script type='text/javascript'>alert(\"$error\");</script>";
-				}
-			}
-		}
-   }
+  		$addemail=$_POST['addemail'];
+  		if (!filter_var($addemail, FILTER_VALIDATE_EMAIL))
+  		{
+  			$error = "Invalid Email ID";
+  			echo "<script type='text/javascript'>alert(\"$error\");</script>";
+  		}
+  		else
+  		{
+  			$con = mysqli_connect("localhost", "root", "");
+  			mysqli_select_db($con, "university");
+  			if (!empty($_FILES["uploadedimage"]["name"]))
+        {
+  				$file_name = $_FILES["uploadedimage"]["name"];
+  				$temp_name = $_FILES["uploadedimage"]["tmp_name"];
+  				$imgtype = $_FILES["uploadedimage"]["type"];
+  				$ext = GetImageExtension($imgtype);
+  				$imagename = $enno . $ext;
+  				$target_path = "images/" . $imagename;
+  				if (move_uploaded_file($temp_name, $target_path)) {
+  					$sql = "INSERT INTO student (Enno,FirstName,LastName,Dob,ContactNo,ContactNo2,Email,Address,CurrentSemester,Branch,ImagePath) VALUES ('$enno','$addfname','$addlname','$adddob','$addcontactno','$addcontactno2','$addemail','$addaddress','$addcs','$addbranch','$target_path')";
+  					$rs = mysqli_query($con, $sql);
+  					if (!empty($_POST['check_list']))
+            {
+  						// Loop to store and display values of individual checked checkbox.
+  						foreach ($_POST['check_list'] as $selected)
+              {
+                $sql2 = "select Type from courses where CourseName = '$selected'";
+                $rs2 = mysqli_query($con, $sql2); 
+  							while($row = mysqli_fetch_array($rs2))
+                {
+                  $tpp = $row['Type'];
+                  $sql3 = "INSERT INTO studentcourse(Enno,CourseName,Type) VALUES ('$enno','$selected','$tpp')";
+  							  $rs3 = mysqli_query($con, $sql3);
+  						  }
+              }
+  					}
+  					$error = "Susscessfully registered";
+  					echo "<script type='text/javascript'>alert(\"$error\");</script>";
+  					echo("<script>location.href = 'http://localhost/university/dbms/STUDENT.php';</script>");
+  				}
+  				else
+  				{
+  					$error = "Please Try Again";
+  					echo "<script type='text/javascript'>alert(\"$error\");</script>";
+  				}
+  			}
+  		}
+     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,7 +194,7 @@
               </div>
                <div class="form-group" >
                   <label for="addcontactno">Contact Number 2: &nbsp;&nbsp;&nbsp;</label>
-                  <input name="addcontactno" class="form-control" type="text" placeholder="Contact" id="addcontactno" required>
+                  <input name="addcontactno2" class="form-control" type="text" placeholder="Contact" id="addcontactno2" required>
               </div>
               <div class="form-group" >
                   <label for="addaddress">Address : &nbsp;&nbsp;&nbsp;</label>
@@ -202,14 +211,13 @@
                         <?php
                             $con=mysqli_connect("localhost","root","");
                             mysqli_select_db($con,"university");
-                            $sql = "Select DISTINCT  Branch from courses";
+                            $sql = "Select DISTINCT Branch from coursebranch";
                             $rs = mysqli_query($con, $sql);
                             if(mysqli_num_rows($rs))
                             {
                                 while ($row = mysqli_fetch_array($rs))
                                 {
                                     $brn = $row['Branch'];
-									if($_SESSION['branchh']!=$brn)
                                     echo "<option>".$brn."</option>";
                                 }
                             }
@@ -222,13 +230,13 @@
                   <?php
                         $con=mysqli_connect("localhost","root","");
                         mysqli_select_db($con,"university");
-                        $sql = "Select CourseName,Type from courses";
+                        $sql = "Select CourseName from coursebranch";
                         $rs = mysqli_query($con, $sql);
                         if(mysqli_num_rows($rs))
                         {
                             while ($row = mysqli_fetch_array($rs))
                             {
-                                $Cour = $row['CourseName'] . ' (' . $row['Type'] .')';
+                                $Cour = $row['CourseName'] ;
                                 echo '<input type="checkbox" name="check_list[]" value='.$Cour.'>'.'&nbsp;&nbsp;&nbsp;'.$Cour.'<br>';
                             }
                         }

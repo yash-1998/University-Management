@@ -77,8 +77,8 @@
        header('location: http://localhost/university/dbms/index.php');
     }
     else
-    {
-      $error = "Invalid Credentials";
+    {Credentials
+      $error = "Invalid ";
       echo "<script type='text/javascript'>alert(\"$error\");</script>";
     }
   }

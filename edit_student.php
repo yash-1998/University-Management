@@ -2,72 +2,46 @@
     session_start();
     if(isset($_POST['change']))
     {
-        if(isset($_POST['first']))
-            $ffirst=$_POST['first']; 
-        else   
-            $ffirst="";
-
-        if(isset($_POST['roll']))
-            $froll=$_POST['roll']; 
-        else   
-           $froll="";
-
-        if(isset($_POST['last']))
-            $flast=$_POST['last']; 
-        else   
-            $flast="";
-        
-        if(isset($_POST['mail']))
-            $fmail=$_POST['mail']; 
-        else   
-            $fmail="";
-        
-        if(isset($_POST['number']))
-           $fnumber=$_POST['number']; 
-        else   
-           $fnumber="" ;  
-
-        if(isset($_POST['address']))
-            $faddress=$_POST['address']; 
-        else   
-            $faddress="";
-
-        if(isset($_POST['branch']))
-            $fbranch=$_POST['branch']; 
-        else   
-            $fbranch="";
-        
-        if(isset($_POST['sem']))
-            $fsem=$_POST['sem']; 
-        else   
-            $fsem="";  
-        
-        if($ffirst=="" || $flast=="" || $froll=="" || $faddress=="" || $fmail=="" || $fnumber=="" || $fbranch=="" || $fsem=="")
-        {
-            $error = "Error! some of  the required fields are empty!!";
-            echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        }
-        else
-        { 
-            $fsem = (int)$fsem;
-            $fnumber = (int)$fnumber;
-            echo $fsem;
-            $con = mysqli_connect("localhost", "root","");
-            mysqli_select_db($con, "university");
-            $sql = "DELETE FROM student WHERE Enno = '$froll'";
-            $rs1 = mysqli_query($con, $sql);
-
-            $sql1 = "INSERT INTO student (Enno,FirstName,LastName,CurrentSemester,Email,Address,Branch,ContactNo) VALUES ('$froll','$ffirst','$flast','$fsem','$fmail','$faddress','$fbranch','$fnumber')";
-            $rs2 = mysqli_query($con, $sql1);
-            $delsql = "DELETE FROM studentcourse where Enno = '$froll'";
+      $froll=$_POST['rolln'];
+      $ffirst=$_POST['first'];
+      $flast=$_POST['last'];
+      $fsem=$_POST['sem'];
+      $fmail=$_POST['mail'];
+      $faddress=$_POST['address'];
+      $fbranch=$_POST['branch'];
+      $fnumber=$_POST['number'];
+      $fsem = (int)$fsem;
+      $fnumber = (int)$fnumber;
+      $con = mysqli_connect("localhost", "root","");
+      mysqli_select_db($con, "university");
+      //$sql = "DELETE FROM student WHERE Enno = '$froll'";
+      //$rs1 = mysqli_query($con, $sql);
+      $sql1 = "UPDATE student 
+                  set FirstName='$ffirst'
+                      LastName='$flast'
+                      CurrentSemester=$fsem
+                      Email='$fmail'
+                      Address='faddress'
+                      Branch='fbranch'
+                      ContactNo=$fnumber
+                  WHERE 
+                    Enno='$froll'";
+      $rs2 = mysqli_query($con, $sql1);
+      $delsql = "DELETE FROM studentcourse where Enno = '$froll'";
 			$delrs = mysqli_query($con, $delsql);
 			if(!empty($_POST['check_list']))
 			{
 				// Loop to store and display values of individual checked checkbox.
 				foreach($_POST['check_list'] as $selected)
 				{
-					$sql = "INSERT INTO studentcourse(Enno,CourseName) VALUES ('$froll','$selected')";
-					$rs = mysqli_query($con, $sql);
+					$sql2 = "select Type from courses where CourseName = '$selected'";
+          $rs2 = mysqli_query($con, $sql2); 
+          while($row = mysqli_fetch_array($rs2))
+          {
+            $tpp = $row['Type'];
+            $sql3 = "INSERT INTO studentcourse(Enno,CourseName,Type) VALUES ('$froll','$selected','$tpp')";
+            $rs3 = mysqli_query($con, $sql3);
+          }
 				}
 			}
             $error = "Susscessfully Modified";
@@ -81,7 +55,6 @@
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
             echo("<script>location.href = 'http://localhost/university/dbms/findedit.php';</script>");
        }   
-     }  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -183,36 +156,36 @@
           </div>
          <div class="form-group">
             <label >Enrollment Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?> name="roll" readonly>
+            <input class="form-control" type="text" value=<?php echo $_SESSION['roll']?> name="rolln" readonly>
         </div>
           <div class="form-group" >
           <label >First Name : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?> name="first" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['fname']?> name="first" required>
         </div>
         <div class="form-group">
           <label >Last Name : &nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?> name="last" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['lname']?> name="last"  required>
         </div>
 
         <div class="form-group">
           <label >Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="email" value=<?php echo $_SESSION['email']?> name="mail" >
+            <input class="form-control" type="email" value=<?php echo $_SESSION['email']?> name="mail" required>
         </div>
         <div class="form-group">
           <label >Contact Number : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> name="number" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['contact']?> name="number" required>
         </div>
         <div class="form-group">
           <label >Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> name="address" >
+            <input class="form-control" type="text" value=<?php echo $_SESSION['address']?> name="address" required>
         </div>
         <div class="form-group">
           <label >Semester : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['sem']?>  name="sem">
+            <input class="form-control" type="text" value=<?php echo $_SESSION['sem']?>  name="sem" required>
         </div>
        <div class="form-group">
           <label >Branch : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?>  name="branch">
+            <input class="form-control" type="text" value=<?php echo $_SESSION['branch']?>  name="branch" required>
         </div>
           <div class="form-group">
               <label for="addcourses">Courses : &nbsp;&nbsp;&nbsp;</label>
@@ -222,7 +195,7 @@
 			  mysqli_select_db($con,"university");
 			  $enno = $_SESSION['roll'];
 			  $sql = "Select CourseName from studentcourse where Enno='$enno'";
-			  $sql2 = "Select CourseName from courses";
+			  $sql2 = "Select DISTINCT CourseName from courses";
 			  $rs2=mysqli_query($con,$sql2);
 			  while ($row2 = mysqli_fetch_array($rs2))
               {
@@ -260,7 +233,7 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer" >
+    <footer class="sticky-footer" style="background-color : #343a40">
       <div class="container" >
         <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>
