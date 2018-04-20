@@ -109,9 +109,11 @@
   <div class="container-fluid">
     <!-- Breadcrumbs-->
     <ol class="breadcrumb" style="background-color: #343a40" >
-    <li class="breadcrumb-item">
-      <a href="#">Add New Course</a>
-    </li>
+        <li class="breadcrumb-item">
+            <a href="index.php">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item"><a href="courses.php">Course</a></li>
+        <li class="breadcrumb-item text-white" active>Add Course : <?php echo $_SESSION['coursequery']?>
     </ol>
   <div class="container">
       <div class="card card-login mx-auto mt-9">
@@ -124,13 +126,27 @@
               </div>
               <div class="form-group" >
               <label for="cBranchname"> Branch: &nbsp;&nbsp;&nbsp;</label>
-              <input name="cBranchName" class="form-control" type="text" placeholder="Branch Name" id="cBranchName" required>
+              <select name="cBranchName" class="form-control" type="text" placeholder="Branch Name" id="cBranchName" required>
+                  <option value="">Select Branch</option>
+				  <?php
+				  $con=mysqli_connect("localhost","root","");
+				  mysqli_select_db($con,"university");
+				  $sql = "Select distinct Branch from coursebranch";
+				  $rs = mysqli_query($con, $sql);
+				  while($row = mysqli_fetch_array($rs))
+				  {
+					  $brn = $row['Branch'];
+					  echo '<option>'.$brn.'</option>';
+				  }
+				  ?>
+              </select>
               </div>
-             <div class="form-group" >
+
+             <div>
+
                   <label for="addtype">Type : &nbsp;&nbsp;&nbsp;</label>
                   </br>
                   <?php
-                      
                         echo '<input type="checkbox" name="item1"  value=Theory>'.'&nbsp;&nbsp;&nbsp;Theory<br>';
                         echo '<input type="checkbox" name="item2" value=Lab>'.'&nbsp;&nbsp;&nbsp;Lab<br>'; 
                     ?>
@@ -138,18 +154,18 @@
               <div class="form-group" >
 
               <label for="cCredits">Theory Credits : &nbsp;&nbsp;&nbsp;</label>
-              <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits" required>
+              <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits">
               </div>
               <div class="form-group" >
               <label for="cCredits">Lab Credits : &nbsp;&nbsp;&nbsp;</label>
-              <input name="lCredits" class="form-control" type="text" placeholder="Credits" id="lCredits" required>
+              <input name="lCredits" class="form-control" type="text" placeholder="Credits" id="lCredits">
               </div>
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>
           </div>
       </div>
     </div>
-    
+    <br>
     <!-- Icon Cards-->
     <!-- Area Chart Example-->
       <!-- Example Bar Chart Card-->

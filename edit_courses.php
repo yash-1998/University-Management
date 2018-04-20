@@ -10,7 +10,7 @@
 		$cBrname = $_POST['cBrname'];
 
 		$cCredits = $_POST['cCredits'];
-    $lCredits = $_POST['lCredits']; 
+        $lCredits = $_POST['lCredits'];
 		$con = mysqli_connect("localhost", "root", "");
 		mysqli_select_db($con, "university");
 
@@ -19,8 +19,8 @@
 //		$sql1 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
 //		$rs2 = mysqli_query($con, $sql1);
 //    $sql0 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$lCredits')";
-//   $rs0 = mysqli_query($con, $sql0);
-		$sqll = "DELETE FROM coursebranch WHERE CourseName = '$cCourseName'";
+//     $rs0 = mysqli_query($con, $sql0);
+  $sqll = "DELETE FROM coursebranch WHERE CourseName = '$cCourseName'";
 		$rsll = mysqli_query($con, $sqll);
 		$sqlll = "INSERT INTO coursebranch(CourseName,Branch) VALUES ('$cCourseName','$cBrname')";
 		$rslll = mysqli_query($con, $sqlll);
@@ -34,7 +34,7 @@
                {
                 $sql = "INSERT INTO courses(CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
                 $rs = mysqli_query($con, $sql);
-                $_SESSION['cCredits']=$cCredits ; 
+                $_SESSION['cCredits']=$cCredits ;
                 $_SESSION['cType']="Theory";  
                }    
                if($f2==1)

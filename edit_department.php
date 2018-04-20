@@ -96,7 +96,7 @@
             <li class="breadcrumb-item"><a href="department.php">Department</a></li>
             <li class="breadcrumb-item"><a href="deptfindedit.php"><?php echo $_SESSION['dname']?></a>
              </li>
-             <li class="breadcrumb-item" active>Edit
+             <li class="breadcrumb-item text-white" active>Edit
              </li>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -127,7 +127,7 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer" >
+    <footer class="sticky-footer" style="background-color: #343a40"  >
       <div class="container" >
         <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>

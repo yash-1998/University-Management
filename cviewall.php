@@ -74,6 +74,7 @@
             <br>
         <form action="cviewall.php" method="POST">
 	        <input name="namesearch" class = "namesearch" type="text" id="nameselect" placeholder="Search Course">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="brnsearch" class="semsearch" type="Select" id="semselect">
                 <option value="">Select Branch</option>
                 <?php
@@ -89,12 +90,13 @@
 
 	            ?>
             </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select class = "branchsearch" type="Select" id="branchselect" name="typesearch">
                 <option value="">Select Type</option>
                 <option value="Theory">Theory</option>
                 <option value="Lab">Lab</option>
             </select>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	        <button class="btn btn-primary " type="submit" name="filter" style="width: 18%; margin-left: 0.5%; margin-bottom: 0.5%; padding: 1%;">Apply Filter</button>
     	</form>
            <br class="card-body" >
