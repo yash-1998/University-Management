@@ -14,13 +14,13 @@
 		$con = mysqli_connect("localhost", "root", "");
 		mysqli_select_db($con, "university");
 
-		$sql = "DELETE FROM courses WHERE Courses = '$cCourseName'";
+		$sql = "DELETE FROM courses WHERE CourseName = '$cCourseName'";
 		$rs1 = mysqli_query($con, $sql);
 //		$sql1 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Theory','$cCredits')";
 //		$rs2 = mysqli_query($con, $sql1);
 //    $sql0 = "INSERT INTO courses (CourseName,Type,Credits) VALUES ('$cCourseName','Lab','$lCredits')";
 //   $rs0 = mysqli_query($con, $sql0);
-		$sqll = "DELETE FROM coursebranch WHERE Courses = '$cCourseName'";
+		$sqll = "DELETE FROM coursebranch WHERE CourseName = '$cCourseName'";
 		$rsll = mysqli_query($con, $sqll);
 		$sqlll = "INSERT INTO coursebranch(CourseName,Branch) VALUES ('$cCourseName','$cBrname')";
 		$rslll = mysqli_query($con, $sqlll);
