@@ -11,12 +11,12 @@
 		$rsl = mysqli_query($con, $sqll);
 		if(mysqli_num_rows($rsl))
 		{
-			$sqll6="UPDATE marks2 SET MaximumMarks = $totalmarks WHERE CourseName='$selecourse' and Type = '$type'";
+			$sqll6="UPDATE marks2 SET TotalMarks = $totalmarks WHERE CourseName='$selecourse' and Type = '$type'";
 			$rsl6 = mysqli_query($con, $sqll6);
 		}
 		else
 		{
-			$sql3 = "INSERT INTO marks2(CourseName,Type,MaximumMarks) VALUES ('$selecourse','$type',$totalmarks)";
+			$sql3 = "INSERT INTO marks2(CourseName,Type,TotalMarks) VALUES ('$selecourse','$type',$totalmarks)";
 			$rs3 = mysqli_query($con, $sql3);
 		}
 
@@ -134,12 +134,12 @@
 					   mysqli_select_db($con,"university");
 					   $selecourse = $_SESSION['selectedcourse'];
 					   $type = $_SESSION['selectedtype'];
-					   $sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse' and Type = '$type'";
+					   $sql4 = "Select TotalMarks from marks2 where CourseName='$selecourse' and Type = '$type'";
 					   $rs4 = mysqli_query($con, $sql4);
-					   if(mysqli_num_rows($rs4)>0)
+					   if(mysqli_num_rows($rs4)!=0)
                        {
                            $row4 = mysqli_fetch_array($rs4);
-						   $totalmarks = $row4['MaximumMarks'];
+						   $totalmarks = $row4['TotalMarks'];
 						   echo ' value = '.$totalmarks;
 					   }
 					   ?> required>

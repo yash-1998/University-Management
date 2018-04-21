@@ -25,15 +25,15 @@
    background-size:cover;">
   <div class="container">
     <div class="card card-login mx-auto mt-5" style="background-color: #cfb0acaa">
-      <div class="card-header">Login</div>
+      <div class="card-header"><b>Login</b></div>
       <div class="card-body">
         <form action="login.php" method="POST">
           <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
+            <label for="exampleInputEmail1"><b>Username</b></label>
             <input style="background-color: #ede1c7" name="user" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Enter Username" required>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1"><b>Password</b></label>
             <input style="background-color: #ede1c7" class="form-control" name="pass" id="exampleInputPassword1" type="password" placeholder="Password" required>
           </div>
           <div class="form-group">
@@ -77,8 +77,8 @@
        header('location: http://localhost/university/dbms/index.php');
     }
     else
-    {Credentials
-      $error = "Invalid ";
+    {
+      $error = "Invalid Credentials";
       echo "<script type='text/javascript'>alert(\"$error\");</script>";
     }
   }

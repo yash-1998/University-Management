@@ -125,12 +125,18 @@
       <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
-      <a class="nav-link text-white" href="admindetails.php">
-      <i class="fa fa-fw fa-area-chart"></i>
-      <span class="nav-link-text">Admin Details</span>
-      </a>
-    </li>
+   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin">
+              <a class="nav-link text-white" href="admindetails.php">
+                <i class="fa fa-fw fa-user"></i>
+                <span class="nav-link-text">Admin Details</span>
+              </a>
+            </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departments">
+                  <a class="nav-link text-white" href="department.php">
+                      <i class="fa fa-fw fa-bank"></i>
+                      <span class="nav-link-text">Departments</span>
+                  </a>
+              </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
     <li class="nav-item">
@@ -155,7 +161,13 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb" style="background-color: #343a40" >
     <li class="breadcrumb-item">
-      <a href="#">Add New Student</a>
+      <a href="index.php">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="STUDENT.php">Student</a>
+    </li>
+    <li class="breadcrumb-item active text-white">
+          Add New Student      
     </li>
     </ol>
   <div class="container">

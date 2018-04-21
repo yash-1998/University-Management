@@ -87,6 +87,22 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script type="text/javascript">
+    function showhide()
+     {
+        var checkt=document.getElementById("checkt");
+
+        var inputt = document.getElementById("inputt");
+        inputt.style.display = checkt.checked ? "block" : "none";
+    }
+    function showhide2()
+     {
+        var checkl=document.getElementById("checkl");
+
+        var inputl = document.getElementById("inputl");
+        inputl.style.display = checkl.checked ? "block" : "none";
+    }
+</script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -157,22 +173,20 @@
          <div class="form-group" >
                   <label for="addtype">Type : &nbsp;&nbsp;&nbsp;</label>
                   </br>
-                  <?php
-                      
-                        echo '<input type="checkbox" name="item1"  value=Theory>'.'&nbsp;&nbsp;&nbsp;Theory<br>';
-                        echo '<input type="checkbox" name="item2" value=Lab>'.'&nbsp;&nbsp;&nbsp;Lab<br>'; 
-                    ?>
-              </div>
-        <div class="form-group">
-          <label >Theory Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['cCredits']?> name="cCredits" required>
-        </div>
-       <div class="form-group">
-          <label >Lab Credits : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="form-control" type="text" value=<?php echo $_SESSION['lCredits']?> name="lCredits" required>
-        </div> 
+                  <input id="checkt" type="checkbox" name="item1" onclick="showhide()" value=Theory>&nbsp;&nbsp;&nbsp;Theory<br>
+                      <div class="form-group">
+                        <input style="display:none;" id="inputt" class="form-control" type="text" value=<?php if($_SESSION['cCredits']!=-1)
+                              echo $_SESSION['cCredits'];
+                    
+                              ?> name="cCredits" required>
+                      </div>
+                  <input id="checkl" type="checkbox" name="item2" onclick="showhide2()" value=Lab>&nbsp;&nbsp;&nbsp;Lab<br> 
+                      <div class="form-group">
+                          <input style="display:none;" id="inputl" class="form-control" type="text" name="lCredits"  value="<?php if($_SESSION['lCredits']!=-1) echo $_SESSION['lCredits']?>" required>
+                      </div> 
+          </div>
         <div class="input-group">
-        <button  class="btn btn-primary" type="submit" style="background: green;" name="change">Make Changes</button>
+            <button  class="btn btn-primary" type="submit" style="background: green;" name="change">Make Changes</button>
         </div>
       </form>
       <br>
@@ -183,7 +197,7 @@
             <!-- Example Social Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer" >
+    <footer class="sticky-footer" style="background-color: #343a40" >
       <div class="container" >
         <div class="text-center text-white">
           <small>Copyright © Funkyfunks 2018</small>

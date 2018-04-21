@@ -96,10 +96,10 @@
 							$selecourse = $_SESSION['selectedcourse'];
 							$type= $_SESSION['selectedtype'];
 							$sql = "Select * from studentcourse where CourseName='$selecourse' and Type='$type'";
-							$sql4 = "Select MaximumMarks from marks2 where CourseName='$selecourse' and Type='$type'";
+							$sql4 = "Select TotalMarks from marks2 where CourseName='$selecourse' and Type='$type'";
 							$rs4 = mysqli_query($con, $sql4);
 							$row4 = mysqli_fetch_array($rs4);
-							$totalmarks = $row4['MaximumMarks'];
+							$totalmarks = $row4['TotalMarks'];
 							if($totalmarks == 0)
 							{
 								$error = "Marks Not Yet Entered";

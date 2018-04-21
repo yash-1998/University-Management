@@ -17,12 +17,12 @@
       //$sql = "DELETE FROM student WHERE Enno = '$froll'";
       //$rs1 = mysqli_query($con, $sql);
       $sql1 = "UPDATE student 
-                  set FirstName='$ffirst'
-                      LastName='$flast'
-                      CurrentSemester=$fsem
-                      Email='$fmail'
-                      Address='faddress'
-                      Branch='fbranch'
+                  set FirstName='$ffirst',
+                      LastName='$flast',
+                      CurrentSemester=$fsem,
+                      Email='$fmail',
+                      Address='$faddress',
+                      Branch='$fbranch',
                       ContactNo=$fnumber
                   WHERE 
                     Enno='$froll'";

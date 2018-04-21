@@ -8,7 +8,7 @@
     $rlastname = "";
     $rusername = "";
     $rpassword = "";
-    $reamil = "";
+    $remail = "";
     $otp = 1000000;
     
     if(isset($_REQUEST['submitbtn']))
@@ -60,6 +60,8 @@
                   $otp = rand()%10000;
                   $_SESSION['checkotp']=$otp;
                   $_SESSION['active']=0;
+                  $error = $_SESSION['remail'] . " " . $_SESSION['checkotp'];
+               //   echo "<script type='text/javascript'>alert(\"$error\");</script>";
                   echo("<script>location.href = 'http://localhost/university/dbms/confirm.php';</script>");
               }
           }

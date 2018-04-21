@@ -57,6 +57,22 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+   <script type="text/javascript">
+    function ShowHideDiv()
+     {
+        var checkt=document.getElementById("checkt");
+
+        var inputt = document.getElementById("cCredits");
+        inputt.style.display = checkt.checked ? "block" : "none";
+    }
+    function ShowHideDiv2()
+     {
+        var checkl=document.getElementById("checkl");
+
+        var inputl = document.getElementById("lCredits");
+        inputl.style.display = checkl.checked ? "block" : "none";
+    }
+</script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled " id="page-top">
@@ -146,19 +162,14 @@
 
                   <label for="addtype">Type : &nbsp;&nbsp;&nbsp;</label>
                   </br>
-                  <?php
-                        echo '<input type="checkbox" name="item1"  value=Theory>'.'&nbsp;&nbsp;&nbsp;Theory<br>';
-                        echo '<input type="checkbox" name="item2" value=Lab>'.'&nbsp;&nbsp;&nbsp;Lab<br>'; 
-                    ?>
-              </div>
-              <div class="form-group" >
-
-              <label for="cCredits">Theory Credits : &nbsp;&nbsp;&nbsp;</label>
-              <input name="cCredits" class="form-control" type="text" placeholder="Credits" id="cCredits">
-              </div>
-              <div class="form-group" >
-              <label for="cCredits">Lab Credits : &nbsp;&nbsp;&nbsp;</label>
-              <input name="lCredits" class="form-control" type="text" placeholder="Credits" id="lCredits">
+                  <input id="checkt" type="checkbox" name="item1" value=Theory onclick="ShowHideDiv()">&nbsp;&nbsp;&nbsp;Theory<br><br>
+                  <div class="form-group">
+                      <input style = "display : none;" name="cCredits" class="form-control" type="text" placeholder="Theory Credits" id="cCredits">
+                  </div>
+                  <input id="checkl" type="checkbox" name="item2" value=Lab onclick="ShowHideDiv2()">&nbsp;&nbsp;&nbsp;Lab<br><br> 
+                  <div class="form-group" >
+                      <input style = "display : none;" name="lCredits" class="form-control" type="text" placeholder="Lab Credits" id="lCredits">
+                  </div>   
               </div>
               <button class="btn btn-primary btn-block" type="submit" name="add">ADD</button>
           </form>

@@ -5,8 +5,10 @@
     require 'vendor/autoload.php';
     if($_SESSION['active']==0)
     {
+        echo $_SESSION['remail']." ".$_SESSION['checkotp'];
         if(rmail($_SESSION['checkotp'],$_SESSION['remail']))
         {
+            echo "HERE";
             $error = "Enter the verification code";
             $_SESSION['active']=1;
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
@@ -15,44 +17,37 @@
         {
             $error = "Try Again";
             echo "<script type='text/javascript'>alert(\"$error\");</script>";
-        //    header('location : http://localhost/university/dbms/confirm.php');
-           echo("<script>location.href = 'http://localhost/university/dbms/register.php';</script>");
+            echo("<script>location.href = 'http://localhost/university/dbms/register.php';</script>");
         }
     }
     function rmail($otp,$remail)
     {
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-            try {
-                //Server settings                              // Enable verbose debug output
+            try 
+            {               
+                $mail->SMTPDebug = 2;       // Enable verbose debug output
                 $mail->isSMTP();                                      // Set mailer to use SMTP
                 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
                 $mail->Username = 'yashcoderiiita@gmail.com';                 // SMTP username
                 $mail->Password = 'eternalblizzard1998';                           // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
+                                         // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('university@noreply.com', 'NoReply');
-                $mail->addAddress($remail);     // Add a recipient
-                //$mail->addAddress('ellen@example.com');               // Name is optional
-                //$mail->addReplyTo('info@example.com', 'Information');
-                //$mail->addCC('cc@example.com');
-                //$mail->addBCC('bcc@example.com');
-
-                //Attachments
-                //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-                //Content
+                $mail->setFrom('yashcoderiiita@gmail.com', 'Yash');
+                $mail->addAddress($remail);                     // Add a recipient
+        
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Verification Code';
                 $mail->Body    = 'Enter this Verification Code to register successfully. '.$otp;
-                //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+        
                 $mail->send();
-                  return true;
-            } catch (Exception $e) {
+                return true;
+            } 
+            catch (Exception $e)
+            {
                 return false;
             }
     }

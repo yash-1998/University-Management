@@ -116,7 +116,7 @@
             <div class="text-center"><h1>Add Attendence for <?php echo $_SESSION['selectedcoursea']." (".$_SESSION['selectedtype'].")";?></h1></div>
             </br>
             <form action="addatten2.php" method="POST">
-                <input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1"  placeholder="Enter the total marks for <?php echo $_SESSION['selectedcoursea']." "."(".$_SESSION['selectedtype'].")";?>"
+                <input name="maxclasses" class ="attsearch" type="number" id="maxclasses" type="number" step="1"  placeholder="Enter the total classes held for <?php echo $_SESSION['selectedcoursea']." "."(".$_SESSION['selectedtype'].")";?>"
                 <?php
                         $con=mysqli_connect("localhost","root","");
                         mysqli_select_db($con,"university");
@@ -150,13 +150,13 @@
                             $selecourse = $_SESSION['selectedcoursea'];
 						    $type = $_SESSION['selectedtype'];
                             $sql = "Select * from studentcourse where CourseName='$selecourse' and Type='$type'";
-                            //echo "<script>alert(\"$sql\");</script>";
                             $rs = mysqli_query($con, $sql);
                             $count=1;
                             if(mysqli_num_rows($rs)==0)
                             {
                                 $error="No student registered for this course";
-                                echo '<script>alert('.$error.');</script>';
+                                echo "<script>alert(\"$error\");</script>";
+                                 echo("<script>location.href = 'http://localhost/university/dbms/addattendence.php';</script>");
                             }
                             while($row = mysqli_fetch_array($rs))
                             {

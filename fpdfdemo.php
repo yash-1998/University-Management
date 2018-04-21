@@ -70,7 +70,7 @@
 
 	while($row = mysqli_fetch_array($query2))
 	{
-		$ThisCourse = $row['CourseName'];
+		$ThisCourse = $row['CourseName']; 
 		$Credits = 0;
 		if($row['Type'] == 'Theory')
 			$Credits = 3;
@@ -154,7 +154,8 @@
 		$total = $row5['TotalClasses'];
 
 		$percents = ($present * 100)/$total;
-		if($percents < 75.0){
+
+		if($percents < 30.0){
 			$grade = 'F';
 			$weight = 0;
 		}
