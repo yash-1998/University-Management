@@ -1,1 +1,1 @@
-# WebD
+#University Management System
