@@ -1,1 +1,3 @@
-#University Management System
+# University Management System
+#### DBMS mini project
+---
